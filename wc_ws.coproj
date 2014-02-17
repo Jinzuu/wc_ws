@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<Project version="2G - 1.7.5" name="WordClock_LowCost">
-  <Target name="WordClock_LowCost" isCurrent="1">
+<Project version="2G - 1.7.5" name="wc_ws">
+  <Target name="wc_ws" isCurrent="1">
     <Device manufacturerId="9" manufacturerName="ST" chipId="344" chipName="STM32F407VG" boardId="" boardName=""/>
     <BuildOption>
       <Compile>
@@ -33,7 +33,7 @@
           <Memory name="IROM2" type="ReadOnly" size="" startValue=""/>
           <Memory name="IRAM2" type="ReadWrite" size="0x00010000" startValue="0x10000000"/>
         </MemoryAreas>
-        <LocateLinkFile path="../../../../coocox/coide/configuration/programdata/wordclock_lowcost/arm-gcc-link.ld" type="0"/>
+        <LocateLinkFile path="../../../../coocox/coide/configuration/programdata/wc_ws/arm-gcc-link.ld" type="0"/>
       </Link>
       <Output>
         <Option name="OutputFileType" value="0"/>
@@ -92,8 +92,8 @@
     <File name="DCF77.c" path="DCF77.c" type="1"/>
     <File name="cmsis_boot" path="" type="2"/>
     <File name="sonstige_lib/stm32_ub_tim5.h" path="sonstige_lib/stm32_ub_tim5.h" type="1"/>
-    <File name="cmsis/core_cm4_simd.h" path="cmsis/core_cm4_simd.h" type="1"/>
     <File name="sonstige_lib/stm32_ub_tim3.c" path="sonstige_lib/stm32_ub_tim3.c" type="1"/>
+    <File name="cmsis/core_cm4_simd.h" path="cmsis/core_cm4_simd.h" type="1"/>
     <File name="cmsis_boot/startup" path="" type="2"/>
     <File name="cmsis_boot/stm32f4xx.h" path="cmsis_boot/stm32f4xx.h" type="1"/>
     <File name="sonstige_lib/stm32_ub_pwm_tim2.h" path="sonstige_lib/stm32_ub_pwm_tim2.h" type="1"/>
@@ -138,9 +138,9 @@
     <File name="sonstige_lib/stm32_ub_pwm_tim5.c" path="sonstige_lib/stm32_ub_pwm_tim5.c" type="1"/>
     <File name="cmsis_boot/system_stm32f4xx.c" path="cmsis_boot/system_stm32f4xx.c" type="1"/>
     <File name="ub_lib/stm32_ub_adc1_single.h" path="ub_lib/stm32_ub_adc1_single.h" type="1"/>
-    <File name="ub_lib/stm32_ub_tim2.c" path="ub_lib/stm32_ub_tim2.c" type="1"/>
     <File name="ub_lib/stm32_ub_rtc.h" path="ub_lib/stm32_ub_rtc.h" type="1"/>
     <File name="WS2811.c" path="WS2811.c" type="1"/>
+    <File name="ub_lib/stm32_ub_tim2.c" path="ub_lib/stm32_ub_tim2.c" type="1"/>
     <File name="cmsis" path="" type="2"/>
     <File name="cmsis_lib" path="" type="2"/>
     <File name="cmsis_lib/include/stm32f4xx_dma.h" path="cmsis_lib/include/stm32f4xx_dma.h" type="1"/>
