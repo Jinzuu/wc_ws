@@ -1,15 +1,20 @@
 //--------------------------------------------------------------
 // File     : stm32_ub_tim2.c
-// Datum    : 20.08.2013
-// Version  : 1.0
+// Datum    : 06.02.2014
+// Version  : 1.1
 // Autor    : UB
 // EMail    : mc-4u(@)t-online.de
 // Web      : www.mikrocontroller-4u.de
 // CPU      : STM32F4
-// IDE      : CooCox CoIDE 1.7.0
+// IDE      : CooCox CoIDE 1.7.4
+// GCC      : 4.7 2012q4
 // Module   : TIM, MISC
 // Funktion : Timer-Funktionen per Timer2
 //            (mit Callback-Funktion für externe ISR)
+//
+// Hinweis  : beim Timerevent wird die Funktion :
+//            "UB_TIMER2_ISR_CallBack()" aufgerufen
+//            diese Funktion muss vom User programmiert werden
 //--------------------------------------------------------------
 
 
@@ -46,25 +51,45 @@ void UB_TIMER2_Init(uint16_t prescaler, uint16_t periode)
   P_TIM2_NVIC();
 }
 
+
 //--------------------------------------------------------------
-// Init und Stop vom Timer mit Vorgabe in Hertz
+// Init und Stop vom Timer mit einem FRQ-Wert (in Hz)
+// frq_hz : [1...42000000]
+//
+// Hinweis : die tatsächliche Frq weicht wegen Rundungsfehlern
+//           etwas vom Sollwert ab (Bitte nachrechnen falls Wichtig)
 //--------------------------------------------------------------
-void UB_TIMER2_Init_WithFrequency( int desiredFreqInHz )
+void UB_TIMER2_Init_FRQ(uint32_t frq_hz)
 {
-	// Hole Taktfrequenz
-    RCC_ClocksTypeDef RCC_Clocks;
-    RCC_GetClocksFreq(&RCC_Clocks);
-    int inputClkFreq = RCC_Clocks.PCLK2_Frequency;
+  RCC_ClocksTypeDef RCC_Clocks;
+  uint32_t clk_frq; 
+  uint16_t prescaler, periode;
+  uint32_t u_temp;
+  float teiler,f_temp;
 
-    // Berechne prescaler und periode
-    int frequencyDivNecessary = (float) inputClkFreq / desiredFreqInHz;
-    frequencyDivNecessary = frequencyDivNecessary >> 16;	// Schiebe 16 Bit nach links, da 16 Bit Periode moeglich
-    int timerMaxCountValue = ( inputClkFreq / (frequencyDivNecessary + 1) ) / desiredFreqInHz;
+  // Clock-Frequenzen (PCLK1) auslesen
+  RCC_GetClocksFreq(&RCC_Clocks);
+  clk_frq = RCC_Clocks.PCLK1_Frequency;
 
-	// Setze Timer auf
-	UB_TIMER2_Init(frequencyDivNecessary, timerMaxCountValue);		// Todo: Eigentlich wäre 32 bit periode möglich
-    //UB_TIMER2_Init(0, 1000 );
+  // check der werte
+  if(frq_hz==0) frq_hz=1;
+  if(frq_hz>clk_frq) frq_hz=clk_frq;
+
+  // berechne teiler
+  teiler=(float)(clk_frq<<1)/(float)(frq_hz);
+
+  // berechne prescaler
+  u_temp=(uint32_t)(teiler);
+  prescaler=(u_temp>>16);
+  
+  // berechne periode
+  f_temp=(float)(teiler)/(float)(prescaler+1);
+  periode=(uint16_t)(f_temp-1);
+
+  // werte einstellen
+  UB_TIMER2_Init(prescaler, periode);
 }
+
 
 //--------------------------------------------------------------
 // Timer starten
