@@ -29,8 +29,7 @@ int main(void)
 
 	// Init of UB libs
 	UB_Systick_Init();
-	UB_TIMER2_Init_WithFrequency( 100 );
-	//UB_TIMER2_Init( 149, 5599 );	// Timer2 @ 100 Hz
+	UB_TIMER2_Init_FRQ( 100 );
 
 	UB_Led_Init();
 	UB_DigIn_Init();
