@@ -10,8 +10,8 @@
 #include "ub_lib/stm32_ub_dig_in.h"
 #include "ub_lib/stm32_ub_rtc.h"
 // Own Stuff
-#include "ws2811.h"
 #include "DCF77.h"
+#include "wc_frontend.h"
 
 /*****************************************
  *  GLOBALS
@@ -31,24 +31,29 @@ int main(void)
 	UB_Systick_Init();
 	UB_TIMER2_Init_FRQ( 100 );
 
+
 	UB_Led_Init();
 	UB_DigIn_Init();
 	UB_DigOut_Init();
 
-	ws2811_init();
+	UB_WS2812_Init();
 
 	UB_Led_On( LED_GREEN );
 	UB_Systick_Pause_ms( 100 );
 	// Start timers and therefore cyclic actions in the call backs below
 	UB_TIMER2_Start();
 
+	WC_SetColor(WS2812_HSV_COL_WHITE);
+	WC_SetElement(WC_ELEMENT_ES, 1);
+	WC_Refresh();
+
 	while(1) {
+
+		//=========================
+		// Jan, wofür ist das hier? Brauchst du das? Wenn du das nicht zugefügt hast, dann lösch das hier ruhig
 		UB_DigOut_Lo(DOUT_PB7);
-		setLED(0, 255, 128, 128);
-		updateLED();
-		while( DMA_BUSY == TRUE ) {
-			UB_Systick_Pause_ms( 1 );
-		}
+		// ========================
+
 	}
 
 
