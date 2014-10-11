@@ -13,6 +13,13 @@
 #include "DCF77.h"
 #include "wc_frontend.h"
 
+
+/*****************************************
+ *  USED PINS
+ *****************************************/
+//PB7 - PowerOn Pin of DCF77 module
+//PD3 - DataIn for DCF77 module
+
 /*****************************************
  *  GLOBALS
  *****************************************/
@@ -43,16 +50,14 @@ int main(void)
 	// Start timers and therefore cyclic actions in the call backs below
 	UB_TIMER2_Start();
 
+	UB_DigOut_Lo(DOUT_PB7);	// Set PB7 low to start DCF module
+
 	WC_SetColor(WS2812_HSV_COL_WHITE);
 	WC_SetElement(WC_ELEMENT_ES, 1);
 	WC_Refresh();
 
 	while(1) {
 
-		//=========================
-		// Jan, wofür ist das hier? Brauchst du das? Wenn du das nicht zugefügt hast, dann lösch das hier ruhig
-		UB_DigOut_Lo(DOUT_PB7);
-		// ========================
 
 	}
 
@@ -66,14 +71,19 @@ int main(void)
  *****************************************/
 void UB_TIMER2_ISR_CallBack( void )
 {
-	UB_Led_On( LED_BLUE );
 	gDcfInputState = UB_DigIn_Read( DIN_PD3 );
 	if ( gDcfInputState == Bit_SET )
 		UB_Led_On( LED_ORANGE );
 	else
 		UB_Led_Off( LED_ORANGE );
-	gNewDcfSampleAvailable = 1;
-	UB_Led_Off( LED_BLUE );
+		RTC_t newTime;
+		dcf77_SignalState_t dcf77state = Dcf77_ProcessSignal( gDcfInputState );
+		if ( dcf77state == dcf77_TimeRxSuccess )
+			newTime = Dcf77_GetTime();
+		else if ( dcf77state == dcf77_RxStateUnkown )
+			UB_Led_On( LED_RED );
+		else if ( dcf77state == dcf77_RxStateGood )
+			UB_Led_Off( LED_RED );
 }
 
 // Other non used timer callbacks
