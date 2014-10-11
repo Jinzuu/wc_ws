@@ -54,7 +54,11 @@ void WC_SetElement(T_WC_ELEMENT element, int enable)
 		}
 	}
 
-
+	// Because the segments "ES IST" are separated by one LED, individual handling
+	// is required
+	if( element == WC_ELEMENT_ES ) {
+		WC_SetElement(WC_ELEMENT_IST, enable);
+	}
 }
 
 void WC_SetColor(WS2812_HSV_t colour)
