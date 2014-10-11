@@ -49,6 +49,7 @@ void WC_SetElement(T_WC_ELEMENT element, int enable);
 void WC_SetColor(WS2812_HSV_t colour);
 void WC_SetBrightness(int brightness);
 void WC_Refresh();
+void WC_DisableAll();
 
 
 #endif

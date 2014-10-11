@@ -86,3 +86,8 @@ void WC_Refresh()
 
 	UB_WS2812_Refresh();
 }
+
+void WC_DisableAll()
+{
+	UB_WS2812_All_Led_HSV(WS2812_HSV_COL_OFF, 1);
+}
