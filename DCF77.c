@@ -8,7 +8,7 @@
 // Defines the length of a sent one in samples (=200ms)
 #define DCF77_ONE_LENGTH	20
 // Defines, how many samples length differences will be still yield valid signals
-#define DCF77_SAMPLE_TOLERANCE	2
+#define DCF77_SAMPLE_TOLERANCE	3
 // Defines after how many seconds that looked good, dcf77_RxStateGood is reported
 #define DCF77_RX_STATE_GOOD_SECOND_THRESHOLD	10
 
@@ -164,13 +164,6 @@ dcf77_SignalState_t Dcf77_ProcessSignal( BitAction dcfInputState )
 		currentInputPinStatus = pinIsHigh;
 	else if ( numOfHighBits < 3 )
 		currentInputPinStatus = pinIsLow;
-	if ( currentInputPinStatus == pinIsIndifferent )
-		nLastBitsLookedOk = 0;
-	else{
-		++nLastBitsLookedOk;
-		if ( nLastBitsLookedOk > DCF77_RX_STATE_GOOD_SECOND_THRESHOLD*DCF77_SAMPLE_FREQUENCY*4 )
-			nLastBitsLookedOk = DCF77_RX_STATE_GOOD_SECOND_THRESHOLD*DCF77_SAMPLE_FREQUENCY;
-	}
 
 	// Investigate transition type High To Low -> Length of High state?
 	if ( currentInputPinStatus == pinIsLow && dcfSignalWasHigh == 1 )
@@ -183,12 +176,17 @@ dcf77_SignalState_t Dcf77_ProcessSignal( BitAction dcfInputState )
 
 			unsigned short int lengthOfHighPhase = ticksSinceLastTransition;
 			if ( lengthOfHighPhase >= DCF77_ZERO_LENGTH - DCF77_SAMPLE_TOLERANCE
-					&& lengthOfHighPhase <= DCF77_ZERO_LENGTH + DCF77_SAMPLE_TOLERANCE )
+					&& lengthOfHighPhase <= DCF77_ZERO_LENGTH + DCF77_SAMPLE_TOLERANCE ){
 				receivedDcf77Bits[currentSecond] = 0;
+				++nLastBitsLookedOk;
+			}
 			else if ( lengthOfHighPhase >= DCF77_ONE_LENGTH - DCF77_SAMPLE_TOLERANCE
-					&& lengthOfHighPhase <= DCF77_ONE_LENGTH + DCF77_SAMPLE_TOLERANCE )
+					&& lengthOfHighPhase <= DCF77_ONE_LENGTH + DCF77_SAMPLE_TOLERANCE ){
 				receivedDcf77Bits[currentSecond] = 1;
-			//else	// signallength did not fit
+				++nLastBitsLookedOk;
+			}
+			else	// signal length did not fit
+				nLastBitsLookedOk = 0;
 			//	Dcf77_Init();
 		}
 
@@ -210,6 +208,7 @@ dcf77_SignalState_t Dcf77_ProcessSignal( BitAction dcfInputState )
 				receivedDcf77BitsAreComplete = 1;
 			currentSecond = 58;
 			subSecondCounter = DCF77_SAMPLE_FREQUENCY - 1;	// Sync on rising dcf edge
+			++nLastBitsLookedOk;
 		}
 		//else	// Length of zero interval too short or long
 		//	Dcf77_Init();
@@ -225,7 +224,11 @@ dcf77_SignalState_t Dcf77_ProcessSignal( BitAction dcfInputState )
 		return dcf77_TimeRxFail;
 	}
 
-	if ( nLastBitsLookedOk >= DCF77_RX_STATE_GOOD_SECOND_THRESHOLD*DCF77_SAMPLE_FREQUENCY )
+	// Prevent wrap around
+	if ( nLastBitsLookedOk > DCF77_RX_STATE_GOOD_SECOND_THRESHOLD*4 )
+		nLastBitsLookedOk = DCF77_RX_STATE_GOOD_SECOND_THRESHOLD;
+
+	if ( nLastBitsLookedOk >= DCF77_RX_STATE_GOOD_SECOND_THRESHOLD )
 		return dcf77_RxStateGood;
 	return dcf77_RxStateUnkown;
 }
