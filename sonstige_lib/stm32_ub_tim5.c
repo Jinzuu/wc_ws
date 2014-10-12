@@ -46,6 +46,43 @@ void UB_TIMER5_Init(uint16_t prescaler, uint16_t periode)
   P_TIM5_NVIC();
 }
 
+//--------------------------------------------------------------
+// Init und Stop vom Timer mit einem FRQ-Wert (in Hz)
+// frq_hz : [1...42000000]
+//
+// Hinweis : die tatsächliche Frq weicht wegen Rundungsfehlern
+//           etwas vom Sollwert ab (Bitte nachrechnen falls Wichtig)
+//--------------------------------------------------------------
+void UB_TIMER5_Init_FRQ(uint32_t frq_hz)
+{
+  RCC_ClocksTypeDef RCC_Clocks;
+  uint32_t clk_frq;
+  uint16_t prescaler, periode;
+  uint32_t u_temp;
+  float teiler,f_temp;
+
+  // Clock-Frequenzen (PCLK1) auslesen
+  RCC_GetClocksFreq(&RCC_Clocks);
+  clk_frq = RCC_Clocks.PCLK1_Frequency;
+
+  // check der werte
+  if(frq_hz==0) frq_hz=1;
+  if(frq_hz>clk_frq) frq_hz=clk_frq;
+
+  // berechne teiler
+  teiler=(float)(clk_frq<<1)/(float)(frq_hz);
+
+  // berechne prescaler
+  u_temp=(uint32_t)(teiler);
+  prescaler=(u_temp>>16);
+
+  // berechne periode
+  f_temp=(float)(teiler)/(float)(prescaler+1);
+  periode=(uint16_t)(f_temp-1);
+
+  // werte einstellen
+  UB_TIMER5_Init(prescaler, periode);
+}
 
 //--------------------------------------------------------------
 // Timer starten

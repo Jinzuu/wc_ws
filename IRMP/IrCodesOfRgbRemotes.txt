@@ -1,0 +1,36 @@
+Generell:
+	- Protokoll	2
+	- Adresse 	61184
+
+
+Kommandos:
+
+Helligkeit +:	0
+Helligkeit -:	1
+Off:		2
+On:		3
+
+R:		4
+Orange:		8
+Hellorange:	12
+Hellorange2:	16
+Gelb:		20
+
+G:		5
+Hellgruen:	9
+Hellblau:	13
+Hellblau2:	17
+dunkleresHellblau:	21
+
+B:		6
+Blau:		10
+Lila:		14
+Lila2:		18
+Violett:	22
+
+W:		7
+Flash:		11
+Strobe:		15
+Fade:		19
+Smooth:		23
+

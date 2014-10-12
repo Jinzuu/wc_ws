@@ -22,6 +22,7 @@
 // Globale Funktionen
 //--------------------------------------------------------------
 void UB_TIMER5_Init(uint16_t prescaler, uint16_t periode);
+void UB_TIMER5_Init_FRQ(uint32_t frq_hz);
 void UB_TIMER5_Start(void);
 void UB_TIMER5_Stop(void);
 void UB_TIMER5_ISR_CallBack(void);  // Diese Funktion muss extern benutzt werden !!

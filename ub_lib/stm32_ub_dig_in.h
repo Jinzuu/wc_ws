@@ -41,7 +41,7 @@ typedef enum
   DIN_PE4 = 3     // PE4-Pin
 }DIN_NAME_t;
 
-#define  DIN_ANZ   1 // Anzahl von DIN_NAME_t
+#define  DIN_ANZ   2 // Anzahl von DIN_NAME_t
 
 
 
