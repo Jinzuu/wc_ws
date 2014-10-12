@@ -12,6 +12,7 @@
 // Own Stuff
 #include "DCF77.h"
 #include "wc_frontend.h"
+#include "wc_TimeToMatrix.h"
 
 
 /*****************************************
