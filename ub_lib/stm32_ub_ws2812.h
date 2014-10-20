@@ -219,16 +219,28 @@ typedef struct {
 //--------------------------------------------------------------
 // standard Farben (H,S,V)
 //--------------------------------------------------------------
-#define  WS2812_HSV_COL_OFF      (WS2812_HSV_t) {0,  0,  0}
 
-#define	 WS2812_HSV_COL_WHITE    (WS2812_HSV_t) {0,  0, 100}
-#define  WS2812_HSV_COL_BLUE     (WS2812_HSV_t) {240,100,100}
-#define  WS2812_HSV_COL_GREEN    (WS2812_HSV_t) {120,100,100}
-#define  WS2812_HSV_COL_RED      (WS2812_HSV_t) {0,  100,100}
+#define  WS2812_HSV_COL_OFF			(WS2812_HSV_t) {0,  0,  0}
+#define	 WS2812_HSV_COL_WHITE		(WS2812_HSV_t) {0,  0, 100}
+#define  WS2812_HSV_COL_BLUE		(WS2812_HSV_t) {240,100,100}
+#define  WS2812_HSV_COL_GREEN		(WS2812_HSV_t) {120,100,100}
+#define  WS2812_HSV_COL_RED			(WS2812_HSV_t) {0,  100,100}
+// Finer colors
+#define  WS2812_HSV_COL_ORANGE		(WS2812_HSV_t) {15, 100,100}
+#define  WS2812_HSV_COL_LIGHTORANGE	(WS2812_HSV_t) {30,100,100}
+#define  WS2812_HSV_COL_DARKYELLLOW	(WS2812_HSV_t) {30,100,100}
+#define  WS2812_HSV_COL_YELLOW		(WS2812_HSV_t) {60, 100,100}
+#define  WS2812_HSV_COL_LIGHTGREEN	(WS2812_HSV_t) {140,100,100}
+#define  WS2812_HSV_COL_LIGHTGREENBLUE	(WS2812_HSV_t) {160,100,100}
+#define  WS2812_HSV_COL_CYAN		(WS2812_HSV_t) {180,100,100}
+#define  WS2812_HSV_COL_DARKGREENBLUE	(WS2812_HSV_t) {260, 100,100}
+#define  WS2812_HSV_COL_DARKBLUE	(WS2812_HSV_t) {260, 100,100}
+#define  WS2812_HSV_COL_PURPLE		(WS2812_HSV_t) {280, 100,100}
+#define  WS2812_HSV_COL_MAGENTA		(WS2812_HSV_t) {300,100,100}
+#define  WS2812_HSV_COL_PINK		(WS2812_HSV_t) {310,100,100}
+#define  WS2812_HSV_COL_DARKPINK	(WS2812_HSV_t) {340,100,100}
 
-#define  WS2812_HSV_COL_CYAN     (WS2812_HSV_t) {180,100,100}
-#define  WS2812_HSV_COL_MAGENTA  (WS2812_HSV_t) {300,100,100}
-#define  WS2812_HSV_COL_YELLOW   (WS2812_HSV_t) {60, 100,100}
+
 
 
 //--------------------------------------------------------------
