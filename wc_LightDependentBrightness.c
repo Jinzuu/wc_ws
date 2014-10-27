@@ -44,7 +44,8 @@ void AdjustBrightnessArray( int increaseBrightness, float currentBrightness, flo
 		// adjust higher brightlevels
 		// to reduce the complexity of the following loop, index zero is dealt with alone
 		brightnessMultiplierArray[0] = MINIMUM( brightnessMultiplierArray[0], 0.9 );
-		for( int i=1; i<N_AMBIENT_BRIGHTNESS_CONVERSION_PTS; ++i )
+		int i;
+		for( i=1; i<N_AMBIENT_BRIGHTNESS_CONVERSION_PTS; ++i )
 			brightnessMultiplierArray[i] = MINIMUM( 1.0 - ( N_AMBIENT_BRIGHTNESS_CONVERSION_PTS - closestAmbientBrightnessIdx ) * MIN_BRIGHTNESS_MULTI_DIFF, //upper limit
 					MAXIMUM ( brightnessMultiplierArray[i-1] + MIN_BRIGHTNESS_MULTI_DIFF, brightnessMultiplierArray[i] ) );	// lower limit
 	}
@@ -56,7 +57,8 @@ void AdjustBrightnessArray( int increaseBrightness, float currentBrightness, flo
 		// adjust lower brightlevels
 		// to reduce the complexity of the following loop, the highest index is dealt with alone
 		brightnessMultiplierArray[N_AMBIENT_BRIGHTNESS_CONVERSION_PTS-1] = MAXIMUM( brightnessMultiplierArray[N_AMBIENT_BRIGHTNESS_CONVERSION_PTS-1], 0.0 );
-		for( int i=N_AMBIENT_BRIGHTNESS_CONVERSION_PTS-2; i>=0; --i )
+		int i;
+		for( i=N_AMBIENT_BRIGHTNESS_CONVERSION_PTS-2; i>=0; --i )
 			brightnessMultiplierArray[i] = MAXIMUM( i * MIN_BRIGHTNESS_MULTI_DIFF, // lower limit
 					MINIMUM ( brightnessMultiplierArray[i+1] - MIN_BRIGHTNESS_MULTI_DIFF, brightnessMultiplierArray[i] ) );	// upper limit
 	}

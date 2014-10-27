@@ -6,8 +6,9 @@
       <Compile>
         <Option name="OptimizationLevel" value="0"/>
         <Option name="UseFPU" value="0"/>
-        <Option name="UserEditCompiler" value="-std=c99"/>
+        <Option name="UserEditCompiler" value=""/>
         <Option name="FPU" value="2"/>
+        <Option name="SupportCPlusplus" value="0"/>
         <Includepaths>
           <Includepath path="."/>
         </Includepaths>
@@ -26,6 +27,8 @@
         <Option name="LTO" value="0"/>
         <Option name="IsNewStartupCode" value="1"/>
         <Option name="Library" value="Not use C Library"/>
+        <Option name="UserEditLinker" value=""/>
+        <Option name="nostartfiles" value="1"/>
         <LinkedLibraries/>
         <MemoryAreas debugInFlashNotRAM="1">
           <Memory name="IROM1" type="ReadOnly" size="0x00100000" startValue="0x08000000"/>
@@ -93,15 +96,15 @@
     <File name="cmsis_boot" path="" type="2"/>
     <File name="sonstige_lib/stm32_ub_tim5.h" path="sonstige_lib/stm32_ub_tim5.h" type="1"/>
     <File name="wc_TimeToMatrix.c" path="wc_TimeToMatrix.c" type="1"/>
+    <File name="cmsis_boot/startup" path="" type="2"/>
+    <File name="cmsis/core_cm4_simd.h" path="cmsis/core_cm4_simd.h" type="1"/>
     <File name="sonstige_lib/stm32_ub_tim3.c" path="sonstige_lib/stm32_ub_tim3.c" type="1"/>
     <File name="cmsis_boot/stm32f4xx.h" path="cmsis_boot/stm32f4xx.h" type="1"/>
-    <File name="cmsis/core_cm4_simd.h" path="cmsis/core_cm4_simd.h" type="1"/>
-    <File name="cmsis_boot/startup" path="" type="2"/>
     <File name="sonstige_lib/stm32_ub_pwm_tim2.h" path="sonstige_lib/stm32_ub_pwm_tim2.h" type="1"/>
     <File name="cmsis/core_cmFunc.h" path="cmsis/core_cmFunc.h" type="1"/>
-    <File name="cmsis/core_cm4.h" path="cmsis/core_cm4.h" type="1"/>
     <File name="ub_lib/stm32_ub_dig_out.h" path="ub_lib/stm32_ub_dig_out.h" type="1"/>
     <File name="wc_LightDependentBrightness.c" path="wc_LightDependentBrightness.c" type="1"/>
+    <File name="cmsis/core_cm4.h" path="cmsis/core_cm4.h" type="1"/>
     <File name="ub_lib/stm32_ub_dig_in.h" path="ub_lib/stm32_ub_dig_in.h" type="1"/>
     <File name="CommonMath.cpp" path="CommonMath.cpp" type="1"/>
     <File name="IRMP/irmp.c" path="IRMP/irmp.c" type="1"/>
