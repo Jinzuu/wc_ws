@@ -47,6 +47,7 @@ extern WS2812_HSV_t WC_Colour; // colour, which should be used
 
 void WC_SetElement(T_WC_ELEMENT element, int enable);
 void WC_SetColor(WS2812_HSV_t colour);
+WS2812_HSV_t WC_GetColor( void );
 void WC_SetBrightness(int brightness);
 void WC_Refresh();
 void WC_DisableAll();

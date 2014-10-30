@@ -70,6 +70,10 @@ void WC_SetColor(WS2812_HSV_t colour)
 	}
 }
 
+WS2812_HSV_t WC_GetColor( void ){
+	return WC_Colour;
+}
+
 void WC_SetBrightness(int brightness)
 {
 	WC_Colour.v = brightness;
