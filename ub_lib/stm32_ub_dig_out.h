@@ -22,10 +22,10 @@
 //--------------------------------------------------------------
 typedef enum 
 {
-  DOUT_PB2 = 0,  // PB2-Pin
+  DOUT_PC9 = 0,  // PC9-Pin
   DOUT_PB7 = 1,  // PB7-Pin
-  DOUT_PC6 = 2,  // PC6-Pin
-  DOUT_PC13 = 3  // PC13-Pin
+//  DOUT_PC6 = 2,  // PC6-Pin
+//  DOUT_PC13 = 3  // PC13-Pin
 }DOUT_NAME_t;
 
 #define  DOUT_ANZ   2 // Anzahl von DOUT_NAME_t

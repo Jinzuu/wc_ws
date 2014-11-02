@@ -35,8 +35,8 @@
 //--------------------------------------------------------------
 typedef enum 
 {
-  DIN_PD3 = 0,    // PD3-Pin
-  DIN_PD6 = 1,    // PD6-Pin
+  DIN_PA15 = 0,    // PA15-Pin
+  DIN_PC8 = 1,    // PC8-Pin
   DIN_PD11 = 2,   // PD11-Pin
   DIN_PE4 = 3     // PE4-Pin
 }DIN_NAME_t;

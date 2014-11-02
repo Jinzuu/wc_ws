@@ -38,8 +38,8 @@
 //--------------------------------------------------------------
 DIN_PIN_t DIN_PIN[] = {
   // Name    ,PORT , PIN       , CLOCK              ,Widerstand , Status
-  {DIN_PD3  ,GPIOD,GPIO_Pin_3 ,RCC_AHB1Periph_GPIOD,GPIO_PuPd_UP,Bit_RESET},
-  {DIN_PD6  ,GPIOD,GPIO_Pin_6 ,RCC_AHB1Periph_GPIOD,GPIO_PuPd_UP,Bit_RESET},
+  {DIN_PA15	,GPIOA,GPIO_Pin_15,RCC_AHB1Periph_GPIOA,GPIO_PuPd_UP,Bit_RESET},
+  {DIN_PC8  ,GPIOC,GPIO_Pin_8 ,RCC_AHB1Periph_GPIOC,GPIO_PuPd_UP,Bit_RESET},
   {DIN_PD11 ,GPIOD,GPIO_Pin_11,RCC_AHB1Periph_GPIOD,GPIO_PuPd_UP,Bit_RESET},
   {DIN_PE4  ,GPIOE,GPIO_Pin_4 ,RCC_AHB1Periph_GPIOE,GPIO_PuPd_UP,Bit_RESET},
 };

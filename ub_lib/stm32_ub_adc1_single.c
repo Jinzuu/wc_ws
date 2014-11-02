@@ -24,7 +24,7 @@
 //--------------------------------------------------------------
 ADC1s_t ADC1s[] = {
   //NAME  ,PORT , PIN      , CLOCK              , Kanal        , Mittelwerte
-  {ADC_PA3,GPIOA,GPIO_Pin_3,RCC_AHB1Periph_GPIOA,ADC_Channel_3 ,MW_32},   // ADC an PA3 = ADC123_IN3
+  {ADC_PA1,GPIOA,GPIO_Pin_1,RCC_AHB1Periph_GPIOA,ADC_Channel_1 ,MW_32},   // ADC an PA3 = ADC1_IN1
 };
 
 

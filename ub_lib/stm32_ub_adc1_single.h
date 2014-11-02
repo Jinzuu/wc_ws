@@ -21,7 +21,7 @@
 // (keine Nummer doppelt und von 0 beginnend)
 //--------------------------------------------------------------
 typedef enum {
-  ADC_PA3 = 0  // PA3
+  ADC_PA1 = 0  // PA3
 }ADC1s_NAME_t;
 
 #define  ADC1s_ANZ   1 // Anzahl von ADC1s_NAME_t

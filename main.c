@@ -13,6 +13,7 @@
 #include "ub_lib/stm32_ub_led.h"
 #include "ub_lib/stm32_ub_dig_out.h"
 #include "ub_lib/stm32_ub_dig_in.h"
+#include "ub_lib/stm32_ub_adc1_single.h"
 #include "ub_lib/stm32_ub_rtc.h"
 #include "ub_lib/stm32_ub_tim2.h"
 #include "sonstige_lib/stm32_ub_tim5.h"
@@ -28,15 +29,17 @@
  *  USED PINS on NUCLEO F411 RE Board
  *****************************************/
 
+// ##### DCF77 ##### -> Todo
+// PC8 - DataIn for DCF77 module
+// PC9 - PowerOn Pin of DCF77 module
 
-// PB7 - PowerOn Pin of DCF77 module
-
+// ##### LDR #####
 // PA1 - AnalogIn for LDR (To be connected by ext wire to PC13)
+// PB7 - Gpio Pulled Low: Ground for LDR
 // PC13 - Set to open -> pullup resistor of user button used for LDR
 
-
-// PD3 - DataIn for DCF77 module
-// PD6 - IR Remote digital in
+// ##### IR REMOTE #####
+// PA15 - IR Remote digital in
 
 /*****************************************
  *  GLOBALS
@@ -61,33 +64,40 @@ int main(void)
 	UB_TIMER5_Init_FRQ( 10000 );
 
 	UB_Led_Init();
+
+	UB_DigIn_Init();
+	UB_DigOut_Init();
+
+	UB_ADC1_SINGLE_Init();
+
+	// Note: code needs to be reconfigured for Nucleo Board (Frequency of 96 MHz should also be checked)
+	//	UB_WS2812_Init();
+	//	WC_SetColor(WS2812_HSV_COL_WHITE);
+	//	WC_SetElement(WC_ELEMENT_ES, 1);
+	//	WC_Refresh();
+
+	// Indicate successful booting
 	UB_Led_On( LED_GREEN );
 	UB_Systick_Pause_s(1);
 	UB_Led_Off( LED_GREEN );
 
-// Note: code needs to be reconfigured for Nucleo Board (Frequency of 96 MHz should also be checked)
-//	UB_DigIn_Init();
-//	UB_DigOut_Init();
-//
-//	UB_WS2812_Init();
-//
-//	UB_Led_On( LED_GREEN );
-//	UB_Systick_Pause_ms( 100 );
-//	// Start timers and therefore cyclic actions in the call backs below
-//	UB_TIMER2_Start();
-//	UB_TIMER5_Start();
-//
-//	UB_DigOut_Lo(DOUT_PB7);	// Set PB7 low to start DCF module
-//
-//	WC_SetColor(WS2812_HSV_COL_WHITE);
-//	WC_SetElement(WC_ELEMENT_ES, 1);
-//	WC_Refresh();
+	// Start timers and therefore cyclic actions in the call backs below
+	UB_TIMER2_Start();
+	UB_TIMER5_Start();
+
+
+	UB_DigOut_Lo(DOUT_PB7);	// Set PB7 low to start DCF module
+	UB_DigOut_Lo(DOUT_PC9);	// Set PC9 low to start DCF module
+
 
 
 	while(1) {
 		// Handle IR remote
 		if ( irmp_get_data( &irData ) )
 			ProcessIrDataPacket( irData );
+
+		// Read Ambient brightness
+		int ambientBrightness = UB_ADC1_SINGLE_Read( ADC_PA1 );
 	}
 
 }
@@ -99,7 +109,7 @@ int main(void)
  *****************************************/
 void UB_TIMER2_ISR_CallBack( void )
 {
-	gDcfInputState = UB_DigIn_Read( DIN_PD3 );
+	gDcfInputState = UB_DigIn_Read( DIN_PC8 );
 	if ( gDcfInputState == Bit_SET )
 		UB_Led_On( LED_GREEN );
 	else
@@ -121,7 +131,7 @@ void UB_TIMER2_ISR_CallBack( void )
 void UB_TIMER5_ISR_CallBack( void )
 {
 	// routine for IR remote signal processing
-	irmp_ISR( UB_DigIn_Read( DIN_PD6 ) );
+	irmp_ISR( UB_DigIn_Read( DIN_PA15 ) );
 }
 
 // Other non used timer callbacks

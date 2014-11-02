@@ -25,10 +25,10 @@
 //--------------------------------------------------------------
 DOUT_PIN_t DOUT_PIN[] = {
   // Name    ,PORT , PIN       , CLOCK              , Init
-  {DOUT_PB2 ,GPIOB,GPIO_Pin_2 ,RCC_AHB1Periph_GPIOB,Bit_RESET},
+  {DOUT_PC9 ,GPIOC,GPIO_Pin_9 ,RCC_AHB1Periph_GPIOC,Bit_RESET},
   {DOUT_PB7 ,GPIOB,GPIO_Pin_7 ,RCC_AHB1Periph_GPIOB,Bit_RESET},
-  {DOUT_PC6 ,GPIOC,GPIO_Pin_6 ,RCC_AHB1Periph_GPIOC,Bit_RESET},
-  {DOUT_PC13,GPIOC,GPIO_Pin_13,RCC_AHB1Periph_GPIOC,Bit_RESET},
+//  {DOUT_PC6 ,GPIOC,GPIO_Pin_6 ,RCC_AHB1Periph_GPIOC,Bit_RESET},
+//  {DOUT_PC13,GPIOC,GPIO_Pin_13,RCC_AHB1Periph_GPIOC,Bit_RESET},
 };
 
 
