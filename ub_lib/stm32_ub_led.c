@@ -25,10 +25,10 @@
 //--------------------------------------------------------------
 LED_t LED[] = {
   // Name    ,PORT , PIN       , CLOCK              , Init
-  {LED_GREEN ,GPIOD,GPIO_Pin_12,RCC_AHB1Periph_GPIOD,LED_OFF},   // PD12=Gruene LED auf dem Discovery-Board
-  {LED_ORANGE,GPIOD,GPIO_Pin_13,RCC_AHB1Periph_GPIOD,LED_OFF},   // PD13=Orange LED auf dem Discovery-Board
-  {LED_RED   ,GPIOD,GPIO_Pin_14,RCC_AHB1Periph_GPIOD,LED_OFF},   // PD14=Rote LED auf dem Discovery-Board
-  {LED_BLUE  ,GPIOD,GPIO_Pin_15,RCC_AHB1Periph_GPIOD,LED_OFF},   // PD15=Blaue LED auf dem Discovery-Board
+  {LED_GREEN ,GPIOA,GPIO_Pin_5,RCC_AHB1Periph_GPIOA,LED_OFF},   // PA5=Gruene LED auf dem Discovery-Board
+//  {LED_ORANGE,GPIOD,GPIO_Pin_13,RCC_AHB1Periph_GPIOD,LED_OFF},   // PD13=Orange LED auf dem Discovery-Board
+//  {LED_RED   ,GPIOD,GPIO_Pin_14,RCC_AHB1Periph_GPIOD,LED_OFF},   // PD14=Rote LED auf dem Discovery-Board
+//  {LED_BLUE  ,GPIOD,GPIO_Pin_15,RCC_AHB1Periph_GPIOD,LED_OFF},   // PD15=Blaue LED auf dem Discovery-Board
 };
 
 

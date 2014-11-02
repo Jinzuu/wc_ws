@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Project version="2G - 1.7.5" name="wc_ws">
   <Target name="wc_ws" isCurrent="1">
-    <Device manufacturerId="9" manufacturerName="ST" chipId="344" chipName="STM32F407VG" boardId="" boardName=""/>
+    <Device manufacturerId="9" manufacturerName="ST" chipId="500" chipName="STM32F401RC" boardId="" boardName=""/>
     <BuildOption>
       <Compile>
         <Option name="OptimizationLevel" value="0"/>
@@ -13,11 +13,11 @@
           <Includepath path="."/>
         </Includepaths>
         <DefinedSymbols>
-          <Define name="STM32F407VG"/>
-          <Define name="STM32F4XX"/>
           <Define name="USE_STDPERIPH_DRIVER"/>
           <Define name="__ASSEMBLY__"/>
           <Define name="__FPU_USED"/>
+          <Define name="STM32F401RC"/>
+          <Define name="STM32F4XX"/>
         </DefinedSymbols>
       </Compile>
       <Link useDefault="0">
@@ -31,10 +31,10 @@
         <Option name="nostartfiles" value="1"/>
         <LinkedLibraries/>
         <MemoryAreas debugInFlashNotRAM="1">
-          <Memory name="IROM1" type="ReadOnly" size="0x00100000" startValue="0x08000000"/>
-          <Memory name="IRAM1" type="ReadWrite" size="0x00020000" startValue="0x20000000"/>
+          <Memory name="IROM1" type="ReadOnly" size="0x00040000" startValue="0x08000000"/>
+          <Memory name="IRAM1" type="ReadWrite" size="0x00010000" startValue="0x20000000"/>
           <Memory name="IROM2" type="ReadOnly" size="" startValue=""/>
-          <Memory name="IRAM2" type="ReadWrite" size="0x00010000" startValue="0x10000000"/>
+          <Memory name="IRAM2" type="ReadWrite" size="" startValue=""/>
         </MemoryAreas>
         <LocateLinkFile path="c:/coocox/coide/configuration/programdata/wc_ws/arm-gcc-link.ld" type="0"/>
       </Link>
@@ -67,7 +67,7 @@
       <Option name="org.coocox.codebugger.gdbjtag.core.autoDownload" value="1"/>
       <Option name="org.coocox.codebugger.gdbjtag.core.verify" value="1"/>
       <Option name="org.coocox.codebugger.gdbjtag.core.downloadFuction" value="Erase Effected"/>
-      <Option name="org.coocox.codebugger.gdbjtag.core.defaultAlgorithm" value="STM32F4xx_1024.elf"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.defaultAlgorithm" value="STM32F4xx_256.elf"/>
     </DebugOption>
     <ExcludeFile/>
   </Target>
@@ -92,14 +92,14 @@
     <File name="ub_lib/stm32_ub_ws2812.h" path="ub_lib/stm32_ub_ws2812.h" type="1"/>
     <File name="sonstige_lib/stm32_ub_tim4.h" path="sonstige_lib/stm32_ub_tim4.h" type="1"/>
     <File name="ub_lib/stm32_ub_pwm_tim4.h" path="ub_lib/stm32_ub_pwm_tim4.h" type="1"/>
-    <File name="cmsis_boot" path="" type="2"/>
     <File name="DCF77.c" path="DCF77.c" type="1"/>
+    <File name="cmsis_boot" path="" type="2"/>
     <File name="sonstige_lib/stm32_ub_tim5.h" path="sonstige_lib/stm32_ub_tim5.h" type="1"/>
     <File name="wc_TimeToMatrix.c" path="wc_TimeToMatrix.c" type="1"/>
-    <File name="sonstige_lib/stm32_ub_tim3.c" path="sonstige_lib/stm32_ub_tim3.c" type="1"/>
-    <File name="cmsis_boot/startup" path="" type="2"/>
     <File name="cmsis_boot/stm32f4xx.h" path="cmsis_boot/stm32f4xx.h" type="1"/>
     <File name="cmsis/core_cm4_simd.h" path="cmsis/core_cm4_simd.h" type="1"/>
+    <File name="cmsis_boot/startup" path="" type="2"/>
+    <File name="sonstige_lib/stm32_ub_tim3.c" path="sonstige_lib/stm32_ub_tim3.c" type="1"/>
     <File name="sonstige_lib/stm32_ub_pwm_tim2.h" path="sonstige_lib/stm32_ub_pwm_tim2.h" type="1"/>
     <File name="cmsis/core_cmFunc.h" path="cmsis/core_cmFunc.h" type="1"/>
     <File name="cmsis/core_cm4.h" path="cmsis/core_cm4.h" type="1"/>
@@ -107,12 +107,12 @@
     <File name="wc_LightDependentBrightness.c" path="wc_LightDependentBrightness.c" type="1"/>
     <File name="ub_lib/stm32_ub_dig_in.h" path="ub_lib/stm32_ub_dig_in.h" type="1"/>
     <File name="CommonMath.cpp" path="CommonMath.cpp" type="1"/>
-    <File name="ub_lib/stm32_ub_tim2.h" path="ub_lib/stm32_ub_tim2.h" type="1"/>
     <File name="IRMP/irmp.c" path="IRMP/irmp.c" type="1"/>
+    <File name="ub_lib/stm32_ub_tim2.h" path="ub_lib/stm32_ub_tim2.h" type="1"/>
     <File name="ub_lib/stm32_ub_pwm_tim4.c" path="ub_lib/stm32_ub_pwm_tim4.c" type="1"/>
     <File name="cmsis_lib/source/misc.c" path="cmsis_lib/source/misc.c" type="1"/>
-    <File name="cmsis_lib/include/stm32f4xx_tim.h" path="cmsis_lib/include/stm32f4xx_tim.h" type="1"/>
     <File name="ub_lib/stm32_ub_adc1_single.c" path="ub_lib/stm32_ub_adc1_single.c" type="1"/>
+    <File name="cmsis_lib/include/stm32f4xx_tim.h" path="cmsis_lib/include/stm32f4xx_tim.h" type="1"/>
     <File name="cmsis_lib/source/stm32f4xx_adc.c" path="cmsis_lib/source/stm32f4xx_adc.c" type="1"/>
     <File name="sonstige_lib/stm32_ub_tim4.c" path="sonstige_lib/stm32_ub_tim4.c" type="1"/>
     <File name="IRMP/irmpconfig.h" path="IRMP/irmpconfig.h" type="1"/>
@@ -127,8 +127,8 @@
     <File name="cmsis_boot/system_stm32f4xx.h" path="cmsis_boot/system_stm32f4xx.h" type="1"/>
     <File name="cmsis_lib/source/stm32f4xx_rtc.c" path="cmsis_lib/source/stm32f4xx_rtc.c" type="1"/>
     <File name="sonstige_lib/stm32_ub_adc2_single.h" path="sonstige_lib/stm32_ub_adc2_single.h" type="1"/>
-    <File name="cmsis_lib/include/stm32f4xx_rcc.h" path="cmsis_lib/include/stm32f4xx_rcc.h" type="1"/>
     <File name="wc_frontend.c" path="wc_frontend.c" type="1"/>
+    <File name="cmsis_lib/include/stm32f4xx_rcc.h" path="cmsis_lib/include/stm32f4xx_rcc.h" type="1"/>
     <File name="sonstige_lib/stm32_ub_pwm_tim5.h" path="sonstige_lib/stm32_ub_pwm_tim5.h" type="1"/>
     <File name="ub_lib/stm32_ub_dig_out.c" path="ub_lib/stm32_ub_dig_out.c" type="1"/>
     <File name="cmsis_lib/include/stm32f4xx_pwr.h" path="cmsis_lib/include/stm32f4xx_pwr.h" type="1"/>
@@ -136,15 +136,15 @@
     <File name="cmsis_lib/source/stm32f4xx_rcc.c" path="cmsis_lib/source/stm32f4xx_rcc.c" type="1"/>
     <File name="ub_lib/stm32_ub_systick.h" path="ub_lib/stm32_ub_systick.h" type="1"/>
     <File name="cmsis/core_cmInstr.h" path="cmsis/core_cmInstr.h" type="1"/>
-    <File name="sonstige_lib/stm32_ub_tim5.c" path="sonstige_lib/stm32_ub_tim5.c" type="1"/>
     <File name="cmsis_lib/source/stm32f4xx_pwr.c" path="cmsis_lib/source/stm32f4xx_pwr.c" type="1"/>
-    <File name="wc_LightDependentBrightness.h" path="wc_LightDependentBrightness.h" type="1"/>
+    <File name="sonstige_lib/stm32_ub_tim5.c" path="sonstige_lib/stm32_ub_tim5.c" type="1"/>
     <File name="ub_lib/stm32_ub_rtc.c" path="ub_lib/stm32_ub_rtc.c" type="1"/>
+    <File name="wc_LightDependentBrightness.h" path="wc_LightDependentBrightness.h" type="1"/>
     <File name="CommonMath.h" path="CommonMath.h" type="1"/>
     <File name="ub_lib" path="" type="2"/>
     <File name="cmsis_lib/include/stm32f4xx_adc.h" path="cmsis_lib/include/stm32f4xx_adc.h" type="1"/>
-    <File name="sonstige_lib/stm32_ub_pwm_tim5.c" path="sonstige_lib/stm32_ub_pwm_tim5.c" type="1"/>
     <File name="cmsis_lib/include/stm32f4xx_exti.h" path="cmsis_lib/include/stm32f4xx_exti.h" type="1"/>
+    <File name="sonstige_lib/stm32_ub_pwm_tim5.c" path="sonstige_lib/stm32_ub_pwm_tim5.c" type="1"/>
     <File name="cmsis_lib/source/stm32f4xx_exti.c" path="cmsis_lib/source/stm32f4xx_exti.c" type="1"/>
     <File name="cmsis_boot/system_stm32f4xx.c" path="cmsis_boot/system_stm32f4xx.c" type="1"/>
     <File name="ub_lib/stm32_ub_adc1_single.h" path="ub_lib/stm32_ub_adc1_single.h" type="1"/>

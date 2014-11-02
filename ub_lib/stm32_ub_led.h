@@ -19,16 +19,17 @@
 //--------------------------------------------------------------
 // Liste aller LEDs
 // (keine Nummer doppelt und von 0 beginnend)
+// Gibt nur eine LED auf dem 411er Nucleo
 //--------------------------------------------------------------
 typedef enum 
 {
   LED_GREEN = 0,  // LED4 auf dem STM32F4-Discovery
-  LED_ORANGE = 1, // LED3 auf dem STM32F4-Discovery
-  LED_RED = 2,    // LED5 auf dem STM32F4-Discovery
-  LED_BLUE = 3    // LED6 auf dem STM32F4-Discovery
+//  LED_ORANGE = 1, // LED3 auf dem STM32F4-Discovery
+//  LED_RED = 2,    // LED5 auf dem STM32F4-Discovery
+//  LED_BLUE = 3    // LED6 auf dem STM32F4-Discovery
 }LED_NAME_t;
 
-#define  LED_ANZ   4 // Anzahl von LED_NAME_t
+#define  LED_ANZ   1 // Anzahl von LED_NAME_t
 
 
 //--------------------------------------------------------------

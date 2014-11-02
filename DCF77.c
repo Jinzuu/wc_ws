@@ -49,7 +49,7 @@ typedef enum
 
 // Convert a series of received dcf bits to an integer value
 // Note: It is assumed that the length is between three and eight bits
-int GetValueFromDcf77Bits( uint8_t* dcfData, unsigned dataLength )
+int GetValueFromDcf77Bits( volatile uint8_t* dcfData, unsigned dataLength )
 {
 	int value = dcfData[0];
 	int valueToAddIfBitIsTrue = 1;

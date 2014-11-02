@@ -12,4 +12,4 @@ void SetWordMatrix( RTC_t time );
 
 
 
-#endif __WC_TIMETOMATRIX_H
+#endif //__WC_TIMETOMATRIX_H
