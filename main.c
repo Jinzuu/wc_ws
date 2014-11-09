@@ -36,7 +36,7 @@
 // ##### LDR #####
 // PA1 - AnalogIn for LDR (To be connected by ext wire to PC13)
 // PB7 - Gpio Pulled Low: Ground for LDR
-// PC13 - Set to open -> pullup resistor of user button used for LDR
+// PC13 - Set to open -> Onboard Pullup resistor of user button used for LDR
 
 // ##### IR REMOTE #####
 // PA15 - IR Remote digital in
@@ -90,7 +90,6 @@ int main(void)
 	UB_DigOut_Lo(DOUT_PC9);	// Set PC9 low to start DCF module
 
 
-
 	while(1) {
 		// Handle IR remote
 		if ( irmp_get_data( &irData ) )
@@ -114,14 +113,17 @@ void UB_TIMER2_ISR_CallBack( void )
 		UB_Led_On( LED_GREEN );
 	else
 		UB_Led_Off( LED_GREEN );
+
+	dcf77_SignalState_t dcf77state = Dcf77_ProcessSignal( gDcfInputState );
+	if ( dcf77state == dcf77_TimeRxSuccess )
+	{
 		RTC_t newTime;
-		dcf77_SignalState_t dcf77state = Dcf77_ProcessSignal( gDcfInputState );
-		if ( dcf77state == dcf77_TimeRxSuccess )
-			newTime = Dcf77_GetTime();
-//		else if ( dcf77state == dcf77_RxStateUnkown )
-//			UB_Led_On( LED_RED );
-//		else if ( dcf77state == dcf77_RxStateGood )
-//			UB_Led_Off( LED_RED );
+		newTime = Dcf77_GetTime();
+	}
+//	else if ( dcf77state == dcf77_RxStateUnkown )
+//		UB_Led_On( LED_RED );
+//	else if ( dcf77state == dcf77_RxStateGood )
+//		UB_Led_Off( LED_RED );
 }
 
 /*****************************************

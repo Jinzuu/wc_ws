@@ -28,6 +28,6 @@ float SlidingAverageOnLastValues( float value );
 // reproduced, the f(x) value of the provided x is linearly approximated
 // Note: The xArray needs to be in ascending order, e.g. xArray[i] < xArray[i+1]
 // Note: In order to work properly, x needs to higher/lower than the maximum/minimum value in the xArray
-float LinearApproximation( const float* xArray, const float* fxArray, const uint_fast16_t arrayLength, const float x );
+float LinearApproximation( const float* xArray, const float* fxArray, const int arrayLength, const float x );
 
 #endif /* COMMON_MATH_H_ */

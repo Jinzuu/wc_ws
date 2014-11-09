@@ -6,7 +6,7 @@
 
 // Sliding Average function
 volatile static float slidingAvg_values[N_SLIDING_AVERAGING_POINTS] = {0.0};
-volatile static uint_fast8_t slidingAvg_InsertIdx = 0;
+volatile static int slidingAvg_InsertIdx = 0;
 float SlidingAverageOnLastValues( float value )
 {
 	// Update array position and insert
@@ -14,7 +14,8 @@ float SlidingAverageOnLastValues( float value )
 	slidingAvg_values[slidingAvg_InsertIdx] = value;
 
 	float average = 0.0;
-	for ( uint_fast8_t i=0; i<N_SLIDING_AVERAGING_POINTS; ++i )
+	int i;
+	for ( i=0; i<N_SLIDING_AVERAGING_POINTS; ++i )
 		average += slidingAvg_values[i];
 
 	return average / (float) N_SLIDING_AVERAGING_POINTS;
@@ -22,7 +23,7 @@ float SlidingAverageOnLastValues( float value )
 
 
 
-float LinearApproximation( const float* xArray, const float* fxArray, const uint_fast16_t arrayLength, const float x )
+float LinearApproximation( const float* xArray, const float* fxArray, const int arrayLength, const float x )
 {
 	// First: Find first index in xArray that holds a smaller value that x is
 	uint_fast16_t xArrayIdxSmaller = arrayLength-2;
