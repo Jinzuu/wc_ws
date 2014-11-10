@@ -294,11 +294,11 @@ void UB_RTC_SetWakeUpInterrupt(RTC_WAKEUP_t wakeup)
 // bei einem WakeUp-Interrupt
 // (je nachdem welche WakeUp-Time eingestellt ist)
 //--------------------------------------------------------------
+void WC_OneMinute_ISR();
 #if RTC_USE_WAKEUP_ISR==1
 void P_RTC_WAKEUP_ISR(void)
 {
-  // hier eigenen Code eintragen
-  // der zyklisch ausgeführt werden soll
+	WC_OneMinute_ISR();
 }
 #endif
 

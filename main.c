@@ -70,6 +70,9 @@ int main(void)
 
 	UB_ADC1_SINGLE_Init();
 
+	UB_RTC_Init();
+	UB_RTC_SetWakeUpInterrupt(RTC_WAKEUP_5s);
+
 	// Note: code needs to be reconfigured for Nucleo Board (Frequency of 96 MHz should also be checked)
 	//	UB_WS2812_Init();
 	//	WC_SetColor(WS2812_HSV_COL_WHITE);
@@ -97,6 +100,9 @@ int main(void)
 
 		// Read Ambient brightness
 		int ambientBrightness = UB_ADC1_SINGLE_Read( ADC_PA1 );
+
+		UB_RTC_GetClock(RTC_DEC);
+
 	}
 
 }
@@ -147,4 +153,13 @@ void UB_TIMER4_ISR_CallBack( void )
 
 }
 
+int WC_OneMinute_ISR_Count = 0;
+void WC_OneMinute_ISR()
+{
+	if( WC_OneMinute_ISR_Count == 1 ) {
 
+		WC_OneMinute_ISR_Count = 0;
+	} else {
+		WC_OneMinute_ISR_Count++;
+	}
+}
