@@ -184,8 +184,9 @@ void UB_RTC_SetClock(RTC_FORMAT_t format)
 // und das Datum in der Struktur "UB_RTC"
 // format : [RTC_DEC, RTC_HEX]
 //--------------------------------------------------------------
-void UB_RTC_GetClock(RTC_FORMAT_t format)
+RTC_t UB_RTC_GetClock(RTC_FORMAT_t format)
 {
+  RTC_t time;
   // Zeit auslesen
   if(format==RTC_DEC) {
     RTC_GetTime(RTC_Format_BIN, &RTC_TimeStructure);
@@ -193,9 +194,9 @@ void UB_RTC_GetClock(RTC_FORMAT_t format)
   else {
     RTC_GetTime(RTC_Format_BCD, &RTC_TimeStructure);
   }
-  UB_RTC.std = RTC_TimeStructure.RTC_Hours;
-  UB_RTC.min = RTC_TimeStructure.RTC_Minutes;
-  UB_RTC.sek = RTC_TimeStructure.RTC_Seconds;
+  time.std = RTC_TimeStructure.RTC_Hours;
+  time.min = RTC_TimeStructure.RTC_Minutes;
+  time.sek = RTC_TimeStructure.RTC_Seconds;
 
   // Datum auslesen
   if(format==RTC_DEC) {
@@ -204,11 +205,12 @@ void UB_RTC_GetClock(RTC_FORMAT_t format)
   else {
     RTC_GetDate(RTC_Format_BCD, &RTC_DateStructure);
   }  
-  UB_RTC.tag = RTC_DateStructure.RTC_Date;
-  UB_RTC.monat = RTC_DateStructure.RTC_Month;
-  UB_RTC.jahr = RTC_DateStructure.RTC_Year;
-  UB_RTC.wotag = RTC_DateStructure.RTC_WeekDay;
+  time.tag = RTC_DateStructure.RTC_Date;
+  time.monat = RTC_DateStructure.RTC_Month;
+  time.jahr = RTC_DateStructure.RTC_Year;
+  time.wotag = RTC_DateStructure.RTC_WeekDay;
 
+  return time;
 }
 
 

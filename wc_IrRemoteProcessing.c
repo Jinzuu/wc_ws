@@ -1,11 +1,11 @@
 #include "wc_IrRemoteProcessing.h"
-#include "wc_frontend.h"
+
 
 /*****************************************
  *  GLOBALS
  *****************************************/
 int irAddressFirstSeen = -1;	// Used to take only cmds from this address (-1 = not set yet)
-WS2812_HSV_t irLastUsedColor = {0,  0, 100};
+WS2812_HSV_t gCurrentMatrixColor = {0,  0, 100};
 
 //####################################################################################################
 //################################## FUNCTIONS IMPLEMENTATION ########################################
@@ -28,11 +28,11 @@ void ProcessIrDataPacket( IRMP_DATA irPacket ){
 //
 //			break;
 		case IR_REMOTE_KEY_OFF:
-			irLastUsedColor = WC_GetColor();
+			gCurrentMatrixColor = WC_GetColor();
 			WC_SetColor(WS2812_HSV_COL_OFF);
 			break;
 		case IR_REMOTE_KEY_ON:
-			WC_SetColor(irLastUsedColor);
+			WC_SetColor(gCurrentMatrixColor);
 			break;
 //		case IR_REMOTE_KEY_FLASH:
 //
@@ -99,5 +99,9 @@ void ProcessIrDataPacket( IRMP_DATA irPacket ){
 			WC_SetColor(WS2812_HSV_COL_DARKPINK);
 			break;
 	}
+
+	// Save current color
+	if ( irPacket.command != IR_REMOTE_KEY_OFF )
+		gCurrentMatrixColor = WC_GetColor();
 }
 

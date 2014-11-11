@@ -96,7 +96,8 @@ RTC_t UB_RTC;
 //--------------------------------------------------------------
 RTC_STATUS_t UB_RTC_Init(void);
 void UB_RTC_SetClock(RTC_FORMAT_t format);
-void UB_RTC_GetClock(RTC_FORMAT_t format);
+// Note JBg: Changed to return a value in order to avoid problems with access to UB_RTC in IRQs
+RTC_t UB_RTC_GetClock(RTC_FORMAT_t format);
 #if RTC_USE_WAKEUP_ISR==1
 void UB_RTC_SetWakeUpInterrupt(RTC_WAKEUP_t wakeup);
 #endif

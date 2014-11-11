@@ -16,6 +16,7 @@
 #include "ub_lib/stm32_ub_adc1_single.h"
 #include "ub_lib/stm32_ub_rtc.h"
 #include "ub_lib/stm32_ub_tim2.h"
+#include "ub_lib/stm32_ub_ws2812.h"
 #include "sonstige_lib/stm32_ub_tim5.h"
 // Own Stuff
 #include "DCF77.h"
@@ -46,6 +47,8 @@
  *****************************************/
 
 volatile BitAction gDcfInputState = Bit_RESET;
+volatile BitAction gDcfRxWasSuccesful = Bit_RESET;
+volatile BitAction gWordMatrixWasSetForTheFirstTime = Bit_RESET;
 
 // IR globals
 IRMP_DATA irData;
@@ -101,7 +104,7 @@ int main(void)
 		// Read Ambient brightness
 		int ambientBrightness = UB_ADC1_SINGLE_Read( ADC_PA1 );
 
-		UB_RTC_GetClock(RTC_DEC);
+
 
 	}
 
@@ -123,13 +126,30 @@ void UB_TIMER2_ISR_CallBack( void )
 	dcf77_SignalState_t dcf77state = Dcf77_ProcessSignal( gDcfInputState );
 	if ( dcf77state == dcf77_TimeRxSuccess )
 	{
-		RTC_t newTime;
-		newTime = Dcf77_GetTime();
+		UB_RTC = Dcf77_GetTime();
+		UB_RTC_SetClock( RTC_DEC );
+		gDcfRxWasSuccesful = Bit_SET;
+
+		// Set word matrix directly after first DCF RX
+		if ( gWordMatrixWasSetForTheFirstTime == Bit_RESET ){
+			SetWordMatrix( UB_RTC_GetClock(RTC_DEC) );
+			gWordMatrixWasSetForTheFirstTime = Bit_SET;
+		}
 	}
-//	else if ( dcf77state == dcf77_RxStateUnkown )
-//		UB_Led_On( LED_RED );
-//	else if ( dcf77state == dcf77_RxStateGood )
-//		UB_Led_Off( LED_RED );
+	// Indicate status of DCF reception by top left LED in red/green while DCF RX in progress
+	if ( gDcfRxWasSuccesful == Bit_RESET ){
+		WC_SetElement( WC_ELEMENT_MIN_4, 1 );
+		if ( dcf77state == dcf77_RxStateUnkown )
+			WC_SetColor( WS2812_HSV_COL_RED );
+		else if ( dcf77state == dcf77_RxStateGood )
+			WC_SetColor( WS2812_HSV_COL_GREEN );
+		WC_SetElement( WC_ELEMENT_MIN_4, 1 );
+	}
+	else{
+		// Disable top left led and set normal color
+		WC_SetElement( WC_ELEMENT_MIN_4, 0 );
+		WC_SetColor( gCurrentMatrixColor );
+	}
 }
 
 /*****************************************
@@ -153,12 +173,19 @@ void UB_TIMER4_ISR_CallBack( void )
 
 }
 
+/*****************************************
+ *  RTC Wakeup Callback
+ *  - Used for: Setting the word matrix
+ *****************************************/
 int WC_OneMinute_ISR_Count = 0;
 void WC_OneMinute_ISR()
 {
-	if( WC_OneMinute_ISR_Count == 1 ) {
-
+	if( WC_OneMinute_ISR_Count >= 1 ) {
 		WC_OneMinute_ISR_Count = 0;
+
+		// Get time to UB_RTC global and use it to set the matrix
+		if ( gDcfRxWasSuccesful == Bit_SET )
+			SetWordMatrix( UB_RTC_GetClock(RTC_DEC) );
 	} else {
 		WC_OneMinute_ISR_Count++;
 	}
