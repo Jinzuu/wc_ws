@@ -11,6 +11,14 @@
 #define N_AMBIENT_BRIGHTNESS_CONVERSION_PTS	8 // Number of points with conversion factors from ambient to led brightness
 
 /*****************************************
+ *  GLOBALS
+ *****************************************/
+// Sampling points of the ambient brightess
+float ambientBrightnessPoints[N_AMBIENT_BRIGHTNESS_CONVERSION_PTS];
+// LED dimming factors for the above sampling points
+float ambientBrightnessLedDimmingFactors[N_AMBIENT_BRIGHTNESS_CONVERSION_PTS];
+
+/*****************************************
  *  CALLABLE FUNCTIONS
  *****************************************/
 

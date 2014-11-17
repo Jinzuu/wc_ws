@@ -5,9 +5,10 @@
 /*****************************************
  *  GLOBALS
  *****************************************/
-float ambientBrightnessPoints[N_AMBIENT_BRIGHTNESS_CONVERSION_PTS] = {0.0, 0.01, 0.05, 0.1, 	0.2, 	0.33, 	0.5, 1.0};
+float ambientBrightnessPoints[N_AMBIENT_BRIGHTNESS_CONVERSION_PTS] = {32, 512, 1500, 2500, 3300, 	3700, 	3900, 4095};
+//float ambientBrightnessPoints[N_AMBIENT_BRIGHTNESS_CONVERSION_PTS] = {0.0, 0.01, 0.05, 0.1, 	0.2, 	0.33, 	0.5, 1.0};
 // Ambient brightness tests: bright light leads to about 60 as min ADC value, darkness to about 4095 (max ADC value)
-float ambientMultiplierPointsClock[N_AMBIENT_BRIGHTNESS_CONVERSION_PTS] = {32, 512, 1500, 2500, 3300, 	3700, 	3900, 4095};
+float ambientBrightnessLedDimmingFactors[N_AMBIENT_BRIGHTNESS_CONVERSION_PTS] = {32, 512, 1500, 2500, 3300, 	3700, 	3900, 4095};
 
 
 /*****************************************

@@ -97,22 +97,22 @@
     <File name="sonstige_lib/stm32_ub_tim5.h" path="sonstige_lib/stm32_ub_tim5.h" type="1"/>
     <File name="wc_TimeToMatrix.c" path="wc_TimeToMatrix.c" type="1"/>
     <File name="cmsis_boot/startup" path="" type="2"/>
-    <File name="cmsis/core_cm4_simd.h" path="cmsis/core_cm4_simd.h" type="1"/>
     <File name="sonstige_lib/stm32_ub_tim3.c" path="sonstige_lib/stm32_ub_tim3.c" type="1"/>
+    <File name="cmsis/core_cm4_simd.h" path="cmsis/core_cm4_simd.h" type="1"/>
     <File name="cmsis_boot/stm32f4xx.h" path="cmsis_boot/stm32f4xx.h" type="1"/>
     <File name="sonstige_lib/stm32_ub_pwm_tim2.h" path="sonstige_lib/stm32_ub_pwm_tim2.h" type="1"/>
     <File name="cmsis/core_cmFunc.h" path="cmsis/core_cmFunc.h" type="1"/>
-    <File name="ub_lib/stm32_ub_dig_out.h" path="ub_lib/stm32_ub_dig_out.h" type="1"/>
     <File name="wc_LightDependentBrightness.c" path="wc_LightDependentBrightness.c" type="1"/>
     <File name="cmsis/core_cm4.h" path="cmsis/core_cm4.h" type="1"/>
+    <File name="ub_lib/stm32_ub_dig_out.h" path="ub_lib/stm32_ub_dig_out.h" type="1"/>
     <File name="ub_lib/stm32_ub_dig_in.h" path="ub_lib/stm32_ub_dig_in.h" type="1"/>
     <File name="IRMP/irmp.c" path="IRMP/irmp.c" type="1"/>
     <File name="ub_lib/stm32_ub_tim2.h" path="ub_lib/stm32_ub_tim2.h" type="1"/>
     <File name="ub_lib/stm32_ub_pwm_tim4.c" path="ub_lib/stm32_ub_pwm_tim4.c" type="1"/>
     <File name="cmsis_lib/source/misc.c" path="cmsis_lib/source/misc.c" type="1"/>
     <File name="ub_lib/stm32_ub_adc1_single.c" path="ub_lib/stm32_ub_adc1_single.c" type="1"/>
-    <File name="cmsis_lib/source/stm32f4xx_adc.c" path="cmsis_lib/source/stm32f4xx_adc.c" type="1"/>
     <File name="cmsis_lib/include/stm32f4xx_tim.h" path="cmsis_lib/include/stm32f4xx_tim.h" type="1"/>
+    <File name="cmsis_lib/source/stm32f4xx_adc.c" path="cmsis_lib/source/stm32f4xx_adc.c" type="1"/>
     <File name="sonstige_lib/stm32_ub_tim4.c" path="sonstige_lib/stm32_ub_tim4.c" type="1"/>
     <File name="IRMP/irmpconfig.h" path="IRMP/irmpconfig.h" type="1"/>
     <File name="cmsis_lib/source" path="" type="2"/>

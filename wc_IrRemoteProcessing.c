@@ -1,5 +1,5 @@
 #include "wc_IrRemoteProcessing.h"
-
+#include "wc_LightDependentBrightness.h"
 
 /*****************************************
  *  GLOBALS
@@ -22,10 +22,10 @@ void ProcessIrDataPacket( IRMP_DATA irPacket ){
 	{
 		// Commands
 //		case IR_REMOTE_KEY_BRIGHTNESS_INC:
-//
+//			AdjustBrightnessArray( 1, ambientBrightnessLedDimmingFactors );
 //			break;
 //		case IR_REMOTE_KEY_BRIGHTNESS_DEC:
-//
+//			AdjustBrightnessArray( 0, ambientBrightnessLedDimmingFactors );
 //			break;
 		case IR_REMOTE_KEY_OFF:
 			gCurrentMatrixColor = WC_GetColor();

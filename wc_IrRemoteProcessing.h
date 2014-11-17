@@ -13,33 +13,34 @@
 //##################################### REMOTE KEY DEFINES ###########################################
 //####################################################################################################
 // Defines for DX Remote ED618
-#define IR_REMOTE_KEY_BRIGHTNESS_INC	0
-#define IR_REMOTE_KEY_BRIGHTNESS_DEC	1
-#define IR_REMOTE_KEY_OFF				2
-#define IR_REMOTE_KEY_ON				3
+// http://www.dx.com/p/24-key-wireless-infrared-ir-remote-controller-for-rgb-led-light-bulb-1-cr2025-47019
+#define IR_REMOTE_KEY_BRIGHTNESS_INC	5
+#define IR_REMOTE_KEY_BRIGHTNESS_DEC	4
+#define IR_REMOTE_KEY_OFF				6
+#define IR_REMOTE_KEY_ON				7
 
-#define IR_REMOTE_KEY_FLASH				11
-#define IR_REMOTE_KEY_STROBE			15
-#define IR_REMOTE_KEY_FADE				19
-#define IR_REMOTE_KEY_SMOOTH			23
+#define IR_REMOTE_KEY_FLASH				15
+#define IR_REMOTE_KEY_STROBE			23
+#define IR_REMOTE_KEY_FADE				27
+#define IR_REMOTE_KEY_SMOOTH			19
 
-#define IR_REMOTE_KEY_RED				4
-#define IR_REMOTE_KEY_GREEN				5
-#define IR_REMOTE_KEY_BLUE				6
-#define IR_REMOTE_KEY_WHITE				7
+#define IR_REMOTE_KEY_RED				9
+#define IR_REMOTE_KEY_GREEN				8
+#define IR_REMOTE_KEY_BLUE				10
+#define IR_REMOTE_KEY_WHITE				11
 
-#define IR_REMOTE_KEY_ORANGE			8
-#define IR_REMOTE_KEY_LIGHTORANGE		12
-#define IR_REMOTE_KEY_DARKYELLOW		16
-#define IR_REMOTE_KEY_YELLOW			20
-#define IR_REMOTE_KEY_LIGHTGREEN		9
-#define IR_REMOTE_KEY_LIGHTGREENBLUE	13
-#define IR_REMOTE_KEY_CYAN				17
-#define IR_REMOTE_KEY_DARKGREENBLUE		21
-#define IR_REMOTE_KEY_DARKBLUE			10
-#define IR_REMOTE_KEY_PURPLE			14
-#define IR_REMOTE_KEY_PINK				18
-#define IR_REMOTE_KEY_DARKPINK			22
+#define IR_REMOTE_KEY_ORANGE			13
+#define IR_REMOTE_KEY_LIGHTORANGE		21
+#define IR_REMOTE_KEY_DARKYELLOW		25
+#define IR_REMOTE_KEY_YELLOW			17
+#define IR_REMOTE_KEY_LIGHTGREEN		12
+#define IR_REMOTE_KEY_LIGHTGREENBLUE	20
+#define IR_REMOTE_KEY_CYAN				24
+#define IR_REMOTE_KEY_DARKGREENBLUE		16
+#define IR_REMOTE_KEY_DARKBLUE			14
+#define IR_REMOTE_KEY_PURPLE			22
+#define IR_REMOTE_KEY_PINK				26
+#define IR_REMOTE_KEY_DARKPINK			18
 
 //####################################################################################################
 //####################################### OTHER DEFINES ##############################################
