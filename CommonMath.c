@@ -1,8 +1,19 @@
 #include "CommonMath.h"
 
-/**********************************************************
- *                      LDR Routines
- **********************************************************/
+
+// Minimum and maximum functions
+// ------------------------
+float GetMinimum( float a, float b ){
+	if ( a < b )
+		return a;
+	return b;
+}
+float GetMaximum( float a, float b ){
+	if ( a > b )
+		return a;
+	return b;
+}
+
 
 // Sliding Average function
 volatile static float slidingAvg_values[N_SLIDING_AVERAGING_POINTS] = {0.0};

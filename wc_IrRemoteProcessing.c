@@ -21,12 +21,12 @@ void ProcessIrDataPacket( IRMP_DATA irPacket ){
 	switch ( irPacket.command )
 	{
 		// Commands
-//		case IR_REMOTE_KEY_BRIGHTNESS_INC:
-//			AdjustBrightnessArray( 1, ambientBrightnessLedDimmingFactors );
-//			break;
-//		case IR_REMOTE_KEY_BRIGHTNESS_DEC:
-//			AdjustBrightnessArray( 0, ambientBrightnessLedDimmingFactors );
-//			break;
+		case IR_REMOTE_KEY_BRIGHTNESS_INC:
+			AdjustBrightnessArray( 1, ambientBrightnessCurrent, ambientBrightnessLedDimmingFactors );
+			break;
+		case IR_REMOTE_KEY_BRIGHTNESS_DEC:
+			AdjustBrightnessArray( 0, ambientBrightnessCurrent, ambientBrightnessLedDimmingFactors );
+			break;
 		case IR_REMOTE_KEY_OFF:
 			gCurrentMatrixColor = WC_GetColor();
 			WC_SetColor(WS2812_HSV_COL_OFF);

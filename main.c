@@ -23,6 +23,8 @@
 #include "wc_frontend.h"
 #include "wc_IrRemoteProcessing.h"
 #include "wc_TimeToMatrix.h"
+#include "wc_LightDependentBrightness.h"
+#include "CommonMath.h"
 #include "IRMP/irmp.h"
 
 
@@ -43,6 +45,11 @@
 // PA15 - IR Remote digital in
 
 /*****************************************
+ *  DEFINES
+ *****************************************/
+#define LED_BRIGHTNESS_OFF_THRESHOLD	1	// in percent 1...100
+
+/*****************************************
  *  GLOBALS
  *****************************************/
 
@@ -60,9 +67,10 @@ IRMP_DATA irData;
 int main(void)
 {
 	SystemInit();
+	UB_Systick_Init();
+
 
 	// Init of UB libs
-	UB_Systick_Init();
 	UB_TIMER2_Init_FRQ( 100 );
 	UB_TIMER5_Init_FRQ( 10000 );
 
@@ -92,7 +100,7 @@ int main(void)
 	UB_TIMER5_Start();
 
 
-	UB_DigOut_Lo(DOUT_PB7);	// Set PB7 low to start DCF module
+	UB_DigOut_Lo(DOUT_PB7);	// Set ground for LDR
 	UB_DigOut_Lo(DOUT_PC9);	// Set PC9 low to start DCF module
 
 
@@ -101,11 +109,13 @@ int main(void)
 		if ( irmp_get_data( &irData ) )
 			ProcessIrDataPacket( irData );
 
-		// Read Ambient brightness
-		int ambientBrightness = UB_ADC1_SINGLE_Read( ADC_PA1 );
-
-
-
+		// Read Ambient brightness and set LED brightness
+		ambientBrightnessCurrent = SlidingAverageOnLastValues( UB_ADC1_SINGLE_Read( ADC_PA1 ) );
+		int brightnessToSet = 100.0 * GetBrightnessFactor( ambientBrightnessPoints, ambientBrightnessLedDimmingFactors, ambientBrightnessCurrent );
+		if ( brightnessToSet < LED_BRIGHTNESS_OFF_THRESHOLD )
+			WC_DisableAll();
+		else
+			WC_SetBrightness( brightnessToSet );
 	}
 
 }
