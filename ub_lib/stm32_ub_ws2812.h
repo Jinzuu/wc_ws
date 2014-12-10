@@ -88,10 +88,10 @@
 //   CH3 : [PB0, PC8]
 //   CH4 : [PB1, PC9] 
 //--------------------------------------------------------------
-#define  WS2812_CH1_CLOCK    RCC_AHB1Periph_GPIOC
-#define  WS2812_CH1_PORT     GPIOC
-#define  WS2812_CH1_PIN      GPIO_Pin_6 
-#define  WS2812_CH1_SOURCE   GPIO_PinSource6 
+#define  WS2812_CH1_CLOCK    RCC_AHB1Periph_GPIOB
+#define  WS2812_CH1_PORT     GPIOB
+#define  WS2812_CH1_PIN      GPIO_Pin_4
+#define  WS2812_CH1_SOURCE   GPIO_PinSource4
 
 #define  WS2812_CH2_CLOCK    RCC_AHB1Periph_GPIOB
 #define  WS2812_CH2_PORT     GPIOB
@@ -255,17 +255,24 @@ typedef struct {
 //      
 //   nach jedem Frame von n-LEDs kommt eine Pause von >= 50us
 //
-// Grundfrequenz (TIM3) = 2*APB1 (APB1=42MHz) => TIM_CLK=84MHz
+// Grundfrequenz (TIM3) = 2*APB1 (APB1=24MHz) => TIM_CLK=48MHz
 // periode   : 0 bis 0xFFFF
 // prescale  : 0 bis 0xFFFF
 //
 // PWM-Frq = TIM_CLK/(periode+1)/(vorteiler+1)
-//-------------------------------------------------------------- 
-#define  WS2812_TIM_PRESCALE    0  // F_T3  = 84 MHz (11.9ns)
-#define  WS2812_TIM_PERIODE   104  // F_PWM = 80 kHz (1.25us)
+//--------------------------------------------------------------
+// old 48 MHz values
+//#define  WS2812_TIM_PRESCALE    0  // F_T3  = 84 MHz (11.9ns)
+//#define  WS2812_TIM_PERIODE   104  // F_PWM = 80 kHz (1.25us)
+//
+//#define  WS2812_LO_TIME        29  // 29 * 11.9ns = 0.34us
+//#define  WS2812_HI_TIME        76  // 76 * 11.9ns = 0.90us
+// New 48 Mhz values
+#define  WS2812_TIM_PRESCALE    0  	// F_T3  = 48 MHz (20.8333ns)
+#define  WS2812_TIM_PERIODE   	59	// F_PWM = 80 kHz (1.25us)
 
-#define  WS2812_LO_TIME        29  // 29 * 11.9ns = 0.34us
-#define  WS2812_HI_TIME        76  // 76 * 11.9ns = 0.90us
+#define  WS2812_LO_TIME        17  // 17 * 20.83ns = 0.354us
+#define  WS2812_HI_TIME        43  // 44 * 20.83ns = 0.896us
 
 
 
