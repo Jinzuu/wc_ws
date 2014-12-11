@@ -37,10 +37,10 @@ T_WC_CONFIGURATION WC_CONFIG[] = {
 		{WC_ELEMENT_NEUN_STUNDE, 102, 4, 1},
 		{WC_ELEMENT_UHR, 107, 3, 1},
 
-		{WC_ELEMENT_MIN_downRight, 110, 1, 1},
-		{WC_ELEMENT_MIN_downLeft, 111, 1, 1},
-		{WC_ELEMENT_MIN_upLeft, 112, 1, 1},
-		{WC_ELEMENT_MIN_upRight, 113, 1, 1},
+		{WC_ELEMENT_MIN_upRight, 110, 1, 1},
+		{WC_ELEMENT_MIN_downRight, 111, 1, 1},
+		{WC_ELEMENT_MIN_downLeft, 112, 1, 1},
+		{WC_ELEMENT_MIN_upLeft, 113, 1, 1},
 };
 
 WS2812_HSV_t WC_Colour = WS2812_HSV_COL_OFF;
@@ -101,4 +101,13 @@ void WC_Refresh()
 void WC_DisableAll()
 {
 	UB_WS2812_All_Led_HSV(WS2812_HSV_COL_OFF, 1);
+}
+
+void WC_DisableAllElements()
+{
+	// Iterate over all LEDs to set disabled
+	int i;
+	for( i=0; i<T_WC_ELEMENT_COUNT; ++i ) {
+		WC_CONFIG[i].ENABLED = 0;
+	}
 }

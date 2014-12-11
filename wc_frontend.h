@@ -29,13 +29,13 @@ typedef enum {
 	WC_ELEMENT_ZEHN_STUNDE,
 	WC_ELEMENT_NEUN_STUNDE,
 	WC_ELEMENT_UHR,
+	WC_ELEMENT_MIN_upRight,
 	WC_ELEMENT_MIN_downRight,
 	WC_ELEMENT_MIN_downLeft,
-	WC_ELEMENT_MIN_upLeft,
-	WC_ELEMENT_MIN_upRight
+	WC_ELEMENT_MIN_upLeft
 } T_WC_ELEMENT;
 
-#define T_WC_ELEMENT_COUNT 27
+#define T_WC_ELEMENT_COUNT 29
 
 typedef struct {
 	T_WC_ELEMENT ELEMENT_NAME;
@@ -50,8 +50,9 @@ void WC_SetElement(T_WC_ELEMENT element, int enable);
 void WC_SetColor(WS2812_HSV_t colour);
 WS2812_HSV_t WC_GetColor( void );
 void WC_SetBrightness(int brightness);
-void WC_Refresh();
+void WC_Refresh();	// Not to be called from IRQs, as it waits itself for an IRQ
 void WC_DisableAll();
+void WC_DisableAllElements();
 
 
 #endif

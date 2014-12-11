@@ -24,7 +24,7 @@
 //
 // falls ein Channel nicht benutzt wird => laenge auf 0 setzen
 //--------------------------------------------------------------
-#define  WS2812_LED_CH1_ANZ    114  // [CH1 an PC6] LED-Kette mit 5 LEDs
+#define  WS2812_LED_CH1_ANZ    114  // [CH1 an PB4] LED-Kette mit 114 LEDs
 #define  WS2812_LED_CH2_ANZ    0  // [CH2 an PB5] CH2 wird nicht benutzt
 #define  WS2812_LED_CH3_ANZ    0  // [CH3 an PB0] CH3 wird nicht benutzt
 #define  WS2812_LED_CH4_ANZ    0  // [CH4 an PB1] CH4 wird nicht benutzt
@@ -261,7 +261,7 @@ typedef struct {
 //
 // PWM-Frq = TIM_CLK/(periode+1)/(vorteiler+1)
 //--------------------------------------------------------------
-// old 48 MHz values
+// old values
 //#define  WS2812_TIM_PRESCALE    0  // F_T3  = 84 MHz (11.9ns)
 //#define  WS2812_TIM_PERIODE   104  // F_PWM = 80 kHz (1.25us)
 //
@@ -271,8 +271,8 @@ typedef struct {
 #define  WS2812_TIM_PRESCALE    0  	// F_T3  = 48 MHz (20.8333ns)
 #define  WS2812_TIM_PERIODE   	59	// F_PWM = 80 kHz (1.25us)
 
-#define  WS2812_LO_TIME        17  // 17 * 20.83ns = 0.354us
-#define  WS2812_HI_TIME        43  // 44 * 20.83ns = 0.896us
+#define  WS2812_LO_TIME        17  // 17 * 20.83ns = 0.354us (0.35 target)
+#define  WS2812_HI_TIME        43  // 44 * 20.83ns = 0.9us (0.9target)
 
 
 

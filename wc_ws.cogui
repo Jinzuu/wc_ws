@@ -14,13 +14,48 @@
 <folder appearance="1" expanded="2">
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
+<part id="1"/>
+<part id="2"/>
+<part id="3"/>
+<part id="4"/>
+<part id="5"/>
+<part id="6"/>
+<part id="7"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
 <editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="D:/# KRAM/kram/Elektronik/Word_Clock_LowCost/wc_ws/main.c" title="main.c" tooltip="D:/# KRAM/kram/Elektronik/Word_Clock_LowCost/wc_ws/main.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/wc_ws/main.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="5107" selectionTopPixel="2325"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="4335" selectionTopPixel="1620"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="stm32_ub_ws2812.h" partName="stm32_ub_ws2812.h" path="D:/# KRAM/kram/Elektronik/Word_Clock_LowCost/wc_ws/ub_lib/stm32_ub_ws2812.h" title="stm32_ub_ws2812.h" tooltip="D:/# KRAM/kram/Elektronik/Word_Clock_LowCost/wc_ws/ub_lib/stm32_ub_ws2812.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/wc_ws/ub_lib/stm32_ub_ws2812.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="20" selectionOffset="7712" selectionTopPixel="3030"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="startup_stm32f4xx.c" partName="startup_stm32f4xx.c" path="D:/# KRAM/kram/Elektronik/Word_Clock_LowCost/wc_ws/cmsis_boot/startup/startup_stm32f4xx.c" title="startup_stm32f4xx.c" tooltip="D:/# KRAM/kram/Elektronik/Word_Clock_LowCost/wc_ws/cmsis_boot/startup/startup_stm32f4xx.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/wc_ws/cmsis_boot/startup/startup_stm32f4xx.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="wc_TimeToMatrix.c" partName="wc_TimeToMatrix.c" path="D:/# KRAM/kram/Elektronik/Word_Clock_LowCost/wc_ws/wc_TimeToMatrix.c" title="wc_TimeToMatrix.c" tooltip="D:/# KRAM/kram/Elektronik/Word_Clock_LowCost/wc_ws/wc_TimeToMatrix.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/wc_ws/wc_TimeToMatrix.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3039" selectionTopPixel="885"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="startup_stm32f4xx.c" partName="startup_stm32f4xx.c" path="D:/# KRAM/kram/Elektronik/Word_Clock_LowCost/wc_ws/cmsis_boot/startup/startup_stm32f4xx.c" title="startup_stm32f4xx.c" tooltip="D:/# KRAM/kram/Elektronik/Word_Clock_LowCost/wc_ws/cmsis_boot/startup/startup_stm32f4xx.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/wc_ws/cmsis_boot/startup/startup_stm32f4xx.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="stm32_ub_ws2812.c" partName="stm32_ub_ws2812.c" path="D:/# KRAM/kram/Elektronik/Word_Clock_LowCost/wc_ws/ub_lib/stm32_ub_ws2812.c" title="stm32_ub_ws2812.c" tooltip="D:/# KRAM/kram/Elektronik/Word_Clock_LowCost/wc_ws/ub_lib/stm32_ub_ws2812.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/wc_ws/ub_lib/stm32_ub_ws2812.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="4783" selectionTopPixel="2280"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="wc_IrRemoteProcessing.c" partName="wc_IrRemoteProcessing.c" path="D:/# KRAM/kram/Elektronik/Word_Clock_LowCost/wc_ws/wc_IrRemoteProcessing.c" title="wc_IrRemoteProcessing.c" tooltip="D:/# KRAM/kram/Elektronik/Word_Clock_LowCost/wc_ws/wc_IrRemoteProcessing.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/wc_ws/wc_IrRemoteProcessing.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="12" selectionOffset="275" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="wc_frontend.h" partName="wc_frontend.h" path="D:/# KRAM/kram/Elektronik/Word_Clock_LowCost/wc_ws/wc_frontend.h" title="wc_frontend.h" tooltip="D:/# KRAM/kram/Elektronik/Word_Clock_LowCost/wc_ws/wc_frontend.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/wc_ws/wc_frontend.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1299" selectionTopPixel="191"/>
 </editor>
 </editors>
 <views>
@@ -33,10 +68,10 @@
 <viewState CommonNavigator.LINKING_ENABLED="0" horizontalPosition="0" org.eclipse.ui.navigator.resources.workingSets.showTopLevelWorkingSets="0" verticalPosition="0">
 <expanded>
 <element path="/wc_ws"/>
-<element path="/wc_ws/IRMP"/>
+<element path="/wc_ws/ub_lib"/>
 </expanded>
 <selection>
-<element path="/wc_ws/wc_TimeToMatrix.c"/>
+<element path="/wc_ws/wc_LightDependentBrightness.c"/>
 </selection>
 </viewState>
 </view>
@@ -48,8 +83,8 @@
 </view>
 <view id="org.eclipse.search.ui.views.SearchView" partName="Search">
 <viewState isPinned="false">
-<view IMemento.internal.id="org.eclipse.cdt.ui.pdomSearchViewPage" definitionColumnWidth="150" locationColumnWidth="300" matchColumnWidth="300" org.eclipse.search.lastActivation="1" org.eclipse.search.resultpage.layout="2" showEnclosingDefinitions="true"/>
 <view IMemento.internal.id="" org.eclipse.search.lastActivation="0"/>
+<view IMemento.internal.id="org.eclipse.cdt.ui.pdomSearchViewPage" definitionColumnWidth="150" locationColumnWidth="300" matchColumnWidth="300" org.eclipse.search.lastActivation="1" org.eclipse.search.resultpage.layout="2" showEnclosingDefinitions="true"/>
 </viewState>
 </view>
 <view id="org.eclipse.debug.ui.DebugView" partName="Debug">
@@ -260,164 +295,167 @@
 <workingSets/>
 <navigationHistory>
 <editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/wc_ws/wc_frontend.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/wc_ws/wc_frontend.h"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/wc_ws/wc_TimeToMatrix.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/wc_ws/ub_lib/stm32_ub_ws2812.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/wc_ws/main.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/wc_ws/wc_frontend.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/wc_ws/cmsis_boot/startup/startup_stm32f4xx.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/wc_ws/ub_lib/stm32_ub_ws2812.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/wc_ws/wc_TimeToMatrix.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/wc_ws/wc_IrRemoteProcessing.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/wc_ws/wc_LightDependentBrightness.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/wc_ws/ub_lib/stm32_ub_ws2812.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/wc_ws/wc_frontend.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/wc_ws/ub_lib/stm32_ub_tim2.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/wc_ws/wc_frontend.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/wc_ws/wc_frontend.c"/>
 </editors>
-<item historyLabel="wc_frontend.h" index="1">
-<position info="not_deleted" x="637" y="0"/>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="5987" y="0"/>
 </item>
-<item historyLabel="wc_frontend.c" index="0">
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="6014" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="6085" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
 <position/>
 </item>
-<item historyLabel="wc_frontend.h" index="1">
-<position info="not_deleted" x="637" y="0"/>
+<item historyLabel="wc_frontend.c" index="1">
+<position info="not_deleted" x="2167" y="10"/>
 </item>
-<item historyLabel="wc_frontend.c" index="0">
+<item historyLabel="main.c" index="0">
 <position/>
 </item>
-<item historyLabel="wc_frontend.h" index="1">
-<position info="not_deleted" x="326" y="0"/>
+<item historyLabel="stm32_ub_ws2812.h" index="3">
+<position info="not_deleted" x="10007" y="0"/>
 </item>
-<item historyLabel="wc_frontend.c" index="0">
+<item historyLabel="wc_TimeToMatrix.c" index="4">
+<position info="not_deleted" x="278" y="0"/>
+</item>
+<item historyLabel="startup_stm32f4xx.c" index="2">
+<position info="not_deleted" x="14795" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="3123" y="0"/>
+</item>
+<item historyLabel="wc_TimeToMatrix.c" index="4">
+<position info="not_deleted" x="2112" y="0"/>
+</item>
+<item historyLabel="wc_TimeToMatrix.c" index="4">
+<position info="not_deleted" x="2569" y="0"/>
+</item>
+<item historyLabel="wc_TimeToMatrix.c" index="4">
+<position info="not_deleted" x="2617" y="0"/>
+</item>
+<item historyLabel="wc_TimeToMatrix.c" index="4">
+<position info="not_deleted" x="3039" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="5515" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="5704" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="6139" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="6194" y="19"/>
+</item>
+<item historyLabel="wc_IrRemoteProcessing.c" index="5">
+<position info="not_deleted" x="319" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="5566" y="19"/>
+</item>
+<item historyLabel="wc_IrRemoteProcessing.c" index="5">
+<position info="not_deleted" x="275" y="12"/>
+</item>
+<item historyLabel="stm32_ub_ws2812.h" index="3">
+<position info="not_deleted" x="7712" y="20"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="5566" y="19"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="6251" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="4671" y="0"/>
+</item>
+<item historyLabel="stm32_ub_ws2812.c" index="6">
+<position info="not_deleted" x="4646" y="0"/>
+</item>
+<item historyLabel="wc_frontend.c" index="7">
+<position info="not_deleted" x="2332" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="6179" y="0"/>
+</item>
+<item historyLabel="stm32_ub_tim2.c" index="8">
+<position info="not_deleted" x="5302" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="6179" y="0"/>
+</item>
+<item historyLabel="stm32_ub_tim2.c" index="8">
+<position info="not_deleted" x="5302" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="6258" y="0"/>
+</item>
+<item historyLabel="wc_frontend.c" index="7">
+<position info="not_deleted" x="2332" y="0"/>
+</item>
+<item historyLabel="stm32_ub_ws2812.c" index="6">
+<position info="not_deleted" x="4783" y="0"/>
+</item>
+<item historyLabel="stm32_ub_tim2.c" index="8">
+<position info="not_deleted" x="5340" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
 <position/>
 </item>
-<item historyLabel="wc_frontend.h" index="1">
-<position info="not_deleted" x="326" y="0"/>
+<item historyLabel="wc_frontend.c" index="7">
+<position info="not_deleted" x="2167" y="10"/>
 </item>
-<item historyLabel="wc_frontend.c" index="0">
-<position/>
+<item historyLabel="wc_frontend.h" index="9">
+<position info="not_deleted" x="1299" y="0"/>
 </item>
-<item historyLabel="wc_frontend.h" index="1">
-<position info="not_deleted" x="288" y="0"/>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="3056" y="18"/>
 </item>
-<item historyLabel="wc_frontend.c" index="0">
-<position/>
+<item historyLabel="stm32_ub_tim2.c" index="8">
+<position info="not_deleted" x="5261" y="0"/>
 </item>
-<item historyLabel="wc_frontend.h" index="1">
-<position info="not_deleted" x="474" y="0"/>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="5293" y="0"/>
 </item>
-<item historyLabel="wc_frontend.c" index="0">
-<position/>
-</item>
-<item historyLabel="wc_frontend.h" index="1">
-<position info="not_deleted" x="526" y="0"/>
-</item>
-<item historyLabel="wc_frontend.c" index="0">
-<position/>
-</item>
-<item historyLabel="wc_frontend.h" index="1">
-<position info="not_deleted" x="607" y="0"/>
-</item>
-<item historyLabel="wc_frontend.c" index="0">
-<position/>
-</item>
-<item historyLabel="wc_frontend.h" index="1">
-<position info="not_deleted" x="637" y="0"/>
-</item>
-<item historyLabel="wc_frontend.c" index="0">
-<position/>
-</item>
-<item historyLabel="wc_frontend.h" index="1">
-<position info="not_deleted" x="637" y="0"/>
-</item>
-<item historyLabel="wc_frontend.c" index="0">
-<position/>
-</item>
-<item historyLabel="wc_frontend.h" index="1">
-<position info="not_deleted" x="637" y="0"/>
-</item>
-<item historyLabel="wc_frontend.c" index="0">
-<position/>
-</item>
-<item historyLabel="wc_frontend.h" index="1">
-<position info="not_deleted" x="637" y="0"/>
-</item>
-<item historyLabel="wc_frontend.c" index="0">
-<position/>
-</item>
-<item historyLabel="wc_frontend.h" index="1">
-<position info="not_deleted" x="637" y="0"/>
-</item>
-<item historyLabel="wc_frontend.c" index="0">
-<position/>
-</item>
-<item historyLabel="wc_frontend.h" index="1">
-<position info="not_deleted" x="637" y="0"/>
-</item>
-<item historyLabel="wc_frontend.c" index="0">
-<position/>
-</item>
-<item historyLabel="wc_TimeToMatrix.c" index="2">
+<item historyLabel="startup_stm32f4xx.c" index="2">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="wc_TimeToMatrix.c" index="2">
-<position info="not_deleted" x="159" y="13"/>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="3247" y="0"/>
 </item>
-<item historyLabel="wc_frontend.c" index="0">
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="4671" y="0"/>
+</item>
+<item historyLabel="wc_frontend.c" index="10">
 <position/>
 </item>
-<item historyLabel="stm32_ub_ws2812.c" index="3">
+<item historyLabel="wc_frontend.c" index="10">
 <position/>
 </item>
-<item historyLabel="wc_frontend.c" index="0">
-<position/>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="3672" y="11"/>
 </item>
-<item historyLabel="stm32_ub_ws2812.c" index="3">
-<position info="not_deleted" x="8472" y="21"/>
+<item historyLabel="wc_frontend.c" index="10">
+<position info="not_deleted" x="1875" y="11"/>
 </item>
-<item historyLabel="wc_frontend.c" index="0">
-<position/>
+<item historyLabel="wc_frontend.c" index="10">
+<position info="not_deleted" x="1863" y="0"/>
 </item>
-<item historyLabel="stm32_ub_ws2812.c" index="3">
-<position info="not_deleted" x="8472" y="21"/>
-</item>
-<item historyLabel="wc_TimeToMatrix.c" index="2">
-<position info="not_deleted" x="159" y="13"/>
-</item>
-<item historyLabel="wc_frontend.c" index="0">
-<position info="not_deleted" x="2339" y="13"/>
-</item>
-<item historyLabel="wc_TimeToMatrix.c" index="2">
-<position info="not_deleted" x="159" y="13"/>
-</item>
-<item historyLabel="main.c" index="4">
-<position info="not_deleted" x="1204" y="0"/>
-</item>
-<item historyLabel="wc_TimeToMatrix.c" index="2">
-<position info="not_deleted" x="159" y="13"/>
-</item>
-<item historyLabel="main.c" index="4">
-<position info="not_deleted" x="1204" y="0"/>
-</item>
-<item historyLabel="wc_frontend.h" index="1">
-<position info="not_deleted" x="637" y="0"/>
-</item>
-<item historyLabel="main.c" index="4">
-<position info="not_deleted" x="1204" y="0"/>
-</item>
-<item historyLabel="stm32_ub_ws2812.h" index="5">
-<position info="not_deleted" x="3126" y="0"/>
-</item>
-<item historyLabel="main.c" index="4">
-<position info="not_deleted" x="1204" y="0"/>
-</item>
-<item historyLabel="wc_IrRemoteProcessing.c" index="6">
-<position info="not_deleted" x="1175" y="0"/>
-</item>
-<item historyLabel="main.c" index="4">
-<position info="not_deleted" x="1204" y="0"/>
-</item>
-<item historyLabel="wc_LightDependentBrightness.c" index="7">
-<position info="not_deleted" x="4672" y="0"/>
-</item>
-<item active="true" historyLabel="main.c" index="4">
-<position info="not_deleted" x="1204" y="0"/>
+<item active="true" historyLabel="main.c" index="0">
+<position info="not_deleted" x="3672" y="11"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -429,14 +467,26 @@
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="wc_frontend.c" tooltip="wc_ws/wc_frontend.c">
 <persistable path="/wc_ws/wc_frontend.c"/>
 </file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="wc_frontend.h" tooltip="wc_ws/wc_frontend.h">
+<persistable path="/wc_ws/wc_frontend.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="wc_IrRemoteProcessing.c" tooltip="wc_ws/wc_IrRemoteProcessing.c">
+<persistable path="/wc_ws/wc_IrRemoteProcessing.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="wc_LightDependentBrightness.c" tooltip="wc_ws/wc_LightDependentBrightness.c">
+<persistable path="/wc_ws/wc_LightDependentBrightness.c"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32_ub_ws2812.c" tooltip="wc_ws/ub_lib/stm32_ub_ws2812.c">
 <persistable path="/wc_ws/ub_lib/stm32_ub_ws2812.c"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="wc_TimeToMatrix.c" tooltip="wc_ws/wc_TimeToMatrix.c">
 <persistable path="/wc_ws/wc_TimeToMatrix.c"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="wc_frontend.h" tooltip="wc_ws/wc_frontend.h">
-<persistable path="/wc_ws/wc_frontend.h"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="startup_stm32f4xx.c" tooltip="wc_ws/cmsis_boot/startup/startup_stm32f4xx.c">
+<persistable path="/wc_ws/cmsis_boot/startup/startup_stm32f4xx.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32_ub_ws2812.h" tooltip="wc_ws/ub_lib/stm32_ub_ws2812.h">
+<persistable path="/wc_ws/ub_lib/stm32_ub_ws2812.h"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f4xx.h" tooltip="wc_ws/cmsis_boot/stm32f4xx.h">
 <persistable path="/wc_ws/cmsis_boot/stm32f4xx.h"/>
@@ -450,26 +500,14 @@
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f4xx_tim.h" tooltip="wc_ws/cmsis_lib/include/stm32f4xx_tim.h">
 <persistable path="/wc_ws/cmsis_lib/include/stm32f4xx_tim.h"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32_ub_ws2812.h" tooltip="wc_ws/ub_lib/stm32_ub_ws2812.h">
-<persistable path="/wc_ws/ub_lib/stm32_ub_ws2812.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="startup_stm32f4xx.c" tooltip="wc_ws/cmsis_boot/startup/startup_stm32f4xx.c">
-<persistable path="/wc_ws/cmsis_boot/startup/startup_stm32f4xx.c"/>
-</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="wc_LightDependentBrightness.h" tooltip="wc_ws/wc_LightDependentBrightness.h">
 <persistable path="/wc_ws/wc_LightDependentBrightness.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="wc_IrRemoteProcessing.c" tooltip="wc_ws/wc_IrRemoteProcessing.c">
-<persistable path="/wc_ws/wc_IrRemoteProcessing.c"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="CommonMath.h" tooltip="wc_ws/CommonMath.h">
 <persistable path="/wc_ws/CommonMath.h"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="CommonMath.c" tooltip="wc_ws/CommonMath.c">
 <persistable path="/wc_ws/CommonMath.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="wc_IrRemoteProcessing.h" tooltip="wc_ws/wc_IrRemoteProcessing.h">
-<persistable path="/wc_ws/wc_IrRemoteProcessing.h"/>
 </file>
 </mruList>
 </workbench>

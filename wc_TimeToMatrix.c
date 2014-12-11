@@ -3,7 +3,7 @@
 // Function uses rtc time to set the wc_frontend
 void SetWordMatrix( RTC_t time ){
 	// Disable all old active LED elements
-	WC_DisableAll();
+	WC_DisableAllElements();
 
 	int hourToShow = time.std % 12;
 	int minuteToshow = time.min;

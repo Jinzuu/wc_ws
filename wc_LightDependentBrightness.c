@@ -7,10 +7,10 @@
  *****************************************/
 // Ambient brightness support points in ADC values (need to be in ascending order)
 // Ambient brightness tests: bright light leads to about 60 as min ADC value, darkness to about 4095 (max ADC value)
-float ambientBrightnessPoints[N_AMBIENT_BRIGHTNESS_CONVERSION_PTS] = {32, 512, 1500, 2500, 3300, 	3700, 	3900, 4095};
+float ambientBrightnessPoints[N_AMBIENT_BRIGHTNESS_CONVERSION_PTS] = 			{32, 512, 1500, 2500, 3300, 3700, 	3900, 4095};
 
 // LED dimming factors for above ambient brightness points (needs to be monotonically decreasing for AdjustBrightnessArray)
-float ambientBrightnessLedDimmingFactors[N_AMBIENT_BRIGHTNESS_CONVERSION_PTS] = {1.0, 0.8, 0.5, 0.1, 0.04, 	0.01, 	0.003, 0.001};
+float ambientBrightnessLedDimmingFactors[N_AMBIENT_BRIGHTNESS_CONVERSION_PTS] = {1.0, 0.8, 0.5, 0.3, 0.09, 	0.05, 	0.03, 0.01};
 
 // current ambient brightness in ADC reads
 float ambientBrightnessCurrent = 0;

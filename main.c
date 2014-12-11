@@ -73,6 +73,8 @@ volatile BitAction gDcfInputState = Bit_RESET;
 volatile BitAction gDcfRxWasSuccesful = Bit_RESET;
 volatile BitAction gWordMatrixWasSetForTheFirstTime = Bit_RESET;
 
+volatile BitAction gWcIsToBeRefreshed = Bit_RESET;
+
 // IR globals
 IRMP_DATA irData;
 
@@ -102,9 +104,12 @@ int main(void)
 
 	// Note: code needs to be reconfigured for Nucleo Board (Frequency of 96 MHz should also be checked)
 	UB_WS2812_Init();
-	WC_SetColor(WS2812_HSV_COL_WHITE);
-	WC_SetElement(WC_ELEMENT_ES, 1);
+	WC_DisableAllElements();
+	WC_SetColor( WS2812_HSV_COL_WHITE );
+	WC_SetBrightness( 10 );
 	WC_Refresh();
+
+	UB_Systick_Pause_ms(1000);
 
 	// Indicate successful booting
 	UB_Led_On( LED_GREEN );
@@ -121,17 +126,24 @@ int main(void)
 
 
 	while(1) {
+		if ( gWcIsToBeRefreshed == Bit_SET ){
+			WC_Refresh();
+			gWcIsToBeRefreshed == Bit_RESET;
+		}
+
 		// Handle IR remote
 		if ( irmp_get_data( &irData ) )
 			ProcessIrDataPacket( irData );
 
 		// Read Ambient brightness and set LED brightness
-		ambientBrightnessCurrent = SlidingAverageOnLastValues( UB_ADC1_SINGLE_Read( ADC_PA1 ) );
-		int brightnessToSet = 100.0 * GetBrightnessFactor( ambientBrightnessPoints, ambientBrightnessLedDimmingFactors, ambientBrightnessCurrent );
-		if ( brightnessToSet < LED_BRIGHTNESS_OFF_THRESHOLD )
-			WC_DisableAll();
-		else
-			WC_SetBrightness( brightnessToSet );
+		if ( gWordMatrixWasSetForTheFirstTime == Bit_SET ){
+			ambientBrightnessCurrent = SlidingAverageOnLastValues( UB_ADC1_SINGLE_Read( ADC_PA1 ) );
+			int brightnessToSet = 100.0 * GetBrightnessFactor( ambientBrightnessPoints, ambientBrightnessLedDimmingFactors, ambientBrightnessCurrent );
+			if ( brightnessToSet < LED_BRIGHTNESS_OFF_THRESHOLD )
+				WC_DisableAll();
+			else
+				WC_SetBrightness( brightnessToSet );
+		}
 	}
 
 }
@@ -158,23 +170,30 @@ void UB_TIMER2_ISR_CallBack( void )
 
 		// Set word matrix directly after first DCF RX
 		if ( gWordMatrixWasSetForTheFirstTime == Bit_RESET ){
+			WC_SetElement(WC_ELEMENT_ES, 1);
 			SetWordMatrix( UB_RTC_GetClock(RTC_DEC) );
 			gWordMatrixWasSetForTheFirstTime = Bit_SET;
+			gCurrentMatrixColor = WS2812_HSV_COL_WHITE;
 		}
 	}
 	// Indicate status of DCF reception by FUNK in red/green while DCF RX in progress
 	if ( gDcfRxWasSuccesful == Bit_RESET ){
+		WC_DisableAllElements();
 		WC_SetElement( WC_ELEMENT_FUNK, 1 );
 		if ( dcf77state == dcf77_RxStateUnkown )
 			WC_SetColor( WS2812_HSV_COL_RED );
 		else if ( dcf77state == dcf77_RxStateGood )
 			WC_SetColor( WS2812_HSV_COL_GREEN );
+
+		WC_SetBrightness( 50 );
 		WC_SetElement( WC_ELEMENT_FUNK, 1 );
+		gWcIsToBeRefreshed = Bit_SET;
 	}
 	else{
 		// Disable FUNK and set normal color
 		WC_SetElement( WC_ELEMENT_FUNK, 0 );
 		WC_SetColor( gCurrentMatrixColor );
+		gWcIsToBeRefreshed = Bit_SET;
 	}
 }
 
