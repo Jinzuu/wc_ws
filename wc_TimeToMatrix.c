@@ -36,12 +36,12 @@ void SetWordMatrix( RTC_t time ){
 	// set ZWANZIG
 	if ( ( minuteToshow >= 20 && minuteToshow < 25 )	// zwanzig nach voll
 			|| ( minuteToshow >= 40 && minuteToshow < 45 ) )	// zwanzig vor voll
-		WC_SetElement( WC_ELEMENT_ZWANZIG, 1 );
+		WC_SetElement( WC_ELEMENT_ZWANZIG_MINUTE, 1 );
 
 	// set VIERTEL
 	if ( ( minuteToshow >= 15 && minuteToshow < 20 )
 			|| ( minuteToshow >= 45 && minuteToshow < 50 ) )
-		WC_SetElement( WC_ELEMENT_VIERTEL, 1 );
+		WC_SetElement( WC_ELEMENT_VIERTEL_MINUTE, 1 );
 
 	// set HALB
 	if ( minuteToshow >= 25 && minuteToshow < 40 )
@@ -62,7 +62,10 @@ void SetWordMatrix( RTC_t time ){
 	switch ( hourToShow )
 	{
 	case 1:
-		WC_SetElement( WC_ELEMENT_EINS_STUNDE, 1 );
+		if ( minuteToshow < 5 )
+			WC_SetElement( WC_ELEMENT_EIN_STUNDE, 1 );
+		else
+			WC_SetElement( WC_ELEMENT_EINS_STUNDE, 1 );
 		break;
 	case 2:
 		WC_SetElement( WC_ELEMENT_ZWEI_STUNDE, 1 );

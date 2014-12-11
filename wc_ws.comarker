@@ -16,8 +16,8 @@
 <attrib name="registered" value="true"/>
 <attrib name="path" value="/wc_ws/ub_lib/stm32_ub_tim2.c"/>
 <attrib name="org.eclipse.cdt.debug.core.sourceHandle" value="D:\# KRAM\kram\Elektronik\Word_Clock_LowCost\wc_ws\ub_lib\stm32_ub_tim2.c"/>
-<attrib name="org.eclipse.cdt.debug.core.ignoreCount" value="0"/>
 <attrib name="org.eclipse.debug.core.enabled" value="true"/>
+<attrib name="org.eclipse.cdt.debug.core.ignoreCount" value="0"/>
 </marker>
 </breakpoint>
 </breakpoints>

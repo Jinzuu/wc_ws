@@ -162,18 +162,18 @@ void UB_TIMER2_ISR_CallBack( void )
 			gWordMatrixWasSetForTheFirstTime = Bit_SET;
 		}
 	}
-	// Indicate status of DCF reception by top left LED in red/green while DCF RX in progress
+	// Indicate status of DCF reception by FUNK in red/green while DCF RX in progress
 	if ( gDcfRxWasSuccesful == Bit_RESET ){
-		WC_SetElement( WC_ELEMENT_MIN_4, 1 );
+		WC_SetElement( WC_ELEMENT_FUNK, 1 );
 		if ( dcf77state == dcf77_RxStateUnkown )
 			WC_SetColor( WS2812_HSV_COL_RED );
 		else if ( dcf77state == dcf77_RxStateGood )
 			WC_SetColor( WS2812_HSV_COL_GREEN );
-		WC_SetElement( WC_ELEMENT_MIN_4, 1 );
+		WC_SetElement( WC_ELEMENT_FUNK, 1 );
 	}
 	else{
-		// Disable top left led and set normal color
-		WC_SetElement( WC_ELEMENT_MIN_4, 0 );
+		// Disable FUNK and set normal color
+		WC_SetElement( WC_ELEMENT_FUNK, 0 );
 		WC_SetColor( gCurrentMatrixColor );
 	}
 }
