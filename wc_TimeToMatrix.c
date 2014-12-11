@@ -13,13 +13,13 @@ void SetWordMatrix( RTC_t time ){
 	// Set minute LED elements
 	// Set single LED dots
 	if( minuteToshow % 5 != 0 )
-		WC_SetElement( WC_ELEMENT_MIN_1, 1 );
+		WC_SetElement( WC_ELEMENT_MIN_upRight, 1 );
 	if( minuteToshow % 5 > 1 )
-		WC_SetElement( WC_ELEMENT_MIN_2, 1 );
+		WC_SetElement( WC_ELEMENT_MIN_downRight, 1 );
 	if( minuteToshow % 5 > 2 )
-		WC_SetElement( WC_ELEMENT_MIN_3, 1 );
+		WC_SetElement( WC_ELEMENT_MIN_downLeft, 1 );
 	if( minuteToshow % 5 > 3 )
-		WC_SetElement( WC_ELEMENT_MIN_4, 1 );
+		WC_SetElement( WC_ELEMENT_MIN_upLeft, 1 );
 
 	// set FUENF
 	if ( ( minuteToshow >= 5 && minuteToshow < 10 ) // fuenf nach voll

@@ -20,7 +20,7 @@
 </editorArea>
 <editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="D:/# KRAM/kram/Elektronik/Word_Clock_LowCost/wc_ws/main.c" title="main.c" tooltip="D:/# KRAM/kram/Elektronik/Word_Clock_LowCost/wc_ws/main.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/wc_ws/main.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="5444" selectionTopPixel="2235"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="5107" selectionTopPixel="2325"/>
 </editor>
 </editors>
 <views>
