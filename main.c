@@ -57,13 +57,13 @@
 
 // ##### WS2812 LED STRIPE #####
 // PB4 - PWM Out for Led Control (Ext. Pullup to 5V needed!) (marked as PWM/D5 on board)
-// 		Note: Suggestion for 5V Pullup: Take a 4.7k Wired Resistor and stick it into top left Arduino
-//				connector VIN and into bottom right arduino connector PWM/D5 (should be just ok in length)
+// 		Note: Suggestion for 5V Pullup: Connect to E5V by 4.7k resistor on bottom side
 
 /*****************************************
  *  DEFINES
  *****************************************/
 #define LED_BRIGHTNESS_OFF_THRESHOLD	1	// in percent 1...100
+#define DCF_ACCEPTED_AGE_IN_HOURS		96
 
 /*****************************************
  *  GLOBALS
@@ -71,13 +71,23 @@
 
 volatile BitAction gDcfInputState = Bit_RESET;
 volatile BitAction gDcfRxWasSuccesful = Bit_RESET;
-volatile BitAction gWordMatrixWasSetForTheFirstTime = Bit_RESET;
+// If true, time is deemed invalid and word matrix is disabled
+volatile BitAction gDcfRxInProgress = Bit_SET;
+// Stores the last time a DCF Rx was successful. If too old, time is deemed invalid
+RTC_t gLastSuccessfulDcfRxTime;
 
+// As Refresh of word matrix depends on an IRQ, it is not possible to call it in an IRQ. Use this instead
 volatile BitAction gWcIsToBeRefreshed = Bit_RESET;
+
 
 // IR globals
 IRMP_DATA irData;
 
+/*****************************************
+ *  Function declarations
+ *****************************************/
+// Returns 1 (BIT_SET) if time is not older than the DCF_ACCEPTED_AGE_IN_HOURS
+BitAction DcfTimeWasSetRecently( void );
 
 /*****************************************
  *  MAIN
@@ -126,17 +136,22 @@ int main(void)
 
 
 	while(1) {
+		// Handle word matrix refreshes
 		if ( gWcIsToBeRefreshed == Bit_SET ){
 			WC_Refresh();
 			gWcIsToBeRefreshed == Bit_RESET;
 		}
+
+		// Check if update of time is necessary
+		if ( DcfTimeWasSetRecently() == Bit_RESET )
+			gDcfRxInProgress = Bit_SET;
 
 		// Handle IR remote
 		if ( irmp_get_data( &irData ) )
 			ProcessIrDataPacket( irData );
 
 		// Read Ambient brightness and set LED brightness
-		if ( gWordMatrixWasSetForTheFirstTime == Bit_SET ){
+		if ( gDcfRxInProgress == Bit_RESET ){
 			ambientBrightnessCurrent = SlidingAverageOnLastValues( UB_ADC1_SINGLE_Read( ADC_PA1 ) );
 			int brightnessToSet = 100.0 * GetBrightnessFactor( ambientBrightnessPoints, ambientBrightnessLedDimmingFactors, ambientBrightnessCurrent );
 			if ( brightnessToSet < LED_BRIGHTNESS_OFF_THRESHOLD )
@@ -164,15 +179,17 @@ void UB_TIMER2_ISR_CallBack( void )
 	dcf77_SignalState_t dcf77state = Dcf77_ProcessSignal( gDcfInputState );
 	if ( dcf77state == dcf77_TimeRxSuccess )
 	{
-		UB_RTC = Dcf77_GetTime();
+		gLastSuccessfulDcfRxTime = Dcf77_GetTime();
+		UB_RTC = gLastSuccessfulDcfRxTime;
 		UB_RTC_SetClock( RTC_DEC );
 		gDcfRxWasSuccesful = Bit_SET;
 
+
 		// Set word matrix directly after first DCF RX
-		if ( gWordMatrixWasSetForTheFirstTime == Bit_RESET ){
+		if ( gDcfRxInProgress == Bit_SET ){
 			WC_SetElement(WC_ELEMENT_ES, 1);
 			SetWordMatrix( UB_RTC_GetClock(RTC_DEC) );
-			gWordMatrixWasSetForTheFirstTime = Bit_SET;
+			gDcfRxInProgress = Bit_RESET;
 			gCurrentMatrixColor = WS2812_HSV_COL_WHITE;
 		}
 	}
@@ -234,4 +251,42 @@ void WC_OneMinute_ISR()
 	} else {
 		WC_OneMinute_ISR_Count++;
 	}
+}
+
+/*****************************************
+ *  Function definitions
+ *****************************************/
+
+// Returns 1 (BIT_SET) if time is not older than the DCF_ACCEPTED_AGE_IN_HOURS
+BitAction DcfTimeWasSetRecently( void ){
+	RTC_t currentTime = UB_RTC_GetClock(RTC_DEC);
+	int timeDifferenceInHours = currentTime.std - gLastSuccessfulDcfRxTime.std;
+	int timeDifferenceInDays = currentTime.tag - gLastSuccessfulDcfRxTime.tag;
+	if ( timeDifferenceInDays < 0 ){
+		switch ( gLastSuccessfulDcfRxTime.monat ) {
+			case 2:	// Februar
+				timeDifferenceInDays += 28;
+				break;
+			case 4:	// April
+				timeDifferenceInDays += 30;
+				break;
+			case 6:	// Juni
+				timeDifferenceInDays += 30;
+				break;
+			case 9:	// September
+				timeDifferenceInDays += 30;
+				break;
+			case 11:// November
+				timeDifferenceInDays += 30;
+				break;
+			default:// Rest
+				timeDifferenceInDays += 31;
+				break;
+		}
+	}
+
+	timeDifferenceInHours += timeDifferenceInDays * 24;
+	if ( timeDifferenceInHours < DCF_ACCEPTED_AGE_IN_HOURS )
+		return Bit_SET;
+	return Bit_RESET;
 }

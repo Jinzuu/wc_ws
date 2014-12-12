@@ -27,7 +27,7 @@
 </editorArea>
 <editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="D:/# KRAM/kram/Elektronik/Word_Clock_LowCost/wc_ws/main.c" title="main.c" tooltip="D:/# KRAM/kram/Elektronik/Word_Clock_LowCost/wc_ws/main.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/wc_ws/main.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="4335" selectionTopPixel="1620"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="4838" selectionTopPixel="1890"/>
 </editor>
 <editor id="org.eclipse.cdt.ui.editor.CEditor" name="stm32_ub_ws2812.h" partName="stm32_ub_ws2812.h" path="D:/# KRAM/kram/Elektronik/Word_Clock_LowCost/wc_ws/ub_lib/stm32_ub_ws2812.h" title="stm32_ub_ws2812.h" tooltip="D:/# KRAM/kram/Elektronik/Word_Clock_LowCost/wc_ws/ub_lib/stm32_ub_ws2812.h" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/wc_ws/ub_lib/stm32_ub_ws2812.h"/>
@@ -83,8 +83,8 @@
 </view>
 <view id="org.eclipse.search.ui.views.SearchView" partName="Search">
 <viewState isPinned="false">
-<view IMemento.internal.id="" org.eclipse.search.lastActivation="0"/>
 <view IMemento.internal.id="org.eclipse.cdt.ui.pdomSearchViewPage" definitionColumnWidth="150" locationColumnWidth="300" matchColumnWidth="300" org.eclipse.search.lastActivation="1" org.eclipse.search.resultpage.layout="2" showEnclosingDefinitions="true"/>
+<view IMemento.internal.id="" org.eclipse.search.lastActivation="0"/>
 </viewState>
 </view>
 <view id="org.eclipse.debug.ui.DebugView" partName="Debug">
@@ -296,81 +296,32 @@
 <navigationHistory>
 <editors>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/wc_ws/main.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/wc_ws/wc_frontend.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/wc_ws/cmsis_boot/startup/startup_stm32f4xx.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/wc_ws/ub_lib/stm32_ub_ws2812.h"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/wc_ws/wc_TimeToMatrix.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/wc_ws/wc_IrRemoteProcessing.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/wc_ws/ub_lib/stm32_ub_ws2812.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/wc_ws/wc_frontend.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/wc_ws/ub_lib/stm32_ub_tim2.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/wc_ws/wc_frontend.h"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/wc_ws/wc_frontend.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/wc_ws/ub_lib/stm32_ub_rtc.h"/>
 </editors>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="5987" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="6014" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="6085" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position/>
-</item>
-<item historyLabel="wc_frontend.c" index="1">
-<position info="not_deleted" x="2167" y="10"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position/>
-</item>
-<item historyLabel="stm32_ub_ws2812.h" index="3">
-<position info="not_deleted" x="10007" y="0"/>
-</item>
-<item historyLabel="wc_TimeToMatrix.c" index="4">
-<position info="not_deleted" x="278" y="0"/>
-</item>
-<item historyLabel="startup_stm32f4xx.c" index="2">
-<position info="not_deleted" x="14795" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="3123" y="0"/>
-</item>
-<item historyLabel="wc_TimeToMatrix.c" index="4">
-<position info="not_deleted" x="2112" y="0"/>
-</item>
-<item historyLabel="wc_TimeToMatrix.c" index="4">
-<position info="not_deleted" x="2569" y="0"/>
-</item>
-<item historyLabel="wc_TimeToMatrix.c" index="4">
-<position info="not_deleted" x="2617" y="0"/>
-</item>
-<item historyLabel="wc_TimeToMatrix.c" index="4">
-<position info="not_deleted" x="3039" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="5515" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="5704" y="0"/>
-</item>
 <item historyLabel="main.c" index="0">
 <position info="not_deleted" x="6139" y="0"/>
 </item>
 <item historyLabel="main.c" index="0">
 <position info="not_deleted" x="6194" y="19"/>
 </item>
-<item historyLabel="wc_IrRemoteProcessing.c" index="5">
+<item historyLabel="wc_IrRemoteProcessing.c" index="3">
 <position info="not_deleted" x="319" y="0"/>
 </item>
 <item historyLabel="main.c" index="0">
 <position info="not_deleted" x="5566" y="19"/>
 </item>
-<item historyLabel="wc_IrRemoteProcessing.c" index="5">
+<item historyLabel="wc_IrRemoteProcessing.c" index="3">
 <position info="not_deleted" x="275" y="12"/>
 </item>
-<item historyLabel="stm32_ub_ws2812.h" index="3">
+<item historyLabel="stm32_ub_ws2812.h" index="2">
 <position info="not_deleted" x="7712" y="20"/>
 </item>
 <item historyLabel="main.c" index="0">
@@ -382,55 +333,55 @@
 <item historyLabel="main.c" index="0">
 <position info="not_deleted" x="4671" y="0"/>
 </item>
-<item historyLabel="stm32_ub_ws2812.c" index="6">
+<item historyLabel="stm32_ub_ws2812.c" index="4">
 <position info="not_deleted" x="4646" y="0"/>
 </item>
-<item historyLabel="wc_frontend.c" index="7">
+<item historyLabel="wc_frontend.c" index="5">
 <position info="not_deleted" x="2332" y="0"/>
 </item>
 <item historyLabel="main.c" index="0">
 <position info="not_deleted" x="6179" y="0"/>
 </item>
-<item historyLabel="stm32_ub_tim2.c" index="8">
+<item historyLabel="stm32_ub_tim2.c" index="6">
 <position info="not_deleted" x="5302" y="0"/>
 </item>
 <item historyLabel="main.c" index="0">
 <position info="not_deleted" x="6179" y="0"/>
 </item>
-<item historyLabel="stm32_ub_tim2.c" index="8">
+<item historyLabel="stm32_ub_tim2.c" index="6">
 <position info="not_deleted" x="5302" y="0"/>
 </item>
 <item historyLabel="main.c" index="0">
 <position info="not_deleted" x="6258" y="0"/>
 </item>
-<item historyLabel="wc_frontend.c" index="7">
+<item historyLabel="wc_frontend.c" index="5">
 <position info="not_deleted" x="2332" y="0"/>
 </item>
-<item historyLabel="stm32_ub_ws2812.c" index="6">
+<item historyLabel="stm32_ub_ws2812.c" index="4">
 <position info="not_deleted" x="4783" y="0"/>
 </item>
-<item historyLabel="stm32_ub_tim2.c" index="8">
+<item historyLabel="stm32_ub_tim2.c" index="6">
 <position info="not_deleted" x="5340" y="0"/>
 </item>
 <item historyLabel="main.c" index="0">
 <position/>
 </item>
-<item historyLabel="wc_frontend.c" index="7">
+<item historyLabel="wc_frontend.c" index="5">
 <position info="not_deleted" x="2167" y="10"/>
 </item>
-<item historyLabel="wc_frontend.h" index="9">
+<item historyLabel="wc_frontend.h" index="7">
 <position info="not_deleted" x="1299" y="0"/>
 </item>
 <item historyLabel="main.c" index="0">
 <position info="not_deleted" x="3056" y="18"/>
 </item>
-<item historyLabel="stm32_ub_tim2.c" index="8">
+<item historyLabel="stm32_ub_tim2.c" index="6">
 <position info="not_deleted" x="5261" y="0"/>
 </item>
 <item historyLabel="main.c" index="0">
 <position info="not_deleted" x="5293" y="0"/>
 </item>
-<item historyLabel="startup_stm32f4xx.c" index="2">
+<item historyLabel="startup_stm32f4xx.c" index="1">
 <position info="not_deleted" x="0" y="0"/>
 </item>
 <item historyLabel="main.c" index="0">
@@ -439,23 +390,71 @@
 <item historyLabel="main.c" index="0">
 <position info="not_deleted" x="4671" y="0"/>
 </item>
-<item historyLabel="wc_frontend.c" index="10">
+<item historyLabel="wc_frontend.c" index="8">
 <position/>
 </item>
-<item historyLabel="wc_frontend.c" index="10">
+<item historyLabel="wc_frontend.c" index="8">
 <position/>
 </item>
 <item historyLabel="main.c" index="0">
 <position info="not_deleted" x="3672" y="11"/>
 </item>
-<item historyLabel="wc_frontend.c" index="10">
+<item historyLabel="wc_frontend.c" index="8">
 <position info="not_deleted" x="1875" y="11"/>
 </item>
-<item historyLabel="wc_frontend.c" index="10">
+<item historyLabel="wc_frontend.c" index="8">
 <position info="not_deleted" x="1863" y="0"/>
 </item>
-<item active="true" historyLabel="main.c" index="0">
+<item historyLabel="main.c" index="0">
 <position info="not_deleted" x="3672" y="11"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="6080" y="16"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="4995" y="16"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="3562" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="3092" y="5"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="8032" y="21"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="3326" y="114"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="8032" y="21"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="3532" y="21"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="3395" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="8261" y="3"/>
+</item>
+<item historyLabel="stm32_ub_rtc.h" index="9">
+<position info="not_deleted" x="2931" y="3"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="2658" y="25"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="8032" y="21"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="8698" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="4709" y="0"/>
+</item>
+<item active="true" historyLabel="main.c" index="0">
+<position info="not_deleted" x="4804" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -464,6 +463,9 @@
 <actionBarAdvisor/>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32_ub_rtc.h" tooltip="wc_ws/ub_lib/stm32_ub_rtc.h">
+<persistable path="/wc_ws/ub_lib/stm32_ub_rtc.h"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="wc_frontend.c" tooltip="wc_ws/wc_frontend.c">
 <persistable path="/wc_ws/wc_frontend.c"/>
 </file>
@@ -505,9 +507,6 @@
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="CommonMath.h" tooltip="wc_ws/CommonMath.h">
 <persistable path="/wc_ws/CommonMath.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="CommonMath.c" tooltip="wc_ws/CommonMath.c">
-<persistable path="/wc_ws/CommonMath.c"/>
 </file>
 </mruList>
 </workbench>
