@@ -67,7 +67,8 @@ void SetWordMatrix( RTC_t time ){
 		if ( minuteToshow < 5 )
 			WC_SetElement( WC_ELEMENT_EIN_STUNDE, 1 );
 		else
-			WC_SetElement( WC_ELEMENT_EINS_STUNDE, 1 );
+			WC_SetElement( WC_ELEMENT_EIN_STUNDE, 1 );
+			WC_SetElement( WC_ELEMENT_S_STUNDE, 1 );
 		break;
 	case 2:
 		WC_SetElement( WC_ELEMENT_ZWEI_STUNDE, 1 );
@@ -79,7 +80,8 @@ void SetWordMatrix( RTC_t time ){
 		WC_SetElement( WC_ELEMENT_VIER_STUNDE, 1 );
 		break;
 	case 5:
-		WC_SetElement( WC_ELEMENT_FUENF_STUNDE, 1 );
+		WC_SetElement( WC_ELEMENT_F_STUNDE, 1 );
+		WC_SetElement( WC_ELEMENT_UENF_STUNDE, 1 );
 		break;
 	case 6:
 		WC_SetElement( WC_ELEMENT_SECHS_STUNDE, 1 );
@@ -91,13 +93,16 @@ void SetWordMatrix( RTC_t time ){
 		WC_SetElement( WC_ELEMENT_ACHT_STUNDE, 1 );
 		break;
 	case 9:
-		WC_SetElement( WC_ELEMENT_NEUN_STUNDE, 1 );
+		WC_SetElement( WC_ELEMENT_N_STUNDE, 1 );
+		WC_SetElement( WC_ELEMENT_EUN_STUNDE, 1 );
 		break;
 	case 10:
-		WC_SetElement( WC_ELEMENT_ZEHN_STUNDE, 1 );
+		WC_SetElement( WC_ELEMENT_ZEH_STUNDE, 1 );
+		WC_SetElement( WC_ELEMENT_N_STUNDE, 1 );
 		break;
 	case 11:
-		WC_SetElement( WC_ELEMENT_ELF_STUNDE, 1 );
+		WC_SetElement( WC_ELEMENT_EL_STUNDE, 1 );
+		WC_SetElement( WC_ELEMENT_F_STUNDE, 1 );
 		break;
 	case 0:	// case 12
 		WC_SetElement( WC_ELEMENT_ZWOELF_STUNDE, 1 );
