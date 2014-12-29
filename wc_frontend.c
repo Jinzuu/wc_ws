@@ -93,6 +93,9 @@ void WC_Refresh()
 		if( WC_CONFIG[i].ENABLED == 1 ) {
 			WC_SetElement(WC_CONFIG[i].ELEMENT_NAME, 1);
 		}
+		else{
+			WC_SetElement(WC_CONFIG[i].ELEMENT_NAME, 0);
+		}
 	}
 
 	UB_WS2812_Refresh();

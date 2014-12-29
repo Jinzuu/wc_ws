@@ -1,5 +1,6 @@
 #include "wc_IrRemoteProcessing.h"
 #include "wc_LightDependentBrightness.h"
+#include "ub_lib/stm32_ub_rtc.h"
 
 /*****************************************
  *  GLOBALS
@@ -43,9 +44,14 @@ void ProcessIrDataPacket( IRMP_DATA irPacket ){
 //		case IR_REMOTE_KEY_FADE:
 //
 //			break;
-//		case IR_REMOTE_KEY_SMOOTH:
-//
-//			break;
+#ifdef ENABLE_TESTMODE
+		case IR_REMOTE_KEY_SMOOTH:
+			UB_RTC = UB_RTC_GetClock( RTC_DEC );
+			UB_RTC.min = ( UB_RTC.min + 3 ) % 60;
+			UB_RTC.std = ( UB_RTC.std + 1 ) % 24;
+			UB_RTC_SetClock( RTC_DEC );
+			break;
+#endif
 
 		// Basic colors
 		case IR_REMOTE_KEY_RED:

@@ -1,6 +1,7 @@
 #ifndef __WC_IRREMOTEPROCESSING_H
 #define __WC_IRREMOTEPROCESSING_H
 
+#include "main.h"
 #include "IRMP/irmp.h"
 #include "wc_frontend.h"
 

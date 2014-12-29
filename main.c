@@ -1,13 +1,10 @@
-/*********************************************
- * Wordclock realization with the NUCLEO-411RE
- * Note: Due to lack of support for the 411, CoIDE has been configured to the 401
- *********************************************/
 
 /*****************************************
  *  INCLUDES
  *****************************************/
 #include "stdint.h"
 #include "system_stm32f4xx.h"
+#include "main.h"
 // UB Libs
 #include "ub_lib/stm32_ub_systick.h"
 #include "ub_lib/stm32_ub_led.h"
@@ -26,44 +23,6 @@
 #include "wc_LightDependentBrightness.h"
 #include "CommonMath.h"
 #include "IRMP/irmp.h"
-
-
-/*****************************************
- *  USED PINS on NUCLEO F411 RE Board
- *****************************************/
-// Note: Where pin position description is given, directions left/right are
-// 	when holding the board so that text on it is readable (USB connector facing away)
-
-// ##### DCF77 #####
-// PC8 - DataIn for DCF77 module (Right morpho connector, top right pin)
-// PC9 - PowerOn Pin of DCF77 module (Right morpho connector, top left pin)
-// 		Additional pins for DCF:
-//			+3.3V  (Right morpho connector, 4th pin from top, left row)
-//			GND  (Right morpho connector, 5th pin from top, left row)
-
-// ##### LDR #####
-// PA1 - AnalogIn for LDR (Left Arduino analog connector, named A1)
-// 		Note: To be connected by ext wire to PC13
-// PB7 - Gpio Pulled Low: Ground for LDR (left morpho connector, left row, 9th pin from bottom)
-// PC13 - PullUp for LDR (left morpho connector, left row, 8th pin from bottom)
-//		Note: Used for the Onboard Pullup resistor for LDR (originally user button pullup)
-
-// ##### IR REMOTE #####
-// PA15 - IR Remote digital in (left morpho connector, left row, 10th pin from bottom)
-// 		Additional pins for IR remote:
-//			GND  (left morpho connector, left row, 8th pin from bottom)
-//			+3.3V  (left morpho connector, left row, 3rd pin from top)
-
-
-// ##### WS2812 LED STRIPE #####
-// PB4 - PWM Out for Led Control (Ext. Pullup to 5V needed!) (marked as PWM/D5 on board)
-// 		Note: Suggestion for 5V Pullup: Connect to E5V by 4.7k resistor on bottom side
-
-/*****************************************
- *  DEFINES
- *****************************************/
-#define LED_BRIGHTNESS_OFF_THRESHOLD	1	// in percent 1...100
-#define DCF_ACCEPTED_AGE_IN_HOURS		96
 
 /*****************************************
  *  GLOBALS
@@ -139,7 +98,7 @@ int main(void)
 		// Handle word matrix refreshes
 		if ( gWcIsToBeRefreshed == Bit_SET ){
 			WC_Refresh();
-			gWcIsToBeRefreshed == Bit_RESET;
+			gWcIsToBeRefreshed = Bit_RESET;
 		}
 
 		// Check if update of time is necessary
@@ -155,9 +114,10 @@ int main(void)
 			ambientBrightnessCurrent = SlidingAverageOnLastValues( UB_ADC1_SINGLE_Read( ADC_PA1 ) );
 			int brightnessToSet = 100.0 * GetBrightnessFactor( ambientBrightnessPoints, ambientBrightnessLedDimmingFactors, ambientBrightnessCurrent );
 			if ( brightnessToSet < LED_BRIGHTNESS_OFF_THRESHOLD )
-				WC_DisableAll();
+				WC_SetColor( WS2812_HSV_COL_OFF );
 			else
 				WC_SetBrightness( brightnessToSet );
+			gWcIsToBeRefreshed = Bit_SET;
 		}
 	}
 
@@ -176,6 +136,22 @@ void UB_TIMER2_ISR_CallBack( void )
 	else
 		UB_Led_Off( LED_GREEN );
 
+#ifdef ENABLE_TESTMODE	//Testing: Just set a time
+	gLastSuccessfulDcfRxTime.jahr = 0;
+	gLastSuccessfulDcfRxTime.monat = 1;
+	gLastSuccessfulDcfRxTime.tag = 1;
+	gLastSuccessfulDcfRxTime.wotag = 1;
+	gLastSuccessfulDcfRxTime.sek = 0;
+	gLastSuccessfulDcfRxTime.min = 0;
+	gLastSuccessfulDcfRxTime.std = 0;
+
+	WC_SetElement(WC_ELEMENT_ES, 1);
+	SetWordMatrix( UB_RTC_GetClock(RTC_DEC) );
+	gDcfRxInProgress = Bit_RESET;
+	gDcfRxWasSuccesful = Bit_SET;
+	gCurrentMatrixColor = WS2812_HSV_COL_WHITE;
+
+#else
 	dcf77_SignalState_t dcf77state = Dcf77_ProcessSignal( gDcfInputState );
 	if ( dcf77state == dcf77_TimeRxSuccess )
 	{
@@ -183,7 +159,6 @@ void UB_TIMER2_ISR_CallBack( void )
 		UB_RTC = gLastSuccessfulDcfRxTime;
 		UB_RTC_SetClock( RTC_DEC );
 		gDcfRxWasSuccesful = Bit_SET;
-
 
 		// Set word matrix directly after first DCF RX
 		if ( gDcfRxInProgress == Bit_SET ){
@@ -204,14 +179,15 @@ void UB_TIMER2_ISR_CallBack( void )
 
 		WC_SetBrightness( 50 );
 		WC_SetElement( WC_ELEMENT_FUNK, 1 );
-		gWcIsToBeRefreshed = Bit_SET;
 	}
 	else{
 		// Disable FUNK and set normal color
 		WC_SetElement( WC_ELEMENT_FUNK, 0 );
 		WC_SetColor( gCurrentMatrixColor );
-		gWcIsToBeRefreshed = Bit_SET;
 	}
+#endif
+
+	gWcIsToBeRefreshed = Bit_SET;
 }
 
 /*****************************************

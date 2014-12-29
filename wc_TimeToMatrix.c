@@ -2,13 +2,15 @@
 
 // Function uses rtc time to set the wc_frontend
 void SetWordMatrix( RTC_t time ){
-	// Disable all old active LED elements
+	// Disable all old active LED elements (set ES IST diretly again)
 	WC_DisableAllElements();
+	WC_SetElement( WC_ELEMENT_ES, 1 );
 
-	int hourToShow = time.std % 12;
+	int hourToShow = time.std;
 	int minuteToshow = time.min;
 	if ( minuteToshow >= 25 )
 		++hourToShow;
+	hourToShow = hourToShow % 12;
 
 	// Set minute LED elements
 	// Set single LED dots
@@ -97,7 +99,7 @@ void SetWordMatrix( RTC_t time ){
 	case 11:
 		WC_SetElement( WC_ELEMENT_ELF_STUNDE, 1 );
 		break;
-	case 12:
+	case 0:	// case 12
 		WC_SetElement( WC_ELEMENT_ZWOELF_STUNDE, 1 );
 		break;
 	}
