@@ -76,6 +76,7 @@ int main(void)
 	WC_DisableAllElements();
 	WC_SetColor( WS2812_HSV_COL_WHITE );
 	WC_SetBrightness( 10 );
+	WC_SetElement(WC_ELEMENT_ES, 1);
 	WC_Refresh();
 
 	UB_Systick_Pause_ms(1000);

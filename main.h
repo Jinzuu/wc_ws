@@ -35,9 +35,12 @@
 
 
 // ##### WS2812 LED STRIPE #####
-// PB4 - PWM Out for Led Control (Ext. Pullup to 5V needed and series resistor) (marked as PWM/D5 on board)
-// 		Note: Suggestion for 5V Pullup: Connect to E5V by 4.7k resistor on bottom side
+// TIM3 is used for timing of output to LED stripes
+// DMA1_Stream7 is used to transfer data from memory to PWM unit
+// PB0 - PWM Out for Led Control (Ext. Pullup to 5V needed and series resistor) (left of the A3 Arduino connector on the left side of the board)
+// 		Note: Suggestion for 5V Pullup: Connect to E5V by 530R resistor
 // 		Note: Adding a series resistor is recommended to reduce EMI (better for DCF) and not to overpower first LED
+
 
 /*****************************************
  *  DEFINES

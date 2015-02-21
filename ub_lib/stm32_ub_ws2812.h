@@ -65,14 +65,14 @@
 #define  WS2812_TIM           TIM3
 #define  WS2812_TIM_AF        GPIO_AF_TIM3
 #define  WS2812_TIM_CH1       1 
-#define  WS2812_TIM_CCR_REG1  TIM3->CCR1
-#define  WS2812_TIM_DMA_TRG1  TIM_DMA_CC1
+#define  WS2812_TIM_CCR_REG1  TIM3->CCR3 // Channel 3 of timer
+#define  WS2812_TIM_DMA_TRG1  TIM_DMA_CC3
 #define  WS2812_TIM_CH2       2 
 #define  WS2812_TIM_CCR_REG2  TIM3->CCR2
 #define  WS2812_TIM_DMA_TRG2  TIM_DMA_CC2
 #define  WS2812_TIM_CH3       3 
-#define  WS2812_TIM_CCR_REG3  TIM3->CCR3
-#define  WS2812_TIM_DMA_TRG3  TIM_DMA_CC3
+#define  WS2812_TIM_CCR_REG3  TIM3->CCR1
+#define  WS2812_TIM_DMA_TRG3  TIM_DMA_CC1
 #define  WS2812_TIM_CH4       4 
 #define  WS2812_TIM_CCR_REG4  TIM3->CCR4
 #define  WS2812_TIM_DMA_TRG4  TIM_DMA_CC4
@@ -90,8 +90,8 @@
 //--------------------------------------------------------------
 #define  WS2812_CH1_CLOCK    RCC_AHB1Periph_GPIOB
 #define  WS2812_CH1_PORT     GPIOB
-#define  WS2812_CH1_PIN      GPIO_Pin_4
-#define  WS2812_CH1_SOURCE   GPIO_PinSource4
+#define  WS2812_CH1_PIN      GPIO_Pin_0
+#define  WS2812_CH1_SOURCE   GPIO_PinSource0
 
 #define  WS2812_CH2_CLOCK    RCC_AHB1Periph_GPIOB
 #define  WS2812_CH2_PORT     GPIOB
@@ -112,21 +112,21 @@
 
 //--------------------------------------------------------------
 // benutzer DMA
-//   => TIM3-CC1 => DMA1, Channel5, Stream4
-//   => TIM3-CC2 => DMA1, Channel5, Stream5
 //   => TIM3-CC3 => DMA1, Channel5, Stream7
+//   => TIM3-CC2 => DMA1, Channel5, Stream5
+//   => TIM3-CC1 => DMA1, Channel5, Stream4
 //   => TIM3-CC4 => DMA1, Channel5, Stream2
 // (siehe Seite 216+217 vom Referenz Manual)
 //--------------------------------------------------------------
 #define  WS2812_DMA_CLOCK         RCC_AHB1Periph_DMA1
 
-#define  WS2812_DMA_CH1_STREAM    DMA1_Stream4
+#define  WS2812_DMA_CH1_STREAM    DMA1_Stream7
 #define  WS2812_DMA_CH1_CHANNEL   DMA_Channel_5
 
 #define  WS2812_DMA_CH2_STREAM    DMA1_Stream5
 #define  WS2812_DMA_CH2_CHANNEL   DMA_Channel_5
 
-#define  WS2812_DMA_CH3_STREAM    DMA1_Stream7
+#define  WS2812_DMA_CH3_STREAM    DMA1_Stream4
 #define  WS2812_DMA_CH3_CHANNEL   DMA_Channel_5
 
 #define  WS2812_DMA_CH4_STREAM    DMA1_Stream2
@@ -141,17 +141,17 @@
 //   CC3 => DMA1, Stream7
 //   CC4 => DMA1, Stream2
 //--------------------------------------------------------------
-#define  WS2812_DMA_CH1_IRQn      DMA1_Stream4_IRQn
-#define  WS2812_DMA_CH1_ISR       DMA1_Stream4_IRQHandler
-#define  WS2812_DMA_CH1_IRQ_FLAG  DMA_IT_TCIF4
+#define  WS2812_DMA_CH1_IRQn      DMA1_Stream7_IRQn
+#define  WS2812_DMA_CH1_ISR       DMA1_Stream7_IRQHandler
+#define  WS2812_DMA_CH1_IRQ_FLAG  DMA_IT_TCIF7
 
 #define  WS2812_DMA_CH2_IRQn      DMA1_Stream5_IRQn
 #define  WS2812_DMA_CH2_ISR       DMA1_Stream5_IRQHandler
 #define  WS2812_DMA_CH2_IRQ_FLAG  DMA_IT_TCIF5
 
-#define  WS2812_DMA_CH3_IRQn      DMA1_Stream7_IRQn
-#define  WS2812_DMA_CH3_ISR       DMA1_Stream7_IRQHandler
-#define  WS2812_DMA_CH3_IRQ_FLAG  DMA_IT_TCIF7
+#define  WS2812_DMA_CH3_IRQn      DMA1_Stream4_IRQn
+#define  WS2812_DMA_CH3_ISR       DMA1_Stream4_IRQHandler
+#define  WS2812_DMA_CH3_IRQ_FLAG  DMA_IT_TCIF4
 
 #define  WS2812_DMA_CH4_IRQn      DMA1_Stream2_IRQn
 #define  WS2812_DMA_CH4_ISR       DMA1_Stream2_IRQHandler

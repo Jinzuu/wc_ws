@@ -725,8 +725,8 @@ void p_WS2812_InitTIM(void)
   TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_High;
 
   #if WS2812_LED_CH1_ANZ>0
-    TIM_OC1Init(WS2812_TIM, &TIM_OCInitStructure);
-    TIM_OC1PreloadConfig(WS2812_TIM, TIM_OCPreload_Enable);
+    TIM_OC3Init(WS2812_TIM, &TIM_OCInitStructure);
+    TIM_OC3PreloadConfig(WS2812_TIM, TIM_OCPreload_Enable);
   #endif
   #if WS2812_LED_CH2_ANZ>0
     TIM_OC2Init(WS2812_TIM, &TIM_OCInitStructure);
