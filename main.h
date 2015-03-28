@@ -28,9 +28,9 @@
 //		Note: Used for the Onboard Pullup resistor for LDR (originally user button pullup)
 
 // ##### IR REMOTE #####
-// PA15 - IR Remote digital in (left morpho connector, left row, 10th pin from bottom)
+// PA15 - IR Remote digital in (left morpho connector, left row, 11th pin from bottom)
 // 		Additional pins for IR remote:
-//			GND  (left morpho connector, left row, 8th pin from bottom)
+//			GND  (left morpho connector, left row, 10th pin from bottom)
 //			+3.3V  (left morpho connector, left row, 3rd pin from top)
 
 
