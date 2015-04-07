@@ -66,9 +66,10 @@ void SetWordMatrix( RTC_t time ){
 	case 1:
 		if ( minuteToshow < 5 )
 			WC_SetElement( WC_ELEMENT_EIN_STUNDE, 1 );
-		else
+		else {
 			WC_SetElement( WC_ELEMENT_EIN_STUNDE, 1 );
 			WC_SetElement( WC_ELEMENT_S_STUNDE, 1 );
+		}
 		break;
 	case 2:
 		WC_SetElement( WC_ELEMENT_ZWEI_STUNDE, 1 );
