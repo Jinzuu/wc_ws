@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.2.0">
+<eagle version="7.4.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -4991,6 +4991,30 @@ W = angled&lt;p&gt;
 <wire x1="-25.4" y1="-68.58" x2="-25.4" y2="-66.04" width="0.1524" layer="91"/>
 <pinref part="GND6" gate="1" pin="GND"/>
 </segment>
+<segment>
+<pinref part="U$1" gate="G$1" pin="GND2"/>
+<pinref part="U$1" gate="G$1" pin="GND5"/>
+<wire x1="0" y1="-114.3" x2="-15.24" y2="-114.3" width="0.1524" layer="91"/>
+<label x="-7.62" y="-114.3" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="U$1" gate="G$1" pin="GND1"/>
+<pinref part="U$1" gate="G$1" pin="GND4"/>
+<wire x1="0" y1="-116.84" x2="-15.24" y2="-116.84" width="0.1524" layer="91"/>
+<label x="-7.62" y="-116.84" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="U$1" gate="G$1" pin="GND7"/>
+<wire x1="76.2" y1="-99.06" x2="73.66" y2="-99.06" width="0.1524" layer="91"/>
+<wire x1="73.66" y1="-99.06" x2="73.66" y2="-104.14" width="0.1524" layer="91"/>
+<wire x1="73.66" y1="-104.14" x2="66.04" y2="-104.14" width="0.1524" layer="91"/>
+<label x="68.58" y="-104.14" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="U$1" gate="G$1" pin="GND"/>
+<wire x1="60.96" y1="-96.52" x2="66.04" y2="-96.52" width="0.1524" layer="91"/>
+<label x="63.5" y="-96.52" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="LED-OUT" class="0">
 <segment>
@@ -5043,6 +5067,12 @@ W = angled&lt;p&gt;
 <wire x1="33.02" y1="-5.08" x2="33.02" y2="-12.7" width="0.1524" layer="91"/>
 <pinref part="HOLE_EXT_+5V" gate="G$1" pin="P"/>
 <pinref part="PAD_EXT_+5V1" gate="G$1" pin="P"/>
+</segment>
+<segment>
+<pinref part="U$1" gate="G$1" pin="5V2"/>
+<pinref part="U$1" gate="G$1" pin="5V"/>
+<wire x1="-15.24" y1="-111.76" x2="0" y2="-111.76" width="0.1524" layer="91"/>
+<label x="-7.62" y="-111.76" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$8" class="0">
@@ -5172,19 +5202,23 @@ W = angled&lt;p&gt;
 <net name="DCF1_PON" class="0">
 <segment>
 <pinref part="DCF1" gate="1" pin="4"/>
-<wire x1="73.66" y1="-58.42" x2="73.66" y2="-91.44" width="0.1524" layer="91"/>
+<wire x1="73.66" y1="-58.42" x2="73.66" y2="-81.28" width="0.1524" layer="91"/>
+<wire x1="73.66" y1="-81.28" x2="71.12" y2="-81.28" width="0.1524" layer="91"/>
+<wire x1="71.12" y1="-81.28" x2="71.12" y2="-101.6" width="0.1524" layer="91"/>
 <label x="76.2" y="-73.66" size="1.778" layer="95" rot="R90"/>
-<pinref part="U$1" gate="G$1" pin="PB8"/>
-<wire x1="73.66" y1="-91.44" x2="76.2" y2="-91.44" width="0.1524" layer="91"/>
+<pinref part="U$1" gate="G$1" pin="D12"/>
+<wire x1="71.12" y1="-101.6" x2="60.96" y2="-101.6" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="DCF1_DATA" class="0">
 <segment>
 <pinref part="DCF1" gate="1" pin="3"/>
 <label x="71.12" y="-73.66" size="1.778" layer="95" rot="R90"/>
-<pinref part="U$1" gate="G$1" pin="PB9"/>
-<wire x1="76.2" y1="-93.98" x2="71.12" y2="-93.98" width="0.1524" layer="91"/>
-<wire x1="71.12" y1="-93.98" x2="71.12" y2="-58.42" width="0.1524" layer="91"/>
+<wire x1="60.96" y1="-99.06" x2="68.58" y2="-99.06" width="0.1524" layer="91"/>
+<wire x1="68.58" y1="-99.06" x2="68.58" y2="-78.74" width="0.1524" layer="91"/>
+<wire x1="68.58" y1="-78.74" x2="71.12" y2="-78.74" width="0.1524" layer="91"/>
+<wire x1="71.12" y1="-78.74" x2="71.12" y2="-58.42" width="0.1524" layer="91"/>
+<pinref part="U$1" gate="G$1" pin="D13"/>
 </segment>
 </net>
 <net name="N$1" class="0">
@@ -5225,13 +5259,6 @@ W = angled&lt;p&gt;
 <wire x1="-12.7" y1="-144.78" x2="-35.56" y2="-144.78" width="0.1524" layer="91"/>
 <wire x1="-35.56" y1="-144.78" x2="-35.56" y2="-152.4" width="0.1524" layer="91"/>
 <label x="-22.86" y="-144.78" size="1.778" layer="95" rot="R180"/>
-</segment>
-</net>
-<net name="N$2" class="0">
-<segment>
-<pinref part="U$1" gate="G$1" pin="5V2"/>
-<pinref part="U$1" gate="G$1" pin="5V"/>
-<wire x1="-15.24" y1="-111.76" x2="0" y2="-111.76" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
