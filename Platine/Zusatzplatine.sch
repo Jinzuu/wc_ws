@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.2.0">
+<eagle version="7.4.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -5254,21 +5254,21 @@ W = angled&lt;p&gt;
 <pinref part="DCF1" gate="1" pin="4"/>
 <wire x1="73.66" y1="-58.42" x2="73.66" y2="-81.28" width="0.1524" layer="91"/>
 <wire x1="73.66" y1="-81.28" x2="71.12" y2="-81.28" width="0.1524" layer="91"/>
-<wire x1="71.12" y1="-81.28" x2="71.12" y2="-101.6" width="0.1524" layer="91"/>
 <label x="76.2" y="-73.66" size="1.778" layer="95" rot="R90"/>
-<pinref part="U$1" gate="G$1" pin="D12"/>
-<wire x1="71.12" y1="-101.6" x2="60.96" y2="-101.6" width="0.1524" layer="91"/>
+<wire x1="71.12" y1="-81.28" x2="71.12" y2="-91.44" width="0.1524" layer="91"/>
+<pinref part="U$1" gate="G$1" pin="SDA"/>
+<wire x1="71.12" y1="-91.44" x2="60.96" y2="-91.44" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="DCF1_DATA" class="0">
 <segment>
 <pinref part="DCF1" gate="1" pin="3"/>
 <label x="71.12" y="-73.66" size="1.778" layer="95" rot="R90"/>
-<wire x1="60.96" y1="-99.06" x2="68.58" y2="-99.06" width="0.1524" layer="91"/>
-<wire x1="68.58" y1="-99.06" x2="68.58" y2="-78.74" width="0.1524" layer="91"/>
 <wire x1="68.58" y1="-78.74" x2="71.12" y2="-78.74" width="0.1524" layer="91"/>
 <wire x1="71.12" y1="-78.74" x2="71.12" y2="-58.42" width="0.1524" layer="91"/>
-<pinref part="U$1" gate="G$1" pin="D13"/>
+<wire x1="68.58" y1="-78.74" x2="68.58" y2="-88.9" width="0.1524" layer="91"/>
+<pinref part="U$1" gate="G$1" pin="SCL"/>
+<wire x1="68.58" y1="-88.9" x2="60.96" y2="-88.9" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$1" class="0">
