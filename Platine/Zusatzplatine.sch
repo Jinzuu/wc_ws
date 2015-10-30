@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.4.0">
+<eagle version="7.2.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -4291,14 +4291,14 @@ W = angled&lt;p&gt;
 <packages>
 <package name="ESP01">
 <description>ESP8266 Module 01</description>
-<pad name="GND" x="-3.825" y="-5.6375" drill="0.8" shape="square" rot="R270"/>
-<pad name="RX" x="3.795" y="-5.6375" drill="0.8" shape="square" rot="R270"/>
-<pad name="GPIO2" x="-1.285" y="-5.6375" drill="0.8" rot="R270"/>
-<pad name="GPIO0" x="1.255" y="-5.6375" drill="0.8" rot="R270"/>
-<pad name="RST" x="1.255" y="-8.1775" drill="0.8" rot="R270"/>
-<pad name="CH_PD" x="-1.285" y="-8.1775" drill="0.8" rot="R270"/>
-<pad name="TX" x="-3.825" y="-8.1775" drill="0.8" rot="R270"/>
-<pad name="VCC" x="3.795" y="-8.1775" drill="0.8" rot="R270"/>
+<pad name="GND" x="-3.825" y="-5.6375" drill="1" diameter="1.6764" shape="square" rot="R270"/>
+<pad name="RX" x="3.795" y="-5.6375" drill="1" diameter="1.6764" shape="square" rot="R270"/>
+<pad name="GPIO2" x="-1.285" y="-5.6375" drill="1" diameter="1.6764" rot="R270"/>
+<pad name="GPIO0" x="1.255" y="-5.6375" drill="1" diameter="1.6764" rot="R270"/>
+<pad name="RST" x="1.255" y="-8.1775" drill="1" diameter="1.6764" rot="R270"/>
+<pad name="CH_PD" x="-1.285" y="-8.1775" drill="1" diameter="1.6764" rot="R270"/>
+<pad name="TX" x="-3.825" y="-8.1775" drill="1" diameter="1.6764" rot="R270"/>
+<pad name="VCC" x="3.795" y="-8.1775" drill="1" diameter="1.6764" rot="R270"/>
 <wire x1="-7" y1="15" x2="-7" y2="7.38" width="0.127" layer="21"/>
 <wire x1="-7" y1="7.38" x2="-7" y2="-9.765" width="0.127" layer="21"/>
 <wire x1="-7" y1="-9.765" x2="7.2875" y2="-9.765" width="0.127" layer="21"/>
