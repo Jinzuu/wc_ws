@@ -1,5 +1,5 @@
 #include "wc_frontend.h"
-#include "stm32_ub_ws2812.h"
+#include "ub_lib/stm32_ub_ws2812.h"
 
 // Note: No overlapping configuration allowed!
 T_WC_CONFIGURATION WC_CONFIG[] = {

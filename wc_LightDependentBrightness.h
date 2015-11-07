@@ -37,4 +37,4 @@ void AdjustBrightnessArray( int increaseBrightness, float currentBrightness, flo
 
 
 
-#endif __WC_LIGHTDEPENDENTBRIGHTNESS_H
+#endif //__WC_LIGHTDEPENDENTBRIGHTNESS_H

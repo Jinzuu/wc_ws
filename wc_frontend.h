@@ -1,7 +1,7 @@
 #ifndef __WC_FRONTEND_H
 #define __WC_FRONTEND_H
 
-#include "stm32_ub_ws2812.h"
+#include "ub_lib/stm32_ub_ws2812.h"
 
 typedef enum {
 	WC_ELEMENT_ES,
