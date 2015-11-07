@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.4.0">
+<eagle version="7.0.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -134,44 +134,58 @@
 <wire x1="70.028" y1="-0.02420625" x2="70.028" y2="62.19579375" width="0" layer="20"/>
 <wire x1="70.028" y1="62.19579375" x2="0" y2="62.22" width="0" layer="20"/>
 <wire x1="0" y1="62.22" x2="0" y2="0" width="0" layer="20"/>
-<text x="19.05" y="33.02" size="1.778" layer="25">WC-WS-Shield for Nucleo
+<text x="14.478" y="33.528" size="1.778" layer="25">WC-WS-Shield for Nucleo
 (c) 2015 K. Neumann, J. Berg</text>
-<text x="33.528" y="53.721" size="1.27" layer="51" rot="R90">LED GND</text>
-<text x="40.005" y="55.118" size="1.27" layer="51" rot="R90">LED 5V</text>
-<text x="47.371" y="54.102" size="1.27" layer="51" rot="R90">LED SIG</text>
-<text x="18.288" y="56.642" size="1.27" layer="51" rot="R90">5V IN</text>
-<text x="30.099" y="54.737" size="1.27" layer="51" rot="R90">GND IN</text>
-<text x="24.511" y="51.054" size="1.778" layer="51" rot="R90">SUPPLY</text>
-<text x="54.483" y="4.953" size="1.016" layer="51" rot="R180">GND</text>
-<text x="60.452" y="56.388" size="1.016" layer="51" rot="R270">GND</text>
-<text x="5.842" y="56.388" size="1.016" layer="51" rot="R270">GND</text>
-<text x="7.112" y="56.388" size="1.016" layer="52" rot="MR270">GND</text>
-<text x="61.468" y="56.388" size="1.016" layer="52" rot="MR270">GND</text>
-<text x="51.181" y="4.699" size="1.016" layer="52" rot="MR180">GND</text>
-<text x="39.497" y="11.557" size="1.016" layer="51" rot="R180">GND</text>
-<text x="36.195" y="11.557" size="1.016" layer="52" rot="MR180">GND</text>
-<text x="36.576" y="17.78" size="1.016" layer="52" rot="MR180">WiFi BOT MNT</text>
-<text x="40.894" y="1.778" size="1.016" layer="51">WiFi TOP MNT</text>
-<text x="11.938" y="52.578" size="1.016" layer="51" rot="R90">NRST</text>
-<text x="11.938" y="52.578" size="1.016" layer="51" rot="R90">NRST</text>
-<text x="10.922" y="52.578" size="1.016" layer="52" rot="MR90">NRST</text>
-<text x="4.318" y="52.832" size="1.016" layer="51" rot="R90">CLK</text>
-<text x="3.302" y="52.832" size="1.016" layer="52" rot="MR90">CLK</text>
-<text x="9.398" y="51.308" size="1.016" layer="51" rot="R90">SWDIO</text>
-<text x="8.382" y="51.308" size="1.016" layer="52" rot="MR90">SWDIO</text>
+<text x="33.528" y="53.721" size="1.27" layer="25" rot="R90">LED GND</text>
+<text x="40.005" y="55.118" size="1.27" layer="25" rot="R90">LED 5V</text>
+<text x="47.371" y="54.102" size="1.27" layer="25" rot="R90">LED SIG</text>
+<text x="18.288" y="56.642" size="1.27" layer="25" rot="R90">5V IN</text>
+<text x="30.099" y="54.737" size="1.27" layer="25" rot="R90">GND IN</text>
+<text x="24.511" y="51.054" size="1.778" layer="25" rot="R90">SUPPLY</text>
+<text x="54.229" y="4.699" size="1.016" layer="25" rot="R180">GND</text>
+<text x="60.452" y="56.388" size="1.016" layer="25" rot="R270">GND</text>
+<text x="5.842" y="56.388" size="1.016" layer="25" rot="R270">GND</text>
+<text x="6.858" y="56.388" size="1.016" layer="26" rot="MR270">GND</text>
+<text x="61.468" y="56.388" size="1.016" layer="26" rot="MR270">GND</text>
+<text x="51.181" y="4.699" size="1.016" layer="26" rot="MR180">GND</text>
+<text x="40.259" y="11.557" size="1.016" layer="25" rot="R180">GND</text>
+<text x="36.957" y="11.557" size="1.016" layer="26" rot="MR180">GND</text>
+<text x="36.576" y="17.78" size="1.016" layer="26" rot="MR180">WiFi BOT MNT</text>
+<text x="40.894" y="1.778" size="1.016" layer="25">WiFi TOP MNT</text>
+<text x="11.938" y="52.578" size="1.016" layer="25" rot="R90">NRST</text>
+<text x="16.256" y="51.308" size="1.016" layer="51" rot="R90">NRST</text>
+<text x="10.922" y="52.578" size="1.016" layer="26" rot="MR90">NRST</text>
+<text x="4.318" y="52.832" size="1.016" layer="25" rot="R90">CLK</text>
+<text x="3.302" y="52.832" size="1.016" layer="26" rot="MR90">CLK</text>
+<text x="9.398" y="51.562" size="1.016" layer="51" rot="R90">SWDIO</text>
+<text x="8.382" y="51.562" size="1.016" layer="26" rot="MR90">SWDIO</text>
 <text x="50.8" y="12.954" size="1.016" layer="51">VCC</text>
-<text x="50.8" y="12.954" size="1.016" layer="51">VCC</text>
-<text x="54.102" y="12.954" size="1.016" layer="52" rot="MR0">VCC</text>
-<text x="37.084" y="6.35" size="1.016" layer="51">VCC</text>
-<text x="40.132" y="6.35" size="1.016" layer="52" rot="MR0">VCC</text>
-<text x="58.674" y="53.34" size="1.016" layer="51" rot="R90">VCC</text>
-<text x="57.785" y="53.34" size="1.016" layer="52" rot="MR90">VCC</text>
-<text x="66.548" y="53.086" size="1.016" layer="51" rot="R90">PON</text>
-<text x="65.786" y="53.213" size="1.016" layer="52" rot="MR90">PON</text>
-<text x="64.008" y="52.832" size="1.016" layer="51" rot="R90">DATA</text>
-<text x="62.992" y="52.705" size="1.016" layer="52" rot="MR90">DATA</text>
-<text x="52.324" y="33.274" size="1.778" layer="26" rot="MR0">WC-WS-Shield for Nucleo
+<text x="50.8" y="12.954" size="1.016" layer="25">VCC</text>
+<text x="53.848" y="12.954" size="1.016" layer="26" rot="MR0">VCC</text>
+<text x="37.846" y="6.35" size="1.016" layer="25">VCC</text>
+<text x="40.64" y="6.35" size="1.016" layer="26" rot="MR0">VCC</text>
+<text x="58.674" y="53.34" size="1.016" layer="25" rot="R90">VCC</text>
+<text x="57.785" y="53.34" size="1.016" layer="26" rot="MR90">VCC</text>
+<text x="66.548" y="53.34" size="1.016" layer="25" rot="R90">PON</text>
+<text x="65.532" y="53.467" size="1.016" layer="26" rot="MR90">PON</text>
+<text x="64.008" y="53.086" size="1.016" layer="25" rot="R90">DATA</text>
+<text x="62.992" y="52.959" size="1.016" layer="26" rot="MR90">DATA</text>
+<text x="47.752" y="33.528" size="1.778" layer="26" rot="MR0">WC-WS-Shield for Nucleo
 (c) 2015 K. Neumann, J. Berg</text>
+<text x="22.733" y="51.308" size="1.778" layer="26" rot="MR90">SUPPLY</text>
+<text x="17.018" y="56.642" size="1.27" layer="26" rot="MR90">5V IN</text>
+<text x="28.829" y="54.737" size="1.27" layer="26" rot="MR90">GND IN</text>
+<text x="32.258" y="53.721" size="1.27" layer="26" rot="MR90">LED GND</text>
+<text x="38.735" y="55.118" size="1.27" layer="26" rot="MR90">LED 5V</text>
+<text x="46.101" y="54.102" size="1.27" layer="26" rot="MR90">LED SIG</text>
+<text x="20.574" y="13.462" size="1.27" layer="26" rot="MR0">LDR_IN</text>
+<text x="30.226" y="13.462" size="1.27" layer="26" rot="MR0">LDR_GND</text>
+<text x="17.272" y="7.874" size="1.27" layer="26" rot="MR270">IR_IN</text>
+<text x="23.622" y="9.906" size="1.27" layer="26" rot="MR270">IR_GND</text>
+<text x="29.972" y="9.906" size="1.27" layer="26" rot="MR270">IR_VDD</text>
+<text x="54.356" y="57.15" size="1.016" layer="26" rot="MR270">470R</text>
+<text x="51.816" y="45.72" size="1.016" layer="26" rot="MR0">120R</text>
+<text x="57.658" y="48.006" size="1.016" layer="26" rot="MR0">120R</text>
 </plain>
 <libraries>
 <library name="solpad">
@@ -1788,13 +1802,13 @@ W = angled&lt;p&gt;
 </element>
 <element name="D4" library="diode" package="SMBJ" value="SM6T6V8A" x="38.862" y="53.594" smashed="yes" rot="MR0">
 <attribute name="NAME" x="38.1" y="56.261" size="1.27" layer="26" rot="MR0"/>
-<attribute name="VALUE" x="35.687" y="50.8" size="1.27" layer="28" rot="MR0"/>
+<attribute name="VALUE" x="38.735" y="50.038" size="1.27" layer="28" rot="MR0"/>
 </element>
 <element name="D2" library="Diodes" package="SOD-323" value="1N4148WS" x="37.084" y="48.768" smashed="yes" rot="MR180">
-<attribute name="NAME" x="36.195" y="51.054" size="1.27" layer="26" rot="MR180"/>
+<attribute name="NAME" x="32.639" y="49.53" size="1.27" layer="26" rot="MR180"/>
 </element>
 <element name="D1" library="Diodes" package="SOD-323" value="1N4148WS" x="40.64" y="48.768" smashed="yes" rot="MR180">
-<attribute name="NAME" x="39.37" y="51.308" size="1.27" layer="26" rot="MR180"/>
+<attribute name="NAME" x="42.926" y="49.276" size="1.27" layer="26" rot="MR180"/>
 </element>
 <element name="DBG_CON" library="con-lstb" package="MA05-1" value="" x="8.89" y="58.42">
 <attribute name="OC_NEWARK" value="unknown" x="8.89" y="58.42" size="1.778" layer="27" display="off"/>
