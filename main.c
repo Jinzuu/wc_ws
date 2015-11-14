@@ -14,6 +14,7 @@
 #include "ub_lib/stm32_ub_rtc.h"
 #include "ub_lib/stm32_ub_tim2.h"
 #include "ub_lib/stm32_ub_ws2812.h"
+#include "ub_lib/stm32_ub_uart.h"
 #include "sonstige_lib/stm32_ub_tim5.h"
 // Own Stuff
 #include "DCF77.h"
@@ -23,6 +24,7 @@
 #include "wc_LightDependentBrightness.h"
 #include "CommonMath.h"
 #include "IRMP/irmp.h"
+#include "esp8266.h"
 
 /*****************************************
  *  GLOBALS
@@ -78,6 +80,17 @@ int main(void)
 	WC_SetBrightness( 10 );
 	WC_SetElement(WC_ELEMENT_ES, 1);
 	WC_Refresh();
+
+	UB_Uart_Init();
+	esp8266_init();
+	esp8266_send_command(INQUIRY, AT);
+	while(1) {
+		/*
+		if (line_ready) {
+			esp8266_parse_line();
+			line_ready = 0;
+		}*/
+	}
 
 	UB_Systick_Pause_ms(1000);
 

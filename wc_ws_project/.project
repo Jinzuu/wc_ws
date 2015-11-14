@@ -71,6 +71,16 @@
 			<locationURI>virtual:/virtual</locationURI>
 		</link>
 		<link>
+			<name>esp8266.c</name>
+			<type>1</type>
+			<location>C:/kneumann/Projekte/wc_ws/esp8266.c</location>
+		</link>
+		<link>
+			<name>esp8266.h</name>
+			<type>1</type>
+			<location>C:/kneumann/Projekte/wc_ws/esp8266.h</location>
+		</link>
+		<link>
 			<name>main.c</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/main.c</locationURI>
@@ -361,6 +371,16 @@
 			<locationURI>PARENT-1-PROJECT_LOC/ub_lib/stm32_ub_tim2.h</locationURI>
 		</link>
 		<link>
+			<name>ub_lib/stm32_ub_uart.c</name>
+			<type>1</type>
+			<location>C:/kneumann/Projekte/wc_ws/ub_lib/stm32_ub_uart.c</location>
+		</link>
+		<link>
+			<name>ub_lib/stm32_ub_uart.h</name>
+			<type>1</type>
+			<location>C:/kneumann/Projekte/wc_ws/ub_lib/stm32_ub_uart.h</location>
+		</link>
+		<link>
 			<name>ub_lib/stm32_ub_ws2812.c</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/ub_lib/stm32_ub_ws2812.c</locationURI>
@@ -421,6 +441,11 @@
 			<locationURI>PARENT-1-PROJECT_LOC/cmsis_lib/include/stm32f4xx_tim.h</locationURI>
 		</link>
 		<link>
+			<name>cmsis_lib/include/stm32f4xx_usart.h</name>
+			<type>1</type>
+			<location>C:/kneumann/Projekte/wc_ws/cmsis_lib/include/stm32f4xx_usart.h</location>
+		</link>
+		<link>
 			<name>cmsis_lib/source/misc.c</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/cmsis_lib/source/misc.c</locationURI>
@@ -464,6 +489,11 @@
 			<name>cmsis_lib/source/stm32f4xx_tim.c</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/cmsis_lib/source/stm32f4xx_tim.c</locationURI>
+		</link>
+		<link>
+			<name>cmsis_lib/source/stm32f4xx_usart.c</name>
+			<type>1</type>
+			<location>C:/kneumann/Projekte/wc_ws/cmsis_lib/source/stm32f4xx_usart.c</location>
 		</link>
 	</linkedResources>
 </projectDescription>

@@ -70,6 +70,15 @@
 							</tool>
 						</toolChain>
 					</folderInfo>
+					<fileInfo id="fr.ac6.managedbuild.config.gnu.cross.exe.debug.1106852850.1749559188" name="stm32_ub_adc2_single.c" rcbsApplicability="disable" resourcePath="sonstige_lib/stm32_ub_adc2_single.c" toolsToInvoke="fr.ac6.managedbuild.tool.gnu.cross.c.compiler.898564969.1206137533">
+						<tool id="fr.ac6.managedbuild.tool.gnu.cross.c.compiler.898564969.1206137533" name="MCU GCC Compiler" superClass="fr.ac6.managedbuild.tool.gnu.cross.c.compiler.898564969">
+							<inputType id="fr.ac6.managedbuild.tool.gnu.cross.c.compiler.input.c.900549376" superClass="fr.ac6.managedbuild.tool.gnu.cross.c.compiler.input.c"/>
+							<inputType id="fr.ac6.managedbuild.tool.gnu.cross.c.compiler.input.s.1365467157" superClass="fr.ac6.managedbuild.tool.gnu.cross.c.compiler.input.s"/>
+						</tool>
+					</fileInfo>
+					<sourceEntries>
+						<entry excluding="sonstige_lib/stm32_ub_adc2_single.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+					</sourceEntries>
 				</configuration>
 			</storageModule>
 			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
