@@ -39,7 +39,7 @@
 //--------------------------------------------------------------
 UART_t UART[] = {
 // Name, Clock               , AF-UART      ,UART  , Baud , Interrupt
-  {COM2,RCC_APB1Periph_USART2,GPIO_AF_USART2,USART2,9600,USART2_IRQn, // UART2 mit 115200 Baud
+  {COM2,RCC_APB1Periph_USART2,GPIO_AF_USART2,USART2,76800,USART2_IRQn, // UART2 mit 115200 Baud
 // PORT , PIN      , Clock              , Source
   {GPIOA,GPIO_Pin_2,RCC_AHB1Periph_GPIOA,GPIO_PinSource2},  // TX an PA2
   {GPIOA,GPIO_Pin_3,RCC_AHB1Periph_GPIOA,GPIO_PinSource3}}, // RX an PA3
