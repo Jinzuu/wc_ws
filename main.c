@@ -92,7 +92,7 @@ int main(void)
 
 
 	UB_DigOut_Lo(DOUT_PB7);	// Set ground for LDR
-	UB_DigOut_Lo(DOUT_PC9);	// Set PC9 low to start DCF module
+	UB_DigOut_Lo(DOUT_PB9);	// Set PC9 low to start DCF module
 
 
 	while(1) {
@@ -131,7 +131,7 @@ int main(void)
  *****************************************/
 void UB_TIMER2_ISR_CallBack( void )
 {
-	gDcfInputState = UB_DigIn_Read( DIN_PC8 );
+	gDcfInputState = UB_DigIn_Read( DIN_PB8 );
 	if ( gDcfInputState == Bit_SET )
 		UB_Led_On( LED_GREEN );
 	else

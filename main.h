@@ -14,8 +14,8 @@
 // 	when holding the board so that text on it is readable (USB connector facing away)
 
 // ##### DCF77 #####
-// PC8 - DataIn for DCF77 module (Right morpho connector, top right pin)
-// PC9 - PowerOn Pin of DCF77 module (Right morpho connector, top left pin)
+// PB8 - DataIn for DCF77 module (Right morpho connector, top right pin)
+// PB9 - PowerOn Pin of DCF77 module (Right morpho connector, top left pin)
 // 		Additional pins for DCF:
 //			+3.3V  (Right morpho connector, 4th pin from top, left row)
 //			GND  (Right morpho connector, 5th pin from top, left row)

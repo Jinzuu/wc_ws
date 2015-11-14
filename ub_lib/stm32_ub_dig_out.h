@@ -22,7 +22,7 @@
 //--------------------------------------------------------------
 typedef enum 
 {
-  DOUT_PC9 = 0,  // PC9-Pin
+  DOUT_PB9 = 0,  // PC9-Pin
   DOUT_PB7 = 1,  // PB7-Pin
 //  DOUT_PC6 = 2,  // PC6-Pin
 //  DOUT_PC13 = 3  // PC13-Pin
