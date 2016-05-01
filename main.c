@@ -58,7 +58,6 @@ int main(void)
 	SystemInit();
 	UB_Systick_Init();
 
-
 	// Init of UB libs
 	UB_TIMER2_Init_FRQ( 100 );
 	UB_TIMER5_Init_FRQ( 10000 );
@@ -83,14 +82,6 @@ int main(void)
 
 	UB_Uart_Init();
 	esp8266_init();
-	esp8266_send_command(INQUIRY, AT);
-	while(1) {
-		/*
-		if (line_ready) {
-			esp8266_parse_line();
-			line_ready = 0;
-		}*/
-	}
 
 	UB_Systick_Pause_ms(1000);
 
@@ -107,7 +98,6 @@ int main(void)
 	UB_DigOut_Lo(DOUT_PB7);	// Set ground for LDR
 	UB_DigOut_Lo(DOUT_PB9);	// Set PC9 low to start DCF module
 
-
 	while(1) {
 		// Handle word matrix refreshes
 		if ( gWcIsToBeRefreshed == Bit_SET ){
@@ -116,8 +106,10 @@ int main(void)
 		}
 
 		// Check if update of time is necessary
+#ifndef DISABLE_DCF
 		if ( DcfTimeWasSetRecently() == Bit_RESET )
 			gDcfRxInProgress = Bit_SET;
+#endif
 
 		// Handle IR remote
 		if ( irmp_get_data( &irData ) )
@@ -133,6 +125,15 @@ int main(void)
 				WC_SetBrightness( brightnessToSet );
 			gWcIsToBeRefreshed = Bit_SET;
 		}
+
+		// Handle ESP8266 receive
+		esp8266_handle_receive();
+		if( esp8266_request_time_from_google() == 1 ) {
+			UB_RTC = Esp8266_curTime;
+			UB_RTC_SetClock( RTC_DEC );
+			SetWordMatrix( UB_RTC_GetClock(RTC_DEC) );
+			gWcIsToBeRefreshed = Bit_SET;
+		}
 	}
 
 }
@@ -144,6 +145,10 @@ int main(void)
  *****************************************/
 void UB_TIMER2_ISR_CallBack( void )
 {
+#ifdef DISABLE_DCF
+	return;
+#endif
+
 	gDcfInputState = UB_DigIn_Read( DIN_PB8 );
 	if ( gDcfInputState == Bit_SET )
 		UB_Led_On( LED_GREEN );
@@ -236,8 +241,13 @@ void WC_OneMinute_ISR()
 		WC_OneMinute_ISR_Count = 0;
 
 		// Get time to UB_RTC global and use it to set the matrix
-		if ( gDcfRxWasSuccesful == Bit_SET )
+		if ( gDcfRxWasSuccesful == Bit_SET ) {
 			SetWordMatrix( UB_RTC_GetClock(RTC_DEC) );
+			gWcIsToBeRefreshed = Bit_SET;
+		} else if( Esp8266_curTime.status == RTC_TIME_OK ) {
+			SetWordMatrix( UB_RTC_GetClock(RTC_DEC) );
+			gWcIsToBeRefreshed = Bit_SET;
+		}
 	} else {
 		WC_OneMinute_ISR_Count++;
 	}

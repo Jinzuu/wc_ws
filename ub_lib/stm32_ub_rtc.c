@@ -177,6 +177,130 @@ void UB_RTC_SetClock(RTC_FORMAT_t format)
   }
 }
 
+RTC_t UB_RTC_CalculateTimeFromGmtTime(RTC_t gmt_time)
+{
+	RTC_t retTime = gmt_time;
+
+	// Hier sind wir garantiert in Winterzeit, also nur eine Stunde addieren
+	if( retTime.monat < 3 && retTime.monat > 10 ) {
+		 UB_RTC_AddHour(&retTime, 1);
+		 return retTime;
+	}
+
+	// Hier sind wir garantiert in Sommerzeit, also zwei Stunden addieren
+	if( retTime.monat > 3 && retTime.monat < 10 ) {
+		UB_RTC_AddHour(&retTime, 2);
+		return retTime;
+	}
+
+	// Beginn der Sommerzeit im MÄrz berechnen
+	if( retTime.monat == 3 ) {
+		int date = 0;
+		date = 5 * (retTime.jahr + 2000);
+		date = date / 4;
+		date = date + 4;
+		date = date % 7;
+		if( retTime.tag < date ) {
+			UB_RTC_AddHour(&retTime, 1);
+			return retTime;
+		}
+		if( retTime.tag > date ) {
+			UB_RTC_AddHour(&retTime, 2);
+			return retTime;
+		}
+		if( retTime.tag == date ) {
+			// ab 1 Uhr an dem Tag haben wir Sommerzeit
+			if( retTime.std >= 1 ) {
+				UB_RTC_AddHour(&retTime, 2);
+				return retTime;
+			}
+			else {
+				UB_RTC_AddHour(&retTime, 1);
+				return retTime;
+			}
+		}
+	}
+
+	if( retTime.monat == 10 ) {
+		int date = 0;
+		date = 5 * (retTime.jahr + 2000);
+		date = date / 4;
+		date = date + 1;
+		date = date % 7;
+		if( retTime.tag < date ) {
+			UB_RTC_AddHour(&retTime, 2);
+			return retTime;
+		}
+		if( retTime.tag > date ) {
+			UB_RTC_AddHour(&retTime, 1);
+			return retTime;
+		}
+		if( retTime.tag == date ) {
+			// ab 1 Uhr haben wir Winterzeit
+			if( retTime.std >= 1 ) {
+				UB_RTC_AddHour(&retTime, 1);
+				return retTime;
+			} else {
+				UB_RTC_AddHour(&retTime, 2);
+				return retTime;
+			}
+		}
+	}
+
+	return retTime;
+}
+
+int UB_RTC_AddHour(RTC_t* time, int hours)
+{
+	time->std = time->std + hours;
+	if( time->std > 23 ) {
+		time->tag = time->tag + 1;
+		time->std = time->std - 24;
+	}
+	if( time->monat == 1 || time->monat == 3 || time->monat == 5 || time->monat == 7
+		|| time->monat == 8 || time->monat == 10 || time->monat == 12 )
+	{
+		if( time->tag > 31 ) {
+			time->monat = time->monat + 1;
+			time->tag = time->tag - 31;
+		}
+	}else if( time->monat == 4 || time->monat == 6 || time->monat == 9 ||
+			  time->monat == 11 ){
+		if( time->tag > 30 ) {
+			time->monat = time->monat + 1;
+			time->tag = time->tag - 30;
+		}
+	}else if( time->monat == 2 ) {
+		int schaltjahr = 0;
+
+		if( ((time->jahr + 2000) % 4) == 0 ) {
+			schaltjahr = 1;
+		}
+		if( ((time->jahr + 2000) % 400) == 0 ) {
+			schaltjahr = 1;
+		}
+
+		if( schaltjahr == 1 ) {
+			if( time->tag > 29 ) {
+				time->monat = time->monat + 1;
+				time->tag = time->tag - 29;
+			}
+		} else {
+			if( time->tag > 28 ) {
+				time->monat = time->monat + 1;
+				time->tag = time->tag - 28;
+			}
+		}
+	}
+
+	if( time->monat > 12 ) {
+		time->jahr = time->jahr + 1;
+		time->monat = time->monat - 12;
+	}
+
+	return 0;
+}
+
 
 //--------------------------------------------------------------
 // RTC auslesen

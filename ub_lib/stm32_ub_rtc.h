@@ -100,6 +100,8 @@ void UB_RTC_SetClock(RTC_FORMAT_t format);
 RTC_t UB_RTC_GetClock(RTC_FORMAT_t format);
 #if RTC_USE_WAKEUP_ISR==1
 void UB_RTC_SetWakeUpInterrupt(RTC_WAKEUP_t wakeup);
+RTC_t UB_RTC_CalculateTimeFromGmtTime(RTC_t gmt_time);
+int UB_RTC_AddHour(RTC_t* time, int hours);
 #endif
 
 

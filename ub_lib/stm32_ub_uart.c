@@ -30,7 +30,8 @@
 //--------------------------------------------------------------
 #include "stm32_ub_uart.h"
 
-
+Stm32_CircularBuffer esp_rx_circ_buffer;
+char esp_rx_raw_buffer[1000] = {0};
 
 
 //--------------------------------------------------------------
@@ -39,7 +40,7 @@
 //--------------------------------------------------------------
 UART_t UART[] = {
 // Name, Clock               , AF-UART      ,UART  , Baud , Interrupt
-  {COM2,RCC_APB1Periph_USART2,GPIO_AF_USART2,USART2,76800,USART2_IRQn, // UART2 mit 115200 Baud
+  {COM2,RCC_APB1Periph_USART2,GPIO_AF_USART2,USART2,115200,USART2_IRQn, // UART2 mit 115200 Baud
 // PORT , PIN      , Clock              , Source
   {GPIOA,GPIO_Pin_2,RCC_AHB1Periph_GPIOA,GPIO_PinSource2},  // TX an PA2
   {GPIOA,GPIO_Pin_3,RCC_AHB1Periph_GPIOA,GPIO_PinSource3}}, // RX an PA3
@@ -118,6 +119,9 @@ void UB_Uart_Init(void)
     UART_RX[nr].rx_buffer[0]=RX_END_CHR;
     UART_RX[nr].wr_ptr=0;
     UART_RX[nr].status=RX_EMPTY;
+
+    // Circular-Buffer vorbereiten
+    CircularBuffer_Init(&(UART_RX[nr].rx_circ_buffer), RX_CIRCBUF_SIZE, UART_RX[nr].rx_raw_buffer);
   }
 }
 
@@ -201,13 +205,59 @@ UART_RXSTATUS_t UB_Uart_ReceiveString(UART_NAME_t uart, char *ptr)
   return(ret_wert);
 }
 
+//--------------------------------------------------------------
+// den RX-Puffer eines UARTs auslesen
+//--------------------------------------------------------------
+int UB_Uart_ReadRxBuffer(UART_NAME_t uart, char *ptr, int max_length)
+{
+	return CircularBuffer_Read(&(UART_RX[uart].rx_circ_buffer), ptr, max_length);
+}
+
+int UB_Uart_GetRXSize(UART_NAME_t uart)
+{
+	return CircularBuffer_GetPopulation(&(UART_RX[uart].rx_circ_buffer));
+}
+
+int UB_Uart_ReadLine(UART_NAME_t uart, char* line, int length)
+{
+	int iLengthOfLine = 0;
+	//do {
+		iLengthOfLine = CircularBuffer_SearchString(&(UART_RX[uart].rx_circ_buffer), "\r\n");
+	//}while( iLengthOfLine == -1 );
+
+	if( iLengthOfLine == -1 ) {
+		return -1;
+	}
+
+	iLengthOfLine = iLengthOfLine + 2;
+
+	// string is longer than given string memory
+	if( iLengthOfLine > length ) {
+		iLengthOfLine = length;
+		return -1;
+	}
+
+	CircularBuffer_Read(&(UART_RX[uart].rx_circ_buffer), line, iLengthOfLine);
+	return iLengthOfLine;
+}
+
+int UB_Uart_Is_Full_Line_Received(UART_NAME_t uart)
+{
+	int iLengthOfLine = 0;
+	iLengthOfLine = CircularBuffer_SearchString(&(UART_RX[uart].rx_circ_buffer), "\r\n");
+	return (iLengthOfLine != -1);
+}
 
 //--------------------------------------------------------------
 // interne Funktion
 // speichern des empfangenen Zeichens im Puffer
 //--------------------------------------------------------------
+int iCounter = 0;
 void P_UART_Receive(UART_NAME_t uart, uint16_t wert)
 {
+	++iCounter;
+	CircularBuffer_Store(&(UART_RX[uart].rx_circ_buffer), (char*)&wert, 1);
+
   if(UART_RX[uart].wr_ptr<RX_BUF_SIZE) {
     // wenn noch Platz im Puffer
     if(UART_RX[uart].status==RX_EMPTY) {
@@ -217,6 +267,7 @@ void P_UART_Receive(UART_NAME_t uart, uint16_t wert)
         UART_RX[uart].rx_buffer[UART_RX[uart].wr_ptr]=wert;
         UART_RX[uart].wr_ptr++;
       }
+
       if(wert==RX_END_CHR) {
         // wenn Endekennung empfangen
         UART_RX[uart].rx_buffer[UART_RX[uart].wr_ptr]=wert;

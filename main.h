@@ -51,6 +51,7 @@
 // If testmode is enabled, no DCF time is caught but lights are turned directly
 // Also, pushing the smooth button cycles through time (adding 1h 3min per click)
 //#define ENABLE_TESTMODE
+#define DISABLE_DCF
 
 /*****************************************
  *  GLOBALS

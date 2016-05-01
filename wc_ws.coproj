@@ -72,6 +72,7 @@
     <ExcludeFile/>
   </Target>
   <Components path="./">
+    <Component id="30" name="C Library" path="" type="2"/>
     <Component id="54" name="M4 CMSIS Core" path="" type="2"/>
     <Component id="500" name="CMSIS BOOT" path="" type="2"/>
     <Component id="501" name="RCC" path="" type="2"/>
@@ -82,38 +83,44 @@
     <Component id="511" name="DMA" path="" type="2"/>
     <Component id="513" name="TIM" path="" type="2"/>
     <Component id="514" name="ADC" path="" type="2"/>
+    <Component id="517" name="USART" path="" type="2"/>
     <Component id="524" name="MISC" path="" type="2"/>
   </Components>
   <Files>
     <File name="cmsis_lib/source/stm32f4xx_gpio.c" path="cmsis_lib/source/stm32f4xx_gpio.c" type="1"/>
+    <File name="esp8266.c" path="esp8266.c" type="1"/>
     <File name="cmsis_lib/source/stm32f4xx_dma.c" path="cmsis_lib/source/stm32f4xx_dma.c" type="1"/>
     <File name="sonstige_lib/stm32_ub_pwm_tim3.h" path="sonstige_lib/stm32_ub_pwm_tim3.h" type="1"/>
+    <File name="sonstige_lib/stm32_circularbuffer.c" path="sonstige_lib/stm32_circularbuffer.c" type="1"/>
+    <File name="cmsis_lib/source/stm32f4xx_usart.c" path="cmsis_lib/source/stm32f4xx_usart.c" type="1"/>
     <File name="ub_lib/stm32_ub_led.c" path="ub_lib/stm32_ub_led.c" type="1"/>
-    <File name="ub_lib/stm32_ub_ws2812.h" path="ub_lib/stm32_ub_ws2812.h" type="1"/>
     <File name="sonstige_lib/stm32_ub_tim4.h" path="sonstige_lib/stm32_ub_tim4.h" type="1"/>
+    <File name="ub_lib/stm32_ub_ws2812.h" path="ub_lib/stm32_ub_ws2812.h" type="1"/>
     <File name="ub_lib/stm32_ub_pwm_tim4.h" path="ub_lib/stm32_ub_pwm_tim4.h" type="1"/>
     <File name="DCF77.c" path="DCF77.c" type="1"/>
     <File name="cmsis_boot" path="" type="2"/>
+    <File name="cmsis_lib/include/stm32f4xx_usart.h" path="cmsis_lib/include/stm32f4xx_usart.h" type="1"/>
     <File name="sonstige_lib/stm32_ub_tim5.h" path="sonstige_lib/stm32_ub_tim5.h" type="1"/>
     <File name="wc_TimeToMatrix.c" path="wc_TimeToMatrix.c" type="1"/>
-    <File name="cmsis_boot/startup" path="" type="2"/>
     <File name="cmsis/core_cm4_simd.h" path="cmsis/core_cm4_simd.h" type="1"/>
-    <File name="sonstige_lib/stm32_ub_tim3.c" path="sonstige_lib/stm32_ub_tim3.c" type="1"/>
+    <File name="cmsis_boot/startup" path="" type="2"/>
     <File name="cmsis_boot/stm32f4xx.h" path="cmsis_boot/stm32f4xx.h" type="1"/>
+    <File name="sonstige_lib/stm32_ub_tim3.c" path="sonstige_lib/stm32_ub_tim3.c" type="1"/>
     <File name="sonstige_lib/stm32_ub_pwm_tim2.h" path="sonstige_lib/stm32_ub_pwm_tim2.h" type="1"/>
     <File name="cmsis/core_cmFunc.h" path="cmsis/core_cmFunc.h" type="1"/>
     <File name="ub_lib/stm32_ub_dig_out.h" path="ub_lib/stm32_ub_dig_out.h" type="1"/>
     <File name="wc_LightDependentBrightness.c" path="wc_LightDependentBrightness.c" type="1"/>
     <File name="cmsis/core_cm4.h" path="cmsis/core_cm4.h" type="1"/>
     <File name="ub_lib/stm32_ub_dig_in.h" path="ub_lib/stm32_ub_dig_in.h" type="1"/>
-    <File name="IRMP/irmp.c" path="IRMP/irmp.c" type="1"/>
     <File name="ub_lib/stm32_ub_tim2.h" path="ub_lib/stm32_ub_tim2.h" type="1"/>
-    <File name="main.h" path="main.h" type="1"/>
+    <File name="IRMP/irmp.c" path="IRMP/irmp.c" type="1"/>
     <File name="ub_lib/stm32_ub_pwm_tim4.c" path="ub_lib/stm32_ub_pwm_tim4.c" type="1"/>
+    <File name="main.h" path="main.h" type="1"/>
     <File name="cmsis_lib/source/misc.c" path="cmsis_lib/source/misc.c" type="1"/>
-    <File name="cmsis_lib/include/stm32f4xx_tim.h" path="cmsis_lib/include/stm32f4xx_tim.h" type="1"/>
     <File name="cmsis_lib/source/stm32f4xx_adc.c" path="cmsis_lib/source/stm32f4xx_adc.c" type="1"/>
     <File name="ub_lib/stm32_ub_adc1_single.c" path="ub_lib/stm32_ub_adc1_single.c" type="1"/>
+    <File name="cmsis_lib/include/stm32f4xx_tim.h" path="cmsis_lib/include/stm32f4xx_tim.h" type="1"/>
+    <File name="syscalls/syscalls.c" path="syscalls/syscalls.c" type="1"/>
     <File name="sonstige_lib/stm32_ub_tim4.c" path="sonstige_lib/stm32_ub_tim4.c" type="1"/>
     <File name="IRMP/irmpconfig.h" path="IRMP/irmpconfig.h" type="1"/>
     <File name="cmsis_lib/source" path="" type="2"/>
@@ -126,11 +133,12 @@
     <File name="wc_IrRemoteProcessing.h" path="wc_IrRemoteProcessing.h" type="1"/>
     <File name="cmsis_boot/stm32f4xx_conf.h" path="cmsis_boot/stm32f4xx_conf.h" type="1"/>
     <File name="cmsis_boot/system_stm32f4xx.h" path="cmsis_boot/system_stm32f4xx.h" type="1"/>
-    <File name="sonstige_lib/stm32_ub_adc2_single.h" path="sonstige_lib/stm32_ub_adc2_single.h" type="1"/>
     <File name="cmsis_lib/source/stm32f4xx_rtc.c" path="cmsis_lib/source/stm32f4xx_rtc.c" type="1"/>
+    <File name="sonstige_lib/stm32_ub_adc2_single.h" path="sonstige_lib/stm32_ub_adc2_single.h" type="1"/>
     <File name="wc_frontend.c" path="wc_frontend.c" type="1"/>
-    <File name="sonstige_lib/stm32_ub_pwm_tim5.h" path="sonstige_lib/stm32_ub_pwm_tim5.h" type="1"/>
     <File name="cmsis_lib/include/stm32f4xx_rcc.h" path="cmsis_lib/include/stm32f4xx_rcc.h" type="1"/>
+    <File name="sonstige_lib/stm32_ub_pwm_tim5.h" path="sonstige_lib/stm32_ub_pwm_tim5.h" type="1"/>
+    <File name="sonstige_lib/stm32_basicdefines.h" path="sonstige_lib/stm32_basicdefines.h" type="1"/>
     <File name="ub_lib/stm32_ub_dig_out.c" path="ub_lib/stm32_ub_dig_out.c" type="1"/>
     <File name="cmsis_lib/include/stm32f4xx_pwr.h" path="cmsis_lib/include/stm32f4xx_pwr.h" type="1"/>
     <File name="cmsis_boot/startup/startup_stm32f4xx.c" path="cmsis_boot/startup/startup_stm32f4xx.c" type="1"/>
@@ -144,30 +152,35 @@
     <File name="CommonMath.h" path="CommonMath.h" type="1"/>
     <File name="ub_lib" path="" type="2"/>
     <File name="cmsis_lib/include/stm32f4xx_adc.h" path="cmsis_lib/include/stm32f4xx_adc.h" type="1"/>
+    <File name="sonstige_lib/stm32_ub_pwm_tim5.c" path="sonstige_lib/stm32_ub_pwm_tim5.c" type="1"/>
     <File name="cmsis_lib/include/stm32f4xx_exti.h" path="cmsis_lib/include/stm32f4xx_exti.h" type="1"/>
     <File name="cmsis_lib/source/stm32f4xx_exti.c" path="cmsis_lib/source/stm32f4xx_exti.c" type="1"/>
-    <File name="sonstige_lib/stm32_ub_pwm_tim5.c" path="sonstige_lib/stm32_ub_pwm_tim5.c" type="1"/>
     <File name="cmsis_boot/system_stm32f4xx.c" path="cmsis_boot/system_stm32f4xx.c" type="1"/>
     <File name="ub_lib/stm32_ub_adc1_single.h" path="ub_lib/stm32_ub_adc1_single.h" type="1"/>
-    <File name="ub_lib/stm32_ub_rtc.h" path="ub_lib/stm32_ub_rtc.h" type="1"/>
+    <File name="ub_lib/stm32_ub_uart.c" path="ub_lib/stm32_ub_uart.c" type="1"/>
+    <File name="sonstige_lib/stm32_circularbuffer.h" path="sonstige_lib/stm32_circularbuffer.h" type="1"/>
     <File name="ub_lib/stm32_ub_tim2.c" path="ub_lib/stm32_ub_tim2.c" type="1"/>
+    <File name="ub_lib/stm32_ub_rtc.h" path="ub_lib/stm32_ub_rtc.h" type="1"/>
     <File name="cmsis" path="" type="2"/>
     <File name="cmsis_lib" path="" type="2"/>
+    <File name="ub_lib/stm32_ub_uart.h" path="ub_lib/stm32_ub_uart.h" type="1"/>
     <File name="sonstige_lib/stm32_ub_adc2_single.c" path="sonstige_lib/stm32_ub_adc2_single.c" type="1"/>
     <File name="sonstige_lib" path="" type="2"/>
     <File name="cmsis_lib/include/stm32f4xx_dma.h" path="cmsis_lib/include/stm32f4xx_dma.h" type="1"/>
     <File name="cmsis_lib/source/stm32f4xx_tim.c" path="cmsis_lib/source/stm32f4xx_tim.c" type="1"/>
     <File name="cmsis_lib/include/stm32f4xx_gpio.h" path="cmsis_lib/include/stm32f4xx_gpio.h" type="1"/>
     <File name="wc_frontend.h" path="wc_frontend.h" type="1"/>
+    <File name="syscalls" path="" type="2"/>
     <File name="cmsis_lib/include/stm32f4xx_rtc.h" path="cmsis_lib/include/stm32f4xx_rtc.h" type="1"/>
     <File name="IRMP" path="" type="2"/>
+    <File name="esp8266.h" path="esp8266.h" type="1"/>
     <File name="cmsis_lib/include/misc.h" path="cmsis_lib/include/misc.h" type="1"/>
     <File name="IRMP/irmp.h" path="IRMP/irmp.h" type="1"/>
     <File name="cmsis_lib/include" path="" type="2"/>
     <File name="wc_IrRemoteProcessing.c" path="wc_IrRemoteProcessing.c" type="1"/>
     <File name="ub_lib/stm32_ub_ws2812.c" path="ub_lib/stm32_ub_ws2812.c" type="1"/>
-    <File name="main.c" path="main.c" type="1"/>
     <File name="ub_lib/stm32_ub_dig_in.c" path="ub_lib/stm32_ub_dig_in.c" type="1"/>
+    <File name="main.c" path="main.c" type="1"/>
     <File name="ub_lib/stm32_ub_systick.c" path="ub_lib/stm32_ub_systick.c" type="1"/>
     <File name="wc_TimeToMatrix.h" path="wc_TimeToMatrix.h" type="1"/>
   </Files>

@@ -270,9 +270,11 @@ typedef struct {
 // New 48 Mhz values
 #define  WS2812_TIM_PRESCALE    0  	// F_T3  = 48 MHz (20.8333ns)
 #define  WS2812_TIM_PERIODE   	59	// F_PWM = 80 kHz (1.25us)
+//#define  WS2812_TIM_PERIODE   	70	// F_PWM = ?
 
 #define  WS2812_LO_TIME        17  // 17 * 20.83ns = 0.354us (0.35 target)
-#define  WS2812_HI_TIME        43  // 44 * 20.83ns = 0.9us (0.9target)
+//#define  WS2812_HI_TIME        43  // 44 * 20.83ns = 0.9us (0.9target)
+#define  WS2812_HI_TIME        38  // 44 * 20.83ns = 0.9us (0.9target)
 
 
 

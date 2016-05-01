@@ -15,8 +15,7 @@
 #include "stm32f4xx_rcc.h"
 #include "stm32f4xx_usart.h"
 #include "misc.h"
-
-
+#include "stm32_circularbuffer.h"
 
 //--------------------------------------------------------------
 // Liste aller UARTs
@@ -81,8 +80,11 @@ typedef struct {
 // Defines fuer das Empfangen
 //--------------------------------------------------------------
 #define  RX_BUF_SIZE   50    // Grösse vom RX-Puffer in Bytes
-#define  RX_FIRST_CHR  0x20  // erstes erlaubte Zeichen (Ascii-Wert)
-#define  RX_LAST_CHR   0x7E  // letztes erlaubt Zeichen (Ascii-Wert)
+#define RX_CIRCBUF_SIZE 1000 // Größe des Circular-Buffers
+//#define  RX_FIRST_CHR  0x20  // erstes erlaubte Zeichen (Ascii-Wert)
+#define  RX_FIRST_CHR  0x00  // erstes erlaubte Zeichen (Ascii-Wert)
+//#define  RX_LAST_CHR   0x7E  // letztes erlaubt Zeichen (Ascii-Wert)
+#define  RX_LAST_CHR   0xFF  // letztes erlaubt Zeichen (Ascii-Wert)
 #define  RX_END_CHR    0x0D  // Endekennung (Ascii-Wert)
 
 
@@ -93,9 +95,10 @@ typedef struct {
   char rx_buffer[RX_BUF_SIZE]; // RX-Puffer
   uint8_t wr_ptr;              // Schreib Pointer
   UART_RXSTATUS_t status;      // RX-Status
+  Stm32_CircularBuffer rx_circ_buffer;				// Circular buffer
+  char rx_raw_buffer[RX_CIRCBUF_SIZE]; // Raw Circular-Buffer Memory
 }UART_RX_t;
 UART_RX_t UART_RX[UART_ANZ];
-
 
 //--------------------------------------------------------------
 // Globale Funktionen
@@ -104,6 +107,10 @@ void UB_Uart_Init(void);
 void UB_Uart_SendByte(UART_NAME_t uart, uint16_t wert);
 void UB_Uart_SendString(UART_NAME_t uart, char *ptr, UART_LASTBYTE_t end_cmd);
 UART_RXSTATUS_t UB_Uart_ReceiveString(UART_NAME_t uart, char *ptr);
+int UB_Uart_ReadRxBuffer(UART_NAME_t uart, char *ptr, int max_length);
+int UB_Uart_GetRXSize(UART_NAME_t uart);
+int UB_Uart_ReadLine(UART_NAME_t uart, char* line, int length);
+int UB_Uart_Is_Full_Line_Received(UART_NAME_t uart);
 
 
 
