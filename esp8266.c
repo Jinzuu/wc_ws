@@ -4,6 +4,7 @@
 #include "ub_lib/stm32_ub_dig_out.h"
 #include "ub_lib/stm32_ub_systick.h"
 #include "ub_lib/stm32_ub_uart.h"
+#include <stm32_basicdefines.h>
 
 Operation op;
 Type t;
