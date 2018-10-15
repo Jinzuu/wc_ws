@@ -229,7 +229,7 @@ int UB_Uart_ReadLine(UART_NAME_t uart, char* line, int length)
 		return -1;
 	}
 
-	iLengthOfLine = iLengthOfLine + 2;
+	//iLengthOfLine = iLengthOfLine + 2;
 
 	// string is longer than given string memory
 	if( iLengthOfLine > length ) {

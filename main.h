@@ -53,6 +53,8 @@
 //#define ENABLE_TESTMODE
 #define DISABLE_DCF
 
+//#define DISABLE_UART_TO_ESP8266 1
+
 /*****************************************
  *  GLOBALS
  *****************************************/

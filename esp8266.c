@@ -5,6 +5,7 @@
 #include "ub_lib/stm32_ub_systick.h"
 #include "ub_lib/stm32_ub_uart.h"
 #include <stm32_basicdefines.h>
+#include "main.h"
 
 Operation op;
 Type t;
@@ -52,7 +53,7 @@ void esp8266_init()
 
 	//while(1);
 
-
+#ifndef DISABLE_UART_TO_ESP8266
 	int ready_statemachine = 0;
 	do{
 		char rx[500] = {0};
@@ -97,6 +98,7 @@ void esp8266_init()
 
 	UB_Uart_ReadLine(COM2, receive, 500);
 
+#endif //DISABLE_UART_TO_ESP8266
 
 	/*
 	// Join WiFi AP
@@ -117,12 +119,16 @@ void esp8266_send_command(Type type, Operation operation) {
         op = AT;
         t = INQUIRY;
         UB_Uart_SendString(COM2, at_inquiry, CRLF);
-        UB_Systick_Pause_ms(50);
 
+        // Read back Echo
+        esp8266_wait_for_line_receive();
         UB_Uart_ReadLine(COM2, receive, 500);
 
-        UB_Uart_ReadLine(COM2, receive, 500);
+        // Read additional \r\n
+        //esp8266_wait_for_line_receive();
+        //UB_Uart_ReadLine(COM2, receive, 500);
 
+        // Read Status Report
         UB_Uart_ReadLine(COM2, receive, 500);
     }
 }
@@ -186,10 +192,10 @@ int esp8266_request_time_from_google()
 	UB_Uart_SendString(COM2, strCIPRequest, CRLF);
 
 	esp8266_wait_for_line_receive();
-	UB_Uart_ReadLine(COM2, receive, 500);
+	UB_Uart_ReadLine(COM2, receive, 500); // OK IPSEND=3
 
 	esp8266_wait_for_line_receive();
-	UB_Uart_ReadLine(COM2, receive, 500);
+	UB_Uart_ReadLine(COM2, receive, 500); // something unreadable + \r\n
 
 	esp8266_wait_for_line_receive();
 	UB_Uart_ReadLine(COM2, receive, 500); //busy...\r\n
@@ -213,20 +219,13 @@ int esp8266_request_time_from_google()
 	UB_Uart_ReadLine(COM2, receive, 500); // +IPD, len...\r\n
 
 	esp8266_wait_for_line_receive();
-	UB_Uart_ReadLine(COM2, receive, 500); // Cache control... \r\n
+	UB_Uart_ReadLine(COM2, receive, 500); // Location.... \r\n
 
 	esp8266_wait_for_line_receive();
 	UB_Uart_ReadLine(COM2, receive, 500); // Content type...\r\n
 
 	esp8266_wait_for_line_receive();
-	UB_Uart_ReadLine(COM2, receive, 500); // Location...\r\n
-
-	esp8266_wait_for_line_receive();
-	UB_Uart_ReadLine(COM2, receive, 500); // Content length...\r\n
-
-	esp8266_wait_for_line_receive();
-	UB_Uart_ReadLine(COM2, receive, 500); // Date: ....\r\n
-
+	UB_Uart_ReadLine(COM2, receive, 500); // Date:...\r\n
 
 	sscanf(&(receive[23]), "%d:%d:%d", &(Esp8266_curTime.std), &(Esp8266_curTime.min), &(Esp8266_curTime.sek));
 	sscanf(&(receive[11]), "%d", &(Esp8266_curTime.tag));
@@ -277,9 +276,6 @@ int esp8266_request_time_from_google()
 	Esp8266_curTime = UB_RTC_CalculateTimeFromGmtTime(Esp8266_curTime);
 
 	Esp8266_curTime.status = RTC_TIME_OK;
-
-	esp8266_wait_for_line_receive();
-	UB_Uart_ReadLine(COM2, receive, 500); // \r\n
 
 	Esp8266TimeStatus = ESP8266_TIME_STATUS_READY;
 

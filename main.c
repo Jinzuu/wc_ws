@@ -80,8 +80,11 @@ int main(void)
 	WC_SetElement(WC_ELEMENT_ES, 1);
 	WC_Refresh();
 
+#ifndef DISABLE_UART_TO_ESP8266
 	UB_Uart_Init();
+#endif
 	esp8266_init();
+
 
 	UB_Systick_Pause_ms(1000);
 
@@ -129,6 +132,7 @@ int main(void)
 			gWcIsToBeRefreshed = Bit_SET;
 		}
 
+#ifndef DISABLE_UART_TO_ESP8266
 		// Handle ESP8266 receive
 		esp8266_handle_receive();
 		if( esp8266_request_time_from_google() == 1 ) {
@@ -137,7 +141,10 @@ int main(void)
 			SetWordMatrix( UB_RTC_GetClock(RTC_DEC) );
 			gWcIsToBeRefreshed = Bit_SET;
 		}
+#endif
+
 	}
+
 
 }
 

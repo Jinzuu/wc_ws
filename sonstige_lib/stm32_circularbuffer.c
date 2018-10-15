@@ -67,9 +67,9 @@ int CircularBuffer_SearchString( Stm32_CircularBuffer* buffer, const char* tofin
 
 		if( buffer->address[Idx_to_read_from] == tofind[current_index_to_compare] ) {
 
-			if( current_index_to_compare == len_to_search ) {
+			if( current_index_to_compare == (len_to_search - 1) ) {
 				// if we get here, then the search string has been found!
-				return i;
+				return i+1;
 			}
 			else if( current_index_to_compare < len_to_search )
 			current_index_to_compare += 1;
@@ -77,7 +77,7 @@ int CircularBuffer_SearchString( Stm32_CircularBuffer* buffer, const char* tofin
 		else {
 			// if we have found another start of the search string, start over
 			if( buffer->address[Idx_to_read_from] == tofind[0] ) {
-				current_index_to_compare += 1;
+				current_index_to_compare = 1;
 			}
 		}
 

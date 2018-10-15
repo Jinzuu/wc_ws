@@ -196,10 +196,17 @@ RTC_t UB_RTC_CalculateTimeFromGmtTime(RTC_t gmt_time)
 	// Beginn der Sommerzeit im MÄrz berechnen
 	if( retTime.monat == 3 ) {
 		int date = 0;
-		date = 5 * (retTime.jahr + 2000);
-		date = date / 4;
-		date = date + 4;
-		date = date % 7;
+		if( retTime.jahr == 18 ) {
+			date = 25;
+		} else if( retTime.jahr == 19 ) {
+			date = 31;
+		} else if( retTime.jahr == 20 ) {
+			date = 29;
+		} else if( retTime.jahr == 21 ) {
+			date = 28;
+		} else if( retTime.jahr == 22 ) {
+			date = 27;
+		}
 		if( retTime.tag < date ) {
 			UB_RTC_AddHour(&retTime, 1);
 			return retTime;
@@ -223,10 +230,18 @@ RTC_t UB_RTC_CalculateTimeFromGmtTime(RTC_t gmt_time)
 
 	if( retTime.monat == 10 ) {
 		int date = 0;
-		date = 5 * (retTime.jahr + 2000);
-		date = date / 4;
-		date = date + 1;
-		date = date % 7;
+		if( retTime.jahr == 18 ) {
+			date = 28;
+		} else if( retTime.jahr == 19 ) {
+			date = 27;
+		} else if( retTime.jahr == 20 ) {
+			date = 25;
+		} else if( retTime.jahr == 21 ) {
+			date = 31;
+		} else if( retTime.jahr == 22 ) {
+			date = 20;
+		}
+
 		if( retTime.tag < date ) {
 			UB_RTC_AddHour(&retTime, 2);
 			return retTime;
