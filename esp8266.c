@@ -97,6 +97,16 @@ void esp8266_init()
 
 	UB_Uart_ReadLine(COM2, receive, 500);
 
+
+	/*
+	// Join WiFi AP
+	UB_Uart_SendString(COM2, "AT+CWJAP=\"MKLan\",\"HumpaHumpaHumpaTaeterae\"", CRLF);
+	UB_Systick_Pause_ms(50);
+	UB_Uart_ReadLine(COM2, receive, 500);
+
+	while(1);
+	*/
+
 	Esp8266_curTime.status = RTC_UNDEFINED;
 
 }

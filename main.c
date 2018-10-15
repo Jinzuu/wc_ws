@@ -99,6 +99,7 @@ int main(void)
 	UB_DigOut_Lo(DOUT_PB9);	// Set PC9 low to start DCF module
 
 	while(1) {
+
 		// Handle word matrix refreshes
 		if ( gWcIsToBeRefreshed == Bit_SET ){
 			WC_Refresh();
@@ -112,8 +113,10 @@ int main(void)
 #endif
 
 		// Handle IR remote
-		if ( irmp_get_data( &irData ) )
+		if ( irmp_get_data( &irData ) ) {
 			ProcessIrDataPacket( irData );
+			gWcIsToBeRefreshed = Bit_SET;
+		}
 
 		// Read Ambient brightness and set LED brightness
 		if ( gDcfRxInProgress == Bit_RESET ){
@@ -216,7 +219,7 @@ void UB_TIMER2_ISR_CallBack( void )
 void UB_TIMER5_ISR_CallBack( void )
 {
 	// routine for IR remote signal processing
-	irmp_ISR( UB_DigIn_Read( DIN_PA15 ) );
+	irmp_ISR( UB_DigIn_Read( DIN_PA0 ) );
 }
 
 // Other non used timer callbacks

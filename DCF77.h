@@ -9,7 +9,7 @@
  * Jan Berg, 2011 (updated 2014 for use with STM32 and UB libs)
  ***********************************************************************/
 
-#include "stm32f4xx_gpio.h"
+#include <stm32f4xx_gpio.h>
 #include "ub_lib/stm32_ub_rtc.h"
 
 
