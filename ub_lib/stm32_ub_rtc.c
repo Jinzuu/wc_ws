@@ -182,7 +182,7 @@ RTC_t UB_RTC_CalculateTimeFromGmtTime(RTC_t gmt_time)
 	RTC_t retTime = gmt_time;
 
 	// Hier sind wir garantiert in Winterzeit, also nur eine Stunde addieren
-	if( retTime.monat < 3 && retTime.monat > 10 ) {
+	if( retTime.monat < 3 || retTime.monat > 10 ) {
 		 UB_RTC_AddHour(&retTime, 1);
 		 return retTime;
 	}
